@@ -9,10 +9,17 @@
 <?php
 	require_once('header.php');
 ?>
+
 <p>Mock Store</p>
-<p>トップページ</p>
+<p>ログイン画面</p>
+<p>ID</p>
+<p>パスワード</p>
+<p>ログイン</p>
+<p>新規登録はこちら</p>
+
 <?php
 	require_once('footer.php');
 ?>
+
 </body>
 </html>
