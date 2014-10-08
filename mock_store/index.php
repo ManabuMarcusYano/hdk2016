@@ -9,6 +9,6 @@
 	<link rel="stylesheet" type="text/css" href="https://dp2k75jeqnjha.cloudfront.net/kdj4s/assets/css/game/help.css" />	
 </head>
 <body>
-<a>Mock App</a>
+<a>Mock Store</a>
 </body>
 </html>
