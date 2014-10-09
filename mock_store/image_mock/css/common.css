@@ -29,23 +29,23 @@ article{
 }
 
 .dl_button{
-	width:350px;
-	height:45px;
+	width: 350px;
+	height: 45px;
 	/*background-color:#F00F00;*/
-	position:absolute;
-	z-index:100;
-	top:565px;
-	left:180px;
+	position: absolute;
+	z-index: 100;
+	top: 538px;
+	left: 180px;
 }
 
 .dl_button2{
-	width:350px;
-	height:45px;
+	width: 350px;
+	height: 45px;
 	/*background-color:#F00F00;*/
-	position:absolute;
-	z-index:100;
-	top:785px;
-	left:180px;
+	position: absolute;
+	z-index: 100;
+	top: 747px;
+	left: 180px;
 }
 
 .dl_button3{
@@ -54,8 +54,8 @@ article{
 	/*background-color:#F00F00;*/
 	position: absolute;
 	z-index: 100;
-	top: 345px;
-	left: 180px;
+	top: 336px;
+	left: 171px;
 }
 
 .back_button{
@@ -65,7 +65,7 @@ article{
 	position: absolute;
 	z-index: 100;
 	top: 53px;
-	left: 12px;
+	left: 25px;
 }
 
 .search_button{
@@ -84,7 +84,7 @@ article{
 	/*background-color:#F00F00;*/
 	position: absolute;
 	z-index: 100;
-	top: 347px;
+	top: 326px;
 	left: 272px;
 }
 
@@ -94,6 +94,16 @@ article{
 	/*background-color:#F00F00;*/
 	position: absolute;
 	z-index: 100;
-	top: 125px;
-	left: 270px;
+	top: 412px;
+	left: 273px;
+}
+
+.detail_tab{
+	width: 244px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 412px;
+	left: 28px;
 }
