@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=270, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <script type="text/javascript" src="js/jquery.js" />
+	$(document).ready(function() {
+
+    });
+	</script>
+</head>
+<body>
+<article>
+	<div class="header"></div>
+  <div class="image"><img src="img/index.jpg"></div>
+  	<div class="dl_button"><a href="" ></a></div>
+  <div class="dl_button2"><a href="" ></a></div>
+    <div class="back_button"><a href=""></a></div>
+    <div class="search_button"><a href=""></a></div>
+    <div class="successive_tab"><a href=""></a></div>
+  <script>
+   $(".header").click(function(){
+		 return false;
+	})
+	$(".image").click(function(){
+		window.location.href = "detail.html";
+	});
+    $(".dl_button, .dl_button2").click(function(){
+		if(confirm("アプリをダウンロードします")){
+			window.location.href = "itms-services://?action=download-manifest&url=localhost/image_mock/app/ipa/manifest.plist";
+		} 
+	})
+	$(".back_button").click(function(){
+		alert("ソート機能");
+	})
+	$(".search_button").click(function(){
+		alert("検索機能");
+	})
+	$(".successive_tab").click(function(){
+		alert("歴代タブに移動します");
+	})
+    </script>
+</article>
+</body>
+</html>

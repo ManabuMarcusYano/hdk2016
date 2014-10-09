@@ -12,3 +12,7 @@ RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^(.*)$ $1.php
 # 404ファイル
 ErrorDocument 404 /404.php
+
+# ipa/plistダウンロード用			
+AddType application/octet-stream .ipa
+AddType application/x-plist .plist

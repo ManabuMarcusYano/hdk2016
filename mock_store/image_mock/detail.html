@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=270, user-scalable=no">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <script type="text/javascript" src="js/jquery.js" />
+	$(document).ready(function() {
+
+    });
+	</script>
+</head>
+<body>
+<article>
+	<div class="header"></div>
+  <div class="image"><img src="img/detail.jpg"></div>
+    <div class="dl_button3"><a href="" ></a></div>
+    <div class="back_button"><a href=""></a></div>
+    <div class="search_button"><a href=""></a></div>
+    <div class="review_tab"><a href=""></a></div>
+    <script>
+	 $(".header").click(function(){
+		 return false;
+	})
+    $(".dl_button3").click(function(){
+		confirm("クラッシュパレードをダウンロードします"); 
+	})
+	$(".back_button").click(function(){
+		window.location.href = "index.html";
+	})
+	$(".search_button").click(function(){
+		alert("検索機能");
+	})
+	$(".review_tab").click(function(){
+		alert("レビュータブに移動します");
+	})
+    </script>
+</article>
+</body>
+</html>

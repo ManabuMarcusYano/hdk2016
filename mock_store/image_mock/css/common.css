@@ -1,0 +1,99 @@
+@charset "UTF-8";
+
+article{
+	margin:0 auto;
+}
+
+.image {
+    width:100%;
+}
+
+.header{
+	width: 536px;
+	height: 109px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 90;
+	top: 3px;
+	left: 2px;
+}
+
+.login_button{
+	width: 350px;
+	height: 270px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 295px;
+	left: 96px;
+}
+
+.dl_button{
+	width:350px;
+	height:45px;
+	/*background-color:#F00F00;*/
+	position:absolute;
+	z-index:100;
+	top:565px;
+	left:180px;
+}
+
+.dl_button2{
+	width:350px;
+	height:45px;
+	/*background-color:#F00F00;*/
+	position:absolute;
+	z-index:100;
+	top:785px;
+	left:180px;
+}
+
+.dl_button3{
+	width: 350px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 345px;
+	left: 180px;
+}
+
+.back_button{
+	width: 42px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 53px;
+	left: 12px;
+}
+
+.search_button{
+	width: 42px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 53px;
+	left: 482px;
+}
+
+.successive_tab{
+	width: 244px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 347px;
+	left: 272px;
+}
+
+.review_tab{
+	width: 244px;
+	height: 45px;
+	/*background-color:#F00F00;*/
+	position: absolute;
+	z-index: 100;
+	top: 125px;
+	left: 270px;
+}
