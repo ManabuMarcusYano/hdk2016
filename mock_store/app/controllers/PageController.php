@@ -8,6 +8,7 @@ class PageController extends BaseController{
 		 );
 		 $view->nest('head', 'head', $data);
 		 $view->nest('header', 'header');
+		 $view->nest('banner', 'banner');
 		 $view->nest('footer', 'footer');
 		 $view->nest('global_nav', 'global_nav');
 		 return $view;

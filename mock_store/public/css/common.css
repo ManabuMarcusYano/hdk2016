@@ -20,6 +20,7 @@ body{
 	position: fixed;
 	top: 0px;
 	left: 0px;
+	z-index: 1000;
 }
 
 .header_box{
@@ -42,8 +43,9 @@ body{
 .header_box li img{
 }
 
-.header_box li:after{
+.header_box:after{
 	content: "."; 
+	display:block;
  	height: 0; 
   	font-size:0;	
   	clear: both; 
@@ -136,8 +138,9 @@ body{
 	margin: 0px;
 }
 
-.global_nav_box li:after{
+.global_nav_box:after{
 	content: "."; 
+	display:block;
  	height: 0; 
   	font-size:0;	
   	clear: both; 
@@ -152,6 +155,7 @@ footer{
 	color: #c7c3c2;
 	text-align: center;
 	margin-top: 10px;
+	z-index: 999;
 }
 
 footer ul li{
@@ -182,3 +186,78 @@ footer p{
 footer a:link, footer a:visited, footer a:hover, footer a:active{
 	color: #c7c3c2;
 } 
+
+/**
+* バナー
+*/
+
+.banner_img{
+	width: 100%;
+}
+
+/**
+* タブ
+*/
+
+.tab_box{
+	width:100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+.tab{
+	width: 240px;
+	text-align: center;
+	background-color: #FFFFFF;
+	color: #838384;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: -20px;
+	margin-bottom: 0px;
+	border-radius: 3px 3px 3px 3px;
+	-webkit-border-radius: 3px 3px 3px 3px;
+}
+
+.tab li{
+	width: 120px;
+	height: 43px;
+	/*display:block;*/
+	line-height: 43px;
+	float:left;
+	border: 1px solid #838384;	
+	box-sizing: border-box;
+}
+
+.tab:after{
+	content: "."; 
+	display:block;
+ 	height: 0; 
+  	font-size:0;	
+  	clear: both; 
+  	visibility:hidden;
+}
+
+.tab li:first-child{
+	border-radius:3px 0 0 3px;
+	-webkit-border-radius:3px 0 0 3px;
+}
+
+.tab li:last-child{
+	border-radius:0 3px 3px 0;
+	-webkit-border-radius:0 3px 3px 0;
+}
+
+.tab deselect{
+	background-color: #FFFFFFF;
+	color: #838384;
+}
+
+.tab .select{
+	background-color: #838384;
+	color: #FFFFFF;
+}
+
+.disnon{
+	display: none;
+}
