@@ -6,6 +6,10 @@ body{
 	font-family:Helvetica, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
 }
 
+/**
+ * ヘッダ 
+ */
+
 .header{
 	width: 100%;
 	height: 53px;
@@ -86,3 +90,60 @@ body{
 .header_break{
 	margin-top: 53px;	
 }
+
+/**
+ * グローバルナビ
+ */
+
+.global_nav_break{
+	margin-top: 53px;
+}
+
+.global_nav{
+	width: 100%;
+	height: 53px;
+	background-color: #FFF;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #efefef;
+	position: fixed;
+	bottom: 0px;
+	left: 0px;
+}
+
+.global_nav_box{
+	height: 53px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	display: block;
+	text-align:center;
+}
+
+.global_nav_box li{
+	display: inline-block;
+	width: 33%;
+	margin-top: 0px;
+	margin-left: -2px;
+	margin-right: -2px;
+	margin-bottom: 0px;
+}
+
+.global_nav_box li img{
+	display:inline-block;
+	width: 58px;
+	margin: 0px;
+}
+
+.global_nav_box li:after{
+	content: "."; 
+ 	height: 0; 
+  	font-size:0;	
+  	clear: both; 
+  	visibility:hidden;
+}
+
+/**
+* フッタ 
+*/

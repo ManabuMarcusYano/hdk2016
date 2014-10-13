@@ -9,6 +9,7 @@ class PageController extends BaseController{
 		 $view->nest('head', 'head', $data);
 		 $view->nest('header', 'header');
 		 $view->nest('footer', 'footer');
+		 $view->nest('global_nav', 'global_nav');
 		 return $view;
 	}
 
@@ -18,7 +19,7 @@ class PageController extends BaseController{
 		 	'title'=>'Mock Store ログイン'
 		);
 		$view->nest('head', 'head', $data);
-		$view->nest('footer', 'footer');
+		//$view->nest('footer', 'footer');
 		return $view;
 	}
 
