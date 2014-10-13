@@ -7,3 +7,4 @@
         <li class="list_search"><img src="img/icon_search.png" class = "list_search" /></li>
     </ul>
 </header>
+<div class="header_break"></div>

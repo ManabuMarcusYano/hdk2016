@@ -13,6 +13,9 @@ body{
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
 	border-bottom-color: #efefef;
+	position: fixed;
+	top: 0px;
+	left: 0px;
 }
 
 .header_box{
@@ -78,4 +81,8 @@ body{
 .icon_search{
 	height: 16px;
 	width: 16px
+}
+
+.header_break{
+	margin-top: 53px;	
 }
