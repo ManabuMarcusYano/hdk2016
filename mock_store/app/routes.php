@@ -11,16 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make("header");
-});
+Route::get('/', 'PageController@index');
 
-Route::get('about', function()
-{
-	return "このサイトについて";
-});
+Route::get('/login', 'PageController@login');
 
-Route::get('page', 'PageController@index');
+// Route::get('about', function()
+// {
+// 	return "このサイトについて";
+// });
 
-Route::get('page/{page}', 'PageController@showPage');
+// Route::get('page', 'PageController@index');
+
+// Route::get('page/{page}', 'PageController@showPage');

@@ -2,11 +2,27 @@
 
 class PageController extends BaseController{
 	public function index(){
-		return "ページ一覧";
+		 $view = View::make('index');
+		 $data = array(
+		 	'title'=>'Mock Store トップ'
+		 );
+		 $view->nest('head', 'head', $data);
+		 $view->nest('header', 'header');
+		 $view->nest('footer', 'footer');
+		 return $view;
 	}
 
-	public function showPage($page){
-		return $page."ページです";
+	public function login(){
+		$view = View::make('login');
+		$data = array(
+		 	'title'=>'Mock Store ログイン'
+		);
+		$view->nest('head', 'head', $data);
+		$view->nest('footer', 'footer');
+		return $view;
 	}
 
+	// public function showPage($page){
+	// 	return $page."ページです";
+	// }
 }

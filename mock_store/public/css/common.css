@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+body { 
+	background-image:url("../img/bg.jpg");
+	background-repeat:repeat;
+	font-family:Helvetica, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+}
