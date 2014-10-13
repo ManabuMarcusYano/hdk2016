@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'PageController@index');
+Route::get('/index', 'PageController@index');
 
 Route::get('/login', 'PageController@login');
 

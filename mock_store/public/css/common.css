@@ -147,3 +147,38 @@ body{
 /**
 * フッタ 
 */
+
+footer{
+	color: #c7c3c2;
+	text-align: center;
+	margin-top: 10px;
+}
+
+footer ul li{
+	display: inline;
+	text-decoration: underline;
+	line-height: 14px;
+	margin-right:20px;
+}
+
+footer ul li:last-child{
+	margin-right:0px;
+}
+
+footer li:after{
+	content: "."; 
+ 	height: 0; 
+  	font-size:0;	
+  	clear: both; 
+  	visibility:hidden;
+}
+
+footer p{
+	margin-top: 10px;
+	padding-bottom: 10px;
+	font-size: 11px;
+}
+
+footer a:link, footer a:visited, footer a:hover, footer a:active{
+	color: #c7c3c2;
+} 
