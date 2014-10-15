@@ -3,7 +3,9 @@
 body{ 
 	background-image:url("../img/bg.jpg");
 	background-repeat:repeat;
-	font-family:Helvetica, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;
+	font-family:Helvetica, Roboto, "Droid Sans", "游ゴシック", YuGothic, "ヒラギノ角ゴ ProN W3", "Hiragino Kaku Gothic ProN", "メイリオ", Meiryo, sans-serif;	
+	-webkit-touch-callout:none; // リンク長押し禁止
+	-webkit-user-select:none; // テキスト長押し禁止
 }
 
 /**
@@ -199,13 +201,6 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 * タブ
 */
 
-.tab_box{
-	width:100%;
-	margin-left: auto;
-	margin-right: auto;
-}
-
-
 .tab{
 	width: 240px;
 	text-align: center;
@@ -214,9 +209,9 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: -20px;
-	margin-bottom: 0px;
-	border-radius: 3px 3px 3px 3px;
-	-webkit-border-radius: 3px 3px 3px 3px;
+	margin-bottom: 15px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
 }
 
 .tab li{
@@ -239,13 +234,13 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 }
 
 .tab li:first-child{
-	border-radius:3px 0 0 3px;
-	-webkit-border-radius:3px 0 0 3px;
+	border-radius:5px 0 0 5px;
+	-webkit-border-radius:5px 0 0 5px;
 }
 
 .tab li:last-child{
-	border-radius:0 3px 3px 0;
-	-webkit-border-radius:0 3px 3px 0;
+	border-radius:0 5px 5px 0;
+	-webkit-border-radius:0 5px 5px 0;
 }
 
 .tab deselect{
@@ -260,4 +255,154 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 
 .disnon{
 	display: none;
+}
+
+/**
+* ランキング
+*/
+
+.ranking_mod{
+	height: 140px;
+	background-color: #FFF;
+	border-radius: 3px 0 0 3px;
+	-webkit-border-radius: 3px 0 0 3px;
+	margin-left: 17px;
+	margin-bottom: 7px;
+}
+
+.ranking_upper{
+	height: 90px;
+	box-sizing:border-box;
+}
+
+.ranking_lower{
+	height: 50px;
+	box-sizing: border-box;
+	line-height: 50px;
+	display: table-cell;
+	vertical-align: middle;
+}
+
+/*
+.ranking_lower p{
+	display: table-cell; 
+	vertical-align: middle;
+	text-align: center;
+	line-height: 0;	
+}
+*/
+
+.ranking_number{
+	color: #2a60ad;
+	font-size: 21px;
+	display: block;
+	width: 30px;
+	padding-top: 0px;
+	padding-left: 5px;
+	float: left;
+	margin-top: 12px;
+}
+
+.ranking_icon{
+	display: block;
+	float: left;
+	height: 90px;
+	width: 70px;
+}
+
+.app_icon{
+	display: block;
+	height: 70px;
+	width: 70px;
+	float: left;
+	margin-top: 12px;
+}
+
+.ranking_info{
+	height: 90px;
+	display: block;
+	float: left;
+	width: 130px;
+	font-size: 10px;
+	padding-left: 13px;
+	box-sizing:border-box;
+}
+
+.app_title{
+	width: 117px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	font-size: 12px;
+	height: 20px;
+	line-height: 20px;
+	margin-top: 12px;
+}
+
+.app_developer{
+	color: #a9a4a1;
+	font-size: 10px;
+}
+
+.app_star{
+	color: #a9a4a1;
+	font-size: 10px;
+	margin-top: 20px;
+	display: inline-block;
+	float: left;
+	line-height: 10px;
+}
+
+.app_period{
+	color: #a9a4a1;
+	font-size: 10px;
+	display: inline-block;
+	margin-top: 20px;
+	float: right;
+	line-height: 10px;
+}
+
+.app_days{
+	color: #000000;
+	font-size: 10px;
+}
+
+.ranking_info:after{
+	content: "."; 
+	display:block;
+ 	height: 0; 
+  	font-size:0;	
+  	clear: both; 
+  	visibility:hidden;
+}
+.ranking_upper:after{
+	content: "."; 
+	display:block;
+ 	height: 0; 
+  	font-size:0;	
+  	clear: both; 
+  	visibility:hidden;
+}
+
+.icon{
+	float: left;
+	vertical-align:middle;
+}
+
+.icon_new{
+	width: 57px;
+	margin-left: -5px;
+}
+
+.icon_review{
+	width: 23px;
+}
+
+.btn_android{
+	width: 115px;
+}
+
+.btn_ios{
+	width: 115px;
+
 }
