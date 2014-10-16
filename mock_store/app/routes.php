@@ -20,22 +20,18 @@ Route::get('/user', 'User@showUser');
 
 Route::get('/hello', function(){
 	//EloquentORMでデータの取得
-	// $data = User::all();
-	// echo 'Review';
- 	// echo var_dump($data);
-	// User::create(array('company_id' => 1, 'mail_address' => 'test@test.com', 'password' => 'hogehoge'));
-	// $user = User::find(1);
-	// echo $user->mail_address;
+	// $data = Application::all();
+	if($data = User::find(0)){
+	 	echo $data->mail_address;
+	}else{
+		echo 'failed';
+	}
+	// echo 'Applcation<br />';
 
-	// $users = User::all();
-	// foreach ($users as $user) {
-	// 	echo $user->mail_address;
+
+	// if($user = User::create(array('mail_address' => 'tea@test.com', 'password' => 'hogehoge'))){
+	// 	echo 'Successful';
+	// }else{
+	// 	echo 'failure';
 	// }
-
-	$user = User::create(array('mail_address' => 'tea@test.com', 'password' => 'hogehoge'));
-
-	// $user = new User;
-	// $user->mail_address = "test@test.com";
-	// $user->password = "hogehoge";
-	// $user->save();
 });
