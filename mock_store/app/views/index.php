@@ -19,7 +19,7 @@
         </div>
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
-            <p class = "app_developer"><?php echo $db->company['name']; ?>/浮田光樹</p>
+            <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
             <p class = "app_star">★★★★★</p>
             <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
         </div>

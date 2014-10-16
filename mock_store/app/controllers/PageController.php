@@ -4,7 +4,7 @@ class PageController extends BaseController{
 	public function index(){
 		// Modelの呼び出し
 		define('MAX_CELL_COUNT', 10);
-		$dbs = Application::with('company')->take(MAX_CELL_COUNT)->get();
+		$current_$dbs = Application::with('company')->with('user')->take(MAX_CELL_COUNT)->get();
 		if($dbs){
 			// Viewの生成
 			$view = View::make('index');
