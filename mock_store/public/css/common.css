@@ -316,6 +316,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 	width: 70px;
 	float: left;
 	margin-top: 12px;
+	border:none;
 }
 
 .ranking_info{

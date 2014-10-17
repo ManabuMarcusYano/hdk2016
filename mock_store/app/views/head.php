@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="lib/slick-1.3.11/slick/slick.css" />
     <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>
     <script src="js/ui.js" type="text/javascript"></script>
+    <script src="js/link.js" type="text/javascript"></script>
     <script src="lib/slick-1.3.11/slick/slick.min.js" type="text/javascript"></script>
 </head>
 <body>
