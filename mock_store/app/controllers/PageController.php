@@ -16,25 +16,31 @@ class PageController extends BaseController{
 			$view->nest('head', 'head', $data);
 			$view->nest('header', 'header');
 			$view->nest('banner', 'banner');
+			// $view->nest('ranking_mod1', 'ranking_mod1', array('current_dbs' => $current_dbs));
+			// $view->nest('ranking_mod2', 'ranking_mod2', array('past_dbs' => $past_dbs));
 			$view->nest('footer', 'footer');
 			$view->nest('global_nav', 'global_nav');
-			return $view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs);
+			$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs);
+			return $view;
 		}
 	}
 
-	public function detail($page){
+	public function detail($id){
 		// Modelの呼び出し
-
-		// Viewの生成
-		$view = View::make('detail');
-		$data = array(
-				'title'=>'Mock Store 詳細'
-			);
-		$view->nest('head', 'head', $data);
-		$view->nest('header', 'header');
-		$view->nest('footer', 'footer');
-		$view->nest('global_nav', 'global_nav');
-		return $view;
+		$db = Application::with('company')->with('user')->find($id);
+		if($id){
+			// Viewの生成
+			$view = View::make('detail');
+			$data = array(
+					'title'=>'Mock Store 詳細'
+				);
+			$view->nest('head', 'head', $data);
+			$view->nest('header', 'header');
+			$view->nest('footer', 'footer');
+			$view->nest('global_nav', 'global_nav');
+			$view->with('db', $db);
+			return $view;
+		}
 	}
 
 	public function login(){

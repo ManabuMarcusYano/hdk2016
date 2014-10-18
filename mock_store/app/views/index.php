@@ -11,32 +11,7 @@
 <div class = "wrapper">
 
 <?php $i = 1; foreach($current_dbs as $db){ ?>
-<div class = "ranking_mod" id = "<?php echo $db->id; ?>">
-    <div class = "ranking_upper">
-        <p class = "ranking_number"><?php echo $i?></p>
-        <div "ranking_icon">
-        	<img src="<?php echo $db->logo_path; ?>" class = "app_icon">
-        </div>
-        <div class = "ranking_info">
-            <p class = "app_title" ><?php echo $db->name; ?></p>
-            <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
-            <p class = "app_star">★★★★★</p>
-            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
-        </div>
-    </div>
-    <div class = "ranking_lower">
-        <img src="img/icon_new.png" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon">
-        <img src="img/btn_android_dl.png" class = "btn_android icon">
-        <img src="img/btn_ios_dl.png" class = "btn_ios icon">
-    </div>
-</div>
-<?php $i++; } ?>
 
-</div>
-<div class = "wrapper disnon">
-
-<?php $i = 1; foreach($past_dbs as $db){ ?>
 <div class = "ranking_mod" id = "<?php echo $db->id; ?>">
     <div class = "ranking_upper">
         <p class = "ranking_number"><?php echo $i?></p>
@@ -54,9 +29,38 @@
         <img src="img/icon_new.png" class = "icon_new icon">
         <img src="img/icon_review.png" class = "icon_review icon">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
-        <!--<img src="img/btn_ios_dl.png" class = "btn_ios icon">-->
+        <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>
 </div>
+
+<?php $i++; } ?>
+
+</div>
+<div class = "wrapper disnon">
+
+<?php $i = 1; foreach($past_dbs as $db){ ?>
+
+<div class = "ranking_mod" id = "<?php echo $db->id; ?>">
+    <div class = "ranking_upper">
+        <p class = "ranking_number"><?php echo $i?></p>
+        <div "ranking_icon">
+            <img src="<?php echo $db->logo_path; ?>" class = "app_icon">
+        </div>
+        <div class = "ranking_info">
+            <p class = "app_title" ><?php echo $db->name; ?></p>
+            <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
+            <p class = "app_star">★★★★★</p>
+            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
+        </div>
+    </div>
+    <div class = "ranking_lower">
+        <img src="img/icon_new.png" class = "icon_new icon">
+        <img src="img/icon_review.png" class = "icon_review icon">
+        <img src="img/btn_android_dl.png" class = "btn_android icon">
+        <img src="img/btn_ios_dl.png" class = "btn_ios icon">
+    </div>
+</div>
+
 <?php $i++; } ?>
 
 </div>
