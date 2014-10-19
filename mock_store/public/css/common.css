@@ -397,13 +397,17 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 	border-radius: 3px 0 0 3px;
 	-webkit-border-radius: 3px 0 0 3px;
 	margin-left: 15px;
-	margin-bottom: 7px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
 	-webkit-box-shadow: -2px 2px 4px 0 rgba(150,150,150,1);
 	box-shadow: -2px 2px 4px 0 rgba(150,150,150,1);
+	margin-top: 7px;
+}
+
+.ranking_mod:last-of-type{
+	margin-bottom: 50px;
 }
 
 .ranking_upper{

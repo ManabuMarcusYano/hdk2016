@@ -64,5 +64,5 @@
 <?php $i++; } ?>
 
 </div>
-<?php echo $footer; ?>
+<?php // echo $footer; ?>
 <?php echo $global_nav; ?>
