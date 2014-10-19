@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />
     <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/term.css" />
     <link rel="stylesheet" type="text/css" href="lib/slick-1.3.11/slick/slick.css" />
     <link rel="stylesheet" type="text/css" href="lib/raty-2.7.0/lib/jquery.raty.css" />
     <script src="js/jquery-2.1.1.min.js" type="text/javascript"></script>

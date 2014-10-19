@@ -18,6 +18,7 @@ Route::get('/index', function(){
 });
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
+Route::get('/term', 'PageController@term');
 
 // API
 Route::get('/{page}/get', 'AppController@getAppInfo');

@@ -18,7 +18,7 @@ class PageController extends BaseController{
 			$view->nest('banner', 'banner');
 			// $view->nest('ranking_mod1', 'ranking_mod1', array('current_dbs' => $current_dbs));
 			// $view->nest('ranking_mod2', 'ranking_mod2', array('past_dbs' => $past_dbs));
-			$view->nest('footer', 'footer');
+			//$view->nest('footer', 'footer');
 			$view->nest('global_nav', 'global_nav');
 			$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs);
 			return $view;
@@ -36,7 +36,7 @@ class PageController extends BaseController{
 				);
 			$view->nest('head', 'head', $data);
 			$view->nest('header', 'header');
-			$view->nest('footer', 'footer');
+			//$view->nest('footer', 'footer');
 			$view->nest('global_nav', 'global_nav');
 			$view->with('db', $db);
 			return $view;
@@ -49,7 +49,15 @@ class PageController extends BaseController{
 		 	'title'=>'Mock Store ログイン'
 		);
 		$view->nest('head', 'head', $data);
-		//$view->nest('footer', 'footer');
+		return $view;
+	}
+
+	public function term(){
+		$view = View::make('term');
+		$data = array(
+		 	'title'=>'Mock Store 利用規約'
+		);
+		$view->nest('head', 'head', $data);
 		return $view;
 	}
 }
