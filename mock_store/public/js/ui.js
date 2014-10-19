@@ -35,7 +35,7 @@ $(document).ready(function() {
 	// ヘッダ
 	var isShowingModal = false;
 
-	$(".list_category").click(function(){
+	$(".list_category, .search_cancel").click(function(){
 		if(isShowingModal == false){
 			$(".modal_sort").show();
 			hideOtherButtonsAndShowModal();
@@ -60,7 +60,7 @@ $(document).ready(function() {
 
 	function hideOtherButtonsAndShowModal(){
 		isShowingModal = true;
-		$("#modal_screen").show();
+		$("#modal_screen").slideDown();
 		$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
 		$(".list_search").css("visibility" , "hidden");
 		$(".list_user").css("visibility" , "hidden");
@@ -71,7 +71,7 @@ $(document).ready(function() {
 		$(".modal_sort").hide();
 		$(".modal_search").hide();
 		$(".modal_user").hide();
-		$("#modal_screen").hide();
+		$("#modal_screen").slideUp();
 		$(".list_category").children("a").children("img").attr({ src : "img/icon_category.png"});
 		$(".list_search").css("visibility" , "visible");
 		$(".list_user").css("visibility" , "visible");

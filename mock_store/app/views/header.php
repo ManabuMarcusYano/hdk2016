@@ -18,9 +18,17 @@
         <div class = "sort"><a>アップデート日が古い順</a></div>
     </div>
     <div class = "sorts modal_search">
-        <div class = "sort"><a>サーチ</a></div>
+        <div class = "sort">
+        	<form action = "">
+            	<img src = "img/icon_search.png" class = "search_icon"><input type="text" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /><a class = "search_cancel">Cancel</a>
+            </form>
+    	</div>
     </div>
     <div class = "sorts modal_user">
-        <div class = "sort"><a>ユーザー</a></div>
+		<div class = "user_box">
+            <img src = "img/icon_search.png" class = "user_icon">
+            <p class = "user_info">張銀修<br />jang_eunsue@applibot.co.jp</p>
+            <a class = "user_term" href="/term">利用規約</a><a class = "user_logout" href = "/login">ログアウト</a><div class = "clearfix"></div>
+		</div>
     </div>
 </div>
