@@ -16,12 +16,12 @@
     <div class = "ranking_upper">
         <p class = "ranking_number"><?php echo $i?></p>
         <div "ranking_icon">
-            <img src="<?php echo $db->logo_path; ?>" class = "app_icon">
+            <img src="<?php echo $db->logo_path ? $db->logo_path : 'img/no_app_icon.jpg' ; ?>" class = "app_icon">
         </div>
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
-            <p class = "app_star">★★★★★</p>
+            <div class = "app_star" data-score="2"></div>
             <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
         </div>
     </div>
@@ -49,7 +49,7 @@
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
-            <p class = "app_star">★★★★★</p>
+            <div class = "app_star"></div>
             <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
         </div>
     </div>

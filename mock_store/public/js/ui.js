@@ -20,5 +20,15 @@ $(document).ready(function() {
 		$(this).removeClass("deselect");
 	});
 	
-	
+	// レート
+	$(".app_star").raty({
+		halfShow : true,
+		readOnly: true,
+		starHalf     : 'lib/raty-2.7.0/lib/images/star-half.png',
+   		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',
+    	starOn       : 'lib/raty-2.7.0/lib/images/star-on.png',
+  		score: function() {
+    	return $(this).attr('data-score');
+  		}
+	});
 });
