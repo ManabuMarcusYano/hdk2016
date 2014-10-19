@@ -37,45 +37,43 @@ $(document).ready(function() {
 
 	$(".list_category").click(function(){
 		if(isShowingModal == false){
-			isShowingModal = true;
 			$(".modal_sort").show();
-			$("#modal_screen").show();
-			$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
+			hideOtherButtonsAndShowModal();
 		}else{
-			isShowingModal = false;
-			$(".modal_sort").hide();
-			$(".modal_search").hide();
-			$(".modal_user").hide();
-			$("#modal_screen").hide();
-			$(".list_category").children("a").children("img").attr({ src : "img/icon_category.png"});
-			$(".list_search").css("visibility" , "visible");
-			$(".list_user").css("visibility" , "visible");
+			showOtherButtonsAndHideModal();
 		}
 	});
 
 	$(".list_search").click(function(){
 		if(isShowingModal == false){
-			isShowingModal = true;
 			$(".modal_search").show();
-			$("#modal_screen").show();
-			$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
-			$(".list_search").css("visibility" , "hidden");
-			$(".list_user").css("visibility" , "hidden");
+			hideOtherButtonsAndShowModal();
 		}
 	});
 
 	$(".list_user").click(function(){
 		if(isShowingModal == false){
-			isShowingModal = true;
 			$(".modal_user").show();
-			$("#modal_screen").show();
-			$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
-			$(".list_search").css("visibility" , "hidden");
-			$(".list_user").css("visibility" , "hidden");
+			hideOtherButtonsAndShowModal();
 		}
 	});
 
-	function hideOtherButtons(){
+	function hideOtherButtonsAndShowModal(){
+		isShowingModal = true;
+		$("#modal_screen").show();
+		$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
+		$(".list_search").css("visibility" , "hidden");
+		$(".list_user").css("visibility" , "hidden");
+	}
 
+	function showOtherButtonsAndHideModal(){
+		isShowingModal = false;
+		$(".modal_sort").hide();
+		$(".modal_search").hide();
+		$(".modal_user").hide();
+		$("#modal_screen").hide();
+		$(".list_category").children("a").children("img").attr({ src : "img/icon_category.png"});
+		$(".list_search").css("visibility" , "visible");
+		$(".list_user").css("visibility" , "visible");
 	}
 });
