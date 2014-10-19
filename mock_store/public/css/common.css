@@ -14,7 +14,7 @@ body{
 
 .header{
 	width: 100%;
-	height: 53px;
+	height: 45px;
 	background-color: #FFF;
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
@@ -26,16 +26,15 @@ body{
 }
 
 .header_box{
-	height: 53px;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top: 0px;
 	margin-bottom: 0px;
 	display: block;
-	padding-top: 21px;
+	padding-top: 17px;
 	padding-right: 17px;
 	padding-left: 17px;
-	text-align:center;
+	text-align: center;
 }
 
 .header_box li{
@@ -54,45 +53,37 @@ body{
   	visibility:hidden;
 }
 
-.list_category{
+.list_category, .list_search, .list_user{
 	width: 16px;
 	height: 16px;
 	margin: 0px;
 }
+
+.list_user{
+	margin-left: 10px;
+}  
 
 .list_logo{
 	width: 94px;
 	height: 16px;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	margin-right: 48px;
-	margin-left: 48px;
+	margin-right: 20px; /*32 30*/
+	margin-left: 55px; /*48 150*/
 }
 
-
-.list_search{
-	width: 16px;
-	height: 16px;
-	margin: 0px;
-}
-
-.icon_category{
+.icon_category, .icon_search, .icon_user{
 	height: 16px;
 	width: 16px;
 }
 
 .header_logo{
-	width: 94px;
+	width: 81px;
 	height: 16px;
-}
-
-.icon_search{
-	height: 16px;
-	width: 16px
 }
 
 .header_break{
-	margin-top: 53px;	
+	margin-top: 45px;
 }
 
 /**
