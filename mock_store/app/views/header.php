@@ -1,7 +1,3 @@
-<link rel="stylesheet" type="text/css" href="../../public/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="../../public/css/common.css" />
-<link rel="stylesheet" type="text/css" href="../../public/css/login.css" />
-    
 <header class = "header">
 	<ul class = "header_box">
         <li class="list_category"><a href = ""><img src="img/icon_category.png" class = "icon_category" /></a></li>
