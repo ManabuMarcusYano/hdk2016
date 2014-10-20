@@ -14,8 +14,8 @@ $(document).ready(function() {
 	// アプリ画像
 	$(".app_imgs").slick({
 		infinite: false,
-		slidesToShow: 2,
-		slidesToScroll: 1,
+		slidesToShow: 1.86,
+		slidesToScroll: 2,
 		autoplay: false,
 		arrows: false,
 		dots: false,
