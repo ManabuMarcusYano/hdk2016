@@ -4,8 +4,8 @@ class PageController extends BaseController{
 	public function index(){
 		// Modelの呼び出し
 		define('MAX_CELL_COUNT', 10);
-		$current_dbs = Application::with('company')->with('user')->take(MAX_CELL_COUNT)->orderby('id', 'desc')->get();
-		$past_dbs = Application::with('company')->with('user')->take(MAX_CELL_COUNT)->get();
+		$current_dbs = Application::with('company')->with('user')->with('category')->take(MAX_CELL_COUNT)->orderby('id', 'desc')->get();
+		$past_dbs = Application::with('company')->with('user')->with('category')->take(MAX_CELL_COUNT)->get();
 		if($current_dbs && $past_dbs){
 
 			// Viewの生成

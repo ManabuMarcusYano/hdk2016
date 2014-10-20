@@ -7,4 +7,8 @@ class Application extends Eloquent{
 	public function user(){
 		return $this->belongsTo('user', 'manager_id');
 	}
+
+	public function category(){
+		return $this->belongsTo('category', 'category_id');
+	}
 }
