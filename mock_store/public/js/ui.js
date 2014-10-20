@@ -6,7 +6,21 @@ $(document).ready(function() {
 		slidesToScroll: 1,
 		autoplay: true,
 		autoplaySpeed: 3000,
-		arrows: false
+		arrows: false,
+		dots: false,
+		easing: true
+	});
+
+	// アプリ画像
+	$(".app_imgs").slick({
+		infinite: false,
+		slidesToShow: 2,
+		slidesToScroll: 1,
+		autoplay: false,
+		arrows: false,
+		dots: false,
+		adaptiveHeight: true,
+		useCSS: true
 	});
 	
 	// タブ

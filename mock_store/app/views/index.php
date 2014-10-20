@@ -64,5 +64,8 @@
 <?php $i++; } ?>
 
 </div>
+
+<div class = "ranking_mod_break"></div>
+
 <?php // echo $footer; ?>
 <?php echo $global_nav; ?>
