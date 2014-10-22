@@ -54,7 +54,7 @@
 <section class = "review_summary detail_content">
 	<div class = "review_summary_left">
         <p class = "">レビュー</p>
-        <a class = "">4</a>
+        <a class = "review_total">4</a>
         <div class = "app_star" data-score="3.5"></div>
     </div>
     <div class = "review_summary_right">

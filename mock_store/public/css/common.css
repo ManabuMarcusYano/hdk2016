@@ -492,17 +492,27 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 	margin-top: 0px;
 }
 
+ranking_info .app_star img{
+	margin-top:0;
+}
+
+
 .app_star{
 	color: #a9a4a1;
 	font-size: 10px;
-	margin-top: 5px;
+	margin-top: 0px;
 	display: inline-block;
 	float: left;
 	line-height: 10px;
 }
 .app_star .star{
-	height: 10px;
-	width: 10px;
+	height: 7px;
+	width: 7px;
+}
+
+.app_star img{
+	height: 7px;
+	width: 7px;
 }
 
 .app_period{
@@ -626,11 +636,13 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 .review_summary_left{
 	float: left;
 	text-align: left;
+	width: 40%;
 }
 
 .review_summary_right{
 	float: right;
 	text-align: left;
+	width: 60%;
 }
 
 .review_summary:after{
@@ -642,19 +654,51 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
   	visibility:hidden;
 }
 
+.review_summary_left .app_star{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.review_summary_left .app_star img{
+	width: 14px;
+	height: 14px;
+}
+
+.review_summary_right .app_star{
+	margin-right: 35px;
+	float: right;
+}
+
+.review_summary_right .app_star img{
+	margin-top: 3px;
+}
+
+.review_total{
+	text-align:center;
+	width: 42px;
+	font-size: 35pt;
+	line-height: 42px;
+	margin-left: auto;
+	margin-right: auto;
+	padding:0;
+	display:block;
+	color: #888888;
+}
+
 .write_review{
 	color: #6298cb;
 	text-align: right;
 	margin-right: 10px;
-	margin-bottom:5px;
+	margin-bottom:10px;
+	margin-left: auto;
 	width: 125px;
-	display: inline-block;
+	display: block;
 }
 
 .comment_title{
 	color: #030000;
 	font-size:10px;
-	
 }
 
 .commenter{
@@ -664,6 +708,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 }
 
 .feedback{
+	position: relative;
 	margin-top:10px;
 	background-color:#d8d8d8;
 	color: #606061;
@@ -675,11 +720,10 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 
 .feedback:after{
 	content: '';
-	display: block;
 	position:absolute;
 	border-bottom: 10px solid #d8d8d8;
 	border-right: 5px solid transparent;
 	border-left: 5px solid transparent;
-	bottom: -35px;
-	left: 25px;
+	bottom: 45px;
+	left: 15px;
 }
