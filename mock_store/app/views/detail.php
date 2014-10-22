@@ -51,9 +51,43 @@
 </div>
 
 <div class = "wrapper disnon">
-
-<p>レビュー</p>
+<section class = "review_summary detail_content">
+	<div class = "review_summary_left">
+        <p class = "">レビュー</p>
+        <a class = "">4</a>
+        <div class = "app_star" data-score="3.5"></div>
+    </div>
+    <div class = "review_summary_right">
+        <p class = "">100件の評価(バージョン1.0)<br />(4325387)<br />
+        <ul>
+            <li>完成度 4.5 <div class = "app_star" data-score="4.5"></div></li>
+            <li>面白さ 2.5 <div class = "app_star" data-score="2.5"></div></li>
+            <li>将来性 4 <div class = "app_star" data-score="4"></div></li>
+        </ul>
+    </div>
+</section>
+<img src = "img/btn_write_review.png" class = "write_review">
+<hr class = "separation">
+    <div class = "detail_content comment">
+    	<p class = "comment_title">1. オススメです</p>
+        <div class = "app_star" data-score="4.5"></div><p class = "commenter">やの氏 - 2014/08/11</p>
+        <p class = "">たのしくて、早い！</p>
+        <p class = "feedback">レビューレビューレビューレビューレビューレビューレビューレビューレビュー</p>
+    </div>
+<hr class = "separation">
+    <div class = "detail_content comment">
+    	<p class = "comment_title">1. オススメです</p>
+        <div class = "app_star" data-score="4.5"></div><p class = "commenter">やの氏 - 2014/08/11</p>
+        <p class = "">たのしくて、早い！</p>
+        <p class = "feedback">レビューレビューレビューレビューレビューレビューレビューレビューレビュー</p>
+    </div>
 
 </div>
 <?php //echo $footer; ?>
+<script type="text/javascript">
+	$(".list_search").css("visibility", "hidden");
+	$(".list_user").css("visibility", "hidden");
+	state = t_state.ONLY_BACK;
+	$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
+</script>
 <?php echo $global_nav; ?>

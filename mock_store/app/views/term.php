@@ -1,4 +1,5 @@
 <?php echo $head; ?>
+<?php echo $header; ?>
 <article>
 	<section class="helpGroupDetail">
 		<h1>ご利用にあたって</h1>
@@ -125,3 +126,10 @@
 		<!--<a href="javascript:history.back();">戻る</a>-->
 	</div>
 </article>
+<script type="text/javascript">
+	$(".list_search").css("visibility", "hidden");
+	$(".list_user").css("visibility", "hidden");
+	state = t_state.ONLY_BACK;
+	$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
+</script>
+<?php echo $global_nav; ?>

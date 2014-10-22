@@ -58,6 +58,8 @@ class PageController extends BaseController{
 		 	'title'=>'Mock Store 利用規約'
 		);
 		$view->nest('head', 'head', $data);
+		$view->nest('header', 'header');
+		$view->nest('global_nav', 'global_nav');
 		return $view;
 	}
 }

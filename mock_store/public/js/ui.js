@@ -20,7 +20,8 @@ $(document).ready(function() {
 		arrows: false,
 		dots: false,
 		adaptiveHeight: true,
-		useCSS: true
+		touchThreshold: 20
+
 	});
 	
 	// タブ
@@ -46,15 +47,27 @@ $(document).ready(function() {
   		}
 	});
 
+	// フィードバック
+	$(".comment").click(function(){
+		$(this).children(".feedback").slideDown();
+	});
+
 	// ヘッダ
 	var isShowingModal = false;
-
 	$(".list_category, .search_cancel").click(function(){
-		if(isShowingModal == false){
-			$(".modal_sort").show();
-			hideOtherButtonsAndShowModal();
-		}else{
-			showOtherButtonsAndHideModal();
+		switch(state){
+			case t_state.ONLY_BACK :
+				history.back();
+				break;
+			case t_state.NORMAL :
+			default :	
+				if(isShowingModal == false){
+					$(".modal_sort").show();
+					hideOtherButtonsAndShowModal();
+				}else{
+					showOtherButtonsAndHideModal();
+				}
+				break;
 		}
 	});
 
@@ -75,7 +88,7 @@ $(document).ready(function() {
 	function hideOtherButtonsAndShowModal(){
 		isShowingModal = true;
 		$("#modal_screen").slideDown();
-		$(".list_category").children("a").children("img").attr({ src : "img/icon_search.png"});
+		$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
 		$(".list_search").css("visibility" , "hidden");
 		$(".list_user").css("visibility" , "hidden");
 	}
@@ -91,3 +104,9 @@ $(document).ready(function() {
 		$(".list_user").css("visibility" , "visible");
 	}
 });
+
+var t_state = {
+		NORMAL : 0,
+		ONLY_BACK : 1,
+	}
+var state = t_state.NORMAL;

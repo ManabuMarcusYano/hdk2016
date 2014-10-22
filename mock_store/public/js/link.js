@@ -48,7 +48,7 @@ $(document).ready(function() {
 			return false;
 		}
 
-		if(confirm(title + " (" + os + ")を端末にインストールします")){
+		if(confirm(title + " (" + os + ")を端末にダウンロードします")){
 			$.ajax({
 				type: "GET",
 				scriptCharset: 'utf-8',
