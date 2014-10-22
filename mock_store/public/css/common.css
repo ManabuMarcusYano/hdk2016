@@ -696,6 +696,28 @@ ranking_info .app_star img{
 	display: block;
 }
 
+.comment{
+	position: relative;
+}
+
+.action_box{
+	position: absolute;
+	right: 10px;
+	top: 15px;
+}
+
+.action_like{
+	width: 33px;
+	padding:0;
+	margin:0;
+}
+
+.action_feedback{
+	width: 33px;
+	padding:0;
+	margin:0;
+}
+
 .comment_title{
 	color: #030000;
 	font-size:10px;

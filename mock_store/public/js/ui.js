@@ -47,6 +47,12 @@ $(document).ready(function() {
   		}
 	});
 
+	// イイネ
+	$(".action_like").click(function(){
+		$(this).attr({src : "img/btn_like.png"});
+		return false;
+	});
+
 	// フィードバック
 	$(".comment").click(function(){
 		$(this).children(".feedback").slideDown();

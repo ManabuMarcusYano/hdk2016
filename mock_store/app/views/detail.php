@@ -69,6 +69,10 @@
 <img src = "img/btn_write_review.png" class = "write_review">
 <hr class = "separation">
     <div class = "detail_content comment">
+    	<div class = "action_box">
+        	<img src = "img/btn_unlike.png" class = "action_like">
+            <img src = "img/btn_feedback.png" class = "action_feedback">
+        </div>
     	<p class = "comment_title">1. オススメです</p>
         <div class = "app_star" data-score="4.5"></div><p class = "commenter">やの氏 - 2014/08/11</p>
         <p class = "">たのしくて、早い！</p>
@@ -76,6 +80,10 @@
     </div>
 <hr class = "separation">
     <div class = "detail_content comment">
+    	<div class = "action_box">
+        	<img src = "img/btn_unlike.png" class = "action_like">
+            <img src = "img/btn_feedback.png" class = "action_feedback">
+        </div>
     	<p class = "comment_title">1. オススメです</p>
         <div class = "app_star" data-score="4.5"></div><p class = "commenter">やの氏 - 2014/08/11</p>
         <p class = "">たのしくて、早い！</p>
