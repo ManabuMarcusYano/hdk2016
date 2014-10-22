@@ -28,13 +28,13 @@ class PageController extends BaseController{
 	public function detail($id){
 		// Modelの呼び出し
 		$app = Application::with('company')->with('user')->find($id);
-		$reviews = Review::with('reviewer')->with('feedbacker')->where('application_id', '=', $id)->get();
+		$reviews = Review::with('reviewer')->with('feedbacker')->whereRaw("application_id = $id and feedback_id = ''")->get();
 		
 		if($app && $reviews){
 			// Viewの生成
 			$view = View::make('detail');
 			$data = array(
-					'title'=>'Mock Store 詳細'
+					'title'=>'Mock Store '.$app->name
 				);
 			$view->nest('head', 'head', $data);
 			$view->nest('header', 'header');

@@ -43,8 +43,8 @@
     <div class = "detail_content">
     	<ul class = "detail_info">
             <li>カテゴリー : <?php echo $db->category['name']; ?></li>
-            <li>最終アップデート : <?php echo date('Y年m月d日', strtotime($db->updated_at)); ?></li>
-            <li>開発開始 : <?php echo date('Y年m月d日', strtotime($db->started_developing_at)); ?></li>
+            <li>最終アップデート : <?php echo date('Y/m/d', strtotime($db->updated_at)); ?></li>
+            <li>開発開始 : <?php echo date('Y/m/d', strtotime($db->started_developing_at)); ?></li>
             <li>バージョン : <?php echo $db->version; ?></li>
         </ul>
     </div>
@@ -70,15 +70,14 @@
 
 <?php foreach($reviews as $review){ ?>
 <hr class = "separation">
-    <div class = "detail_content comment">
+    <div class = "detail_content comment" comment_id = "<?php echo $review->id ;?>">
     	<div class = "action_box">
         	<img src = "img/btn_unlike.png" class = "action_like">
             <img src = "img/btn_feedback.png" class = "action_feedback">
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>
-        <div class = "app_star" data-score="4.5"></div><p class = "commenter">やの氏 - 2014/08/11</p>
-        <p class = "">たのしくて、早い！</p>
-        <p class = "feedback">レビューレビューレビューレビューレビューレビューレビューレビューレビュー</p>
+        <div class = "app_star" data-score="4.5"></div><p class = "commenter"><?php echo $review->reviewer['name'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
+        <p class = "comment_message"><?php echo $review->message ;?></p>
     </div>
 <?php } ?>
 

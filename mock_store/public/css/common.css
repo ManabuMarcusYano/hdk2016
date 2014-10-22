@@ -703,7 +703,7 @@ ranking_info .app_star img{
 .action_box{
 	position: absolute;
 	right: 10px;
-	top: 15px;
+	top: 10px;
 }
 
 .action_like{
@@ -737,7 +737,7 @@ ranking_info .app_star img{
 	padding: 8px;
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
-	display: none;
+	/*display: none;*/
 }
 
 .feedback:after{

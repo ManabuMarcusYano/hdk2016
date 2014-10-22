@@ -55,7 +55,32 @@ $(document).ready(function() {
 
 	// フィードバック
 	$(".comment").click(function(){
-		$(this).children(".feedback").slideDown();
+		var comment = $(this);
+		var id = $(this).attr("comment_id");
+		$.ajax({
+				type: "GET",
+				scriptCharset: 'utf-8',
+				dataType:'json',
+				url: id + "/feedbacks/get",
+			}).done(function(data) {
+				var count = Object.keys(data).length; //フィードバック数	
+				//alert("フィードバック数" + Object.keys(data).length);
+				for(var i = 0 ; i < count ; i++){
+					//alert(data[i]);
+					var json = data[i];
+
+					//comment.append('<p>aaa</p>');
+					var html = '<p class = "feedback">' + json.message + '</p>';
+					comment.append(html).slideDown();
+					
+					//json.title
+					//json.reviewer.name
+					//json.created_at
+					//json.message
+					
+					//$(this).children(".feedback").slideDown();
+				}
+			});
 	});
 
 	// ヘッダ

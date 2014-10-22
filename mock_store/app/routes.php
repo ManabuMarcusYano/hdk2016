@@ -22,6 +22,7 @@ Route::get('/term', 'PageController@term');
 
 // API
 Route::get('/{page}/get', 'AppController@getAppInfo');
+Route::get('/{page}/feedbacks/get', 'AppController@getAppFeedbacks');
 
 // テスト
 Route::get('/user', 'User@showUser');
