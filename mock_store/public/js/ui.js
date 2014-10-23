@@ -93,6 +93,11 @@ $(document).ready(function() {
 		}
 	});
 
+	// レビューを書く
+	$(".btn_write_review").click(function(){
+		alert("レビューを書くよ");
+	});
+
 	$(".list_search").click(function(){
 		if(isShowingModal == false){
 			$(".modal_search").show();
