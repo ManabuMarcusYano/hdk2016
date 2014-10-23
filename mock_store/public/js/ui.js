@@ -1,4 +1,8 @@
 $(document).ready(function() {
+
+	// テキストリア
+	//$(".message_box").autosize();
+
     // バナー
 	$(".banner").slick({
 		infinite: true,
@@ -21,7 +25,6 @@ $(document).ready(function() {
 		dots: false,
 		adaptiveHeight: true,
 		touchThreshold: 20
-
 	});
 	
 	// タブ
@@ -46,6 +49,18 @@ $(document).ready(function() {
     	return $(this).attr('data-score');
   		}
 	});
+
+	// レート レビュー
+	$("#review_form .app_star").raty({
+		halfShow     : true,
+		readOnly     : false,
+		starHalf     : 'lib/raty-2.7.0/lib/images/star-half.png',
+   		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',
+    	starOn       : 'lib/raty-2.7.0/lib/images/star-on.png',
+  		score: function() {
+    	return $(this).attr('data-score');
+    	}
+  	});
 
 	// イイネ
 	$(".action_like").click(function(){
@@ -74,34 +89,59 @@ $(document).ready(function() {
 			});
 	});
 
+	// レビューを書く
+	$(".btn_write_review").click(function(){
+		if(isShowingModal == false){
+			hideOtherButtonsAndShowModal();
+			showReviewModalDialog();
+			var title = "";
+			var message = "";
+			//title = $(this).parent().parent().children(".ranking_upper").children(".ranking_info").children(".app_title").html();
+
+
+			//if(!title){
+				title = $(this).attr("name");
+			//}
+			message = title + "をプレイしてレビューしよう！";
+			$(".message_box").attr({placeholder : message});
+		}
+		return false;
+	});
+
 	// ヘッダ
 	var isShowingModal = false;
 	$(".list_category, .search_cancel").click(function(){
-		switch(state){
-			case t_state.ONLY_BACK :
-				history.back();
-				break;
-			case t_state.NORMAL :
-			default :	
-				if(isShowingModal == false){
+		if(isShowingModal == false){
+			switch(state){
+				case t_state.ONLY_BACK :
+					history.back();
+					break;
+				case t_state.NORMAL : 
+				default :
 					$(".modal_sort").show();
 					hideOtherButtonsAndShowModal();
-				}else{
-					showOtherButtonsAndHideModal();
-				}
+					hideReviewModalDialog();
 				break;
+			}
+		}else{
+			switch(state){
+				case t_state.ONLY_BACK :
+					showOtherButtonsAndHideModal();
+					$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
+					break;
+				case t_state.NORMAL : 
+				default :
+					showOtherButtonsAndHideModal();
+					break;
+			}
 		}
-	});
-
-	// レビューを書く
-	$(".btn_write_review").click(function(){
-		alert("レビューを書くよ");
 	});
 
 	$(".list_search").click(function(){
 		if(isShowingModal == false){
 			$(".modal_search").show();
 			hideOtherButtonsAndShowModal();
+			hideReviewModalDialog();
 		}
 	});
 
@@ -109,6 +149,7 @@ $(document).ready(function() {
 		if(isShowingModal == false){
 			$(".modal_user").show();
 			hideOtherButtonsAndShowModal();
+			hideReviewModalDialog();
 		}
 	});
 
@@ -129,6 +170,14 @@ $(document).ready(function() {
 		$(".list_category").children("a").children("img").attr({ src : "img/icon_category.png"});
 		$(".list_search").css("visibility" , "visible");
 		$(".list_user").css("visibility" , "visible");
+	}
+
+	function showReviewModalDialog(){
+		$("#review_form").show();
+	}
+
+	function hideReviewModalDialog(){
+		$("#review_form").hide();
 	}
 
 	// 日付のフォーマット

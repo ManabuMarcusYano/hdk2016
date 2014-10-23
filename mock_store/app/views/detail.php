@@ -18,7 +18,7 @@
     </div>
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon btn_write_review">
+        <img src="img/icon_review.png" class = "icon_review icon btn_write_review" name = "<?php echo $db->name; ?>">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>
@@ -63,7 +63,7 @@
         </ul>
     </div>
 </section>
-<img src = "img/btn_write_review.png" class = "write_review btn_write_review">
+<img src = "img/btn_write_review.png" class = "write_review btn_write_review" name = "<?php echo $db->name; ?>">
 
 <?php foreach($reviews as $review){ ?>
 <hr class = "separation">
@@ -82,7 +82,6 @@
 <?php //echo $footer; ?>
 <script type="text/javascript">
 	$(".list_search").css("visibility", "hidden");
-	$(".list_user").css("visibility", "hidden");
 	state = t_state.ONLY_BACK;
 	$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
 </script>

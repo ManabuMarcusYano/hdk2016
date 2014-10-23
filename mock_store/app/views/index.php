@@ -27,7 +27,7 @@
     </div>
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon icon btn_write_review">
+        <img src="img/icon_review.png" class = "icon_review icon icon btn_write_review" name = "<?php echo $db->name; ?>">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>
@@ -55,7 +55,7 @@
     </div>
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon">
+        <img src="img/icon_review.png" class = "icon_review icon" name = "<?php echo $db->name; ?>">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>

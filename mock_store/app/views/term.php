@@ -127,7 +127,6 @@
 	</div>
 </article>
 <script type="text/javascript">
-	$(".list_search").css("visibility", "hidden");
 	$(".list_user").css("visibility", "hidden");
 	state = t_state.ONLY_BACK;
 	$(".list_category").children("a").children("img").attr({ src : "img/icon_back.png"});
