@@ -64,15 +64,13 @@ $(document).ready(function() {
 				url: id + "/feedbacks/get",
 			}).done(function(data) {
 				var count = Object.keys(data).length; //フィードバック数	
-				//alert("フィードバック数" + Object.keys(data).length);
 				for(var i = 0 ; i < count ; i++){
-					//alert(data[i]);
 					var json = data[i];
 
-					//comment.append('<p>aaa</p>');
-					var html = '<p class = "feedback">' + json.message + '</p>';
-					comment.append(html).slideDown();
-					
+					// 日付のフォーマット
+					var html = '<div class = "feedback"><p><span class = "feedback_title">' + json.title + '</span><br />' + json.reviewer.name + ' - ' + formatDate(json.created_at) + '</p>' + json.message + '</div>';
+					comment.append(html);
+					comment.children(".feedback").slideDown();					
 					//json.title
 					//json.reviewer.name
 					//json.created_at
@@ -80,6 +78,7 @@ $(document).ready(function() {
 					
 					//$(this).children(".feedback").slideDown();
 				}
+				comment.off();
 			});
 	});
 
@@ -134,6 +133,14 @@ $(document).ready(function() {
 		$(".list_search").css("visibility" , "visible");
 		$(".list_user").css("visibility" , "visible");
 	}
+
+	// 日付のフォーマット
+	function formatDate(date){
+		var temp = date.split(" ");
+		temp = temp[0].split("-");
+		date = temp[0] + "/" + temp[1] + "/" + temp[2];
+		return date;
+	} 
 });
 
 var t_state = {

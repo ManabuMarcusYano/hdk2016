@@ -1,9 +1,6 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 
-<link rel="stylesheet" type="text/css" href="../../public/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="../../public/css/common.css" />
-
 <div class = "ranking_mod_break"></div>
 
 <div class = "ranking_mod" id = "<?php echo $db->id; ?>">
