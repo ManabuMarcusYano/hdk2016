@@ -66,17 +66,9 @@ $(document).ready(function() {
 				var count = Object.keys(data).length; //フィードバック数	
 				for(var i = 0 ; i < count ; i++){
 					var json = data[i];
-
-					// 日付のフォーマット
 					var html = '<div class = "feedback"><p><span class = "feedback_title">' + json.title + '</span><br />' + json.reviewer.name + ' - ' + formatDate(json.created_at) + '</p>' + json.message + '</div>';
 					comment.append(html);
 					comment.children(".feedback").slideDown();					
-					//json.title
-					//json.reviewer.name
-					//json.created_at
-					//json.message
-					
-					//$(this).children(".feedback").slideDown();
 				}
 				comment.off();
 			});
