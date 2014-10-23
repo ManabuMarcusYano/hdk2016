@@ -333,12 +333,12 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 */
 
 .tab{
-	width: 240px;
 	text-align: center;
 	background-color: #FFFFFF;
+	padding: 0;
 	color: #838384;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 5px;
+	margin-right: 5px;
 	/*margin-top: -25px;*/
 	margin-bottom: 5px;
 	border-radius: 3px;
@@ -399,15 +399,16 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 .ranking_mod{
 	height: 100px;
 	background-color: #FFF;
-	border-radius: 3px 0 0 3px;
-	-webkit-border-radius: 3px 0 0 3px;
-	margin-left: 15px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+	margin-left: 5px;
+	margin-right: 5px;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	-webkit-box-shadow: -2px 2px 4px 0 rgba(150,150,150,1);
-	box-shadow: -2px 2px 4px 0 rgba(150,150,150,1);
+	-webkit-box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
+	box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
 	margin-bottom: 7px;
 	margin-top:7px;
 }
@@ -436,13 +437,14 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 
 .ranking_number{
 	color: #2a60ad;
-	font-size: 15px;
+	font-size: 12px;
 	display: block;
 	width: 20px;
 	padding-top: 0px;
 	padding-left: 4px;
 	float: left;
 	margin-top: 10px;
+	font-weight: bold;
 }
 
 .ranking_icon{
@@ -616,9 +618,9 @@ ranking_info .app_star img{
 }
 
 .wrapper .separation{
-	width: 95%;
+	/*width: 95%;
 	margin-right: 0;
-	margin-left: auto;
+	margin-left: auto;*/
 }
 
 /**
@@ -722,11 +724,18 @@ ranking_info .app_star img{
 	color: #030000;
 	font-size:10px;
 }
+.comment .app_star{
+	margin-top: 2px;
+}
 
 .commenter{
 	margin-left: 6px;
 	font-size: 8px;
 	display:inline;
+}
+
+.comment_message{
+	font-size: 8px;
 }
 
 .feedback{
@@ -738,6 +747,7 @@ ranking_info .app_star img{
 	border-radius: 2px;
 	-webkit-border-radius: 2px;
 	display: none;
+	font-size: 8px;
 }
 
 .feedback:after{
@@ -751,6 +761,6 @@ ranking_info .app_star img{
 }
 
 .feedback_title{
-	font-size: 4px;
+	font-size: 10px;
 	color:#000000;
 }
