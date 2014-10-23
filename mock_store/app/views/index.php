@@ -22,12 +22,12 @@
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
             <div class = "app_star" data-score="2"></div>
-            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
+            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?></span>日<p>
         </div>
     </div>
     <div class = "ranking_lower">
-        <img src="img/icon_new.png" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon">
+        <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
+        <img src="img/icon_review.png" class = "icon_review icon icon btn_write_review">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>
@@ -50,11 +50,11 @@
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
             <div class = "app_star" data-score="3.5"></div>
-            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?>日</span><p>
+            <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?></span>日<p>
         </div>
     </div>
     <div class = "ranking_lower">
-        <img src="img/icon_new.png" class = "icon_new icon">
+        <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
         <img src="img/icon_review.png" class = "icon_review icon">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
