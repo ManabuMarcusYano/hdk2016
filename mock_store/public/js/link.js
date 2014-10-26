@@ -32,7 +32,11 @@ $(document).ready(function() {
 				url: id + "/get",
 			}).done(function(data) {
 			  	// 絶対パス指定が必要
-				window.location.href = "itms-services://?action=download-manifest&url=" + data.ipa_path;
+			  	if(data != ""){
+					window.location.href = "itms-services://?action=download-manifest&url=" + data.ipa_path;
+				}else{
+					alert("ipaの準備ができていないようです");
+				}
 			});
 		}
 		return false;
@@ -56,7 +60,11 @@ $(document).ready(function() {
 				url: id + "/get",
 			}).done(function(data) {
 			  	// 絶対パス指定が必要
-				window.location.href = data.apk_path
+			  	if(data != ""){
+					window.location.href = data.apk_path;
+				}else{
+					alert("apkの準備ができていないようです");
+				}
 			});
 		}
 		return false;

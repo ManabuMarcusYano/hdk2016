@@ -31,8 +31,8 @@
 <div class = "wrapper">
     <section class = "app_imgs">
         <div class = "app_img_container"><img src="<?php echo $db->image1_path; ?>" class = "app_img" /></div>
-        <div class = "app_img_container"><img src="<?php echo $db->image1_path; ?>" class = "app_img" /></div>
-        <div class = "app_img_container"><img src="<?php echo $db->image1_path; ?>" class = "app_img" /></div>
+        <div class = "app_img_container"><img src="<?php echo $db->image2_path; ?>" class = "app_img" /></div>
+        <div class = "app_img_container"><img src="<?php echo $db->image3_path; ?>" class = "app_img" /></div>
     </section>
     <hr class = "separation" />
     <p class = "detail_content"><?php echo $db->description; ?></p>
