@@ -2,7 +2,7 @@
 <img src="img/logo.png" class="login_logo" />
 <div class = "login_box">
 	<form action = "/login" method = "post">
-	<input type="text" name="username" maxlength="20" placeholder="ID" class = "id_box" />
+	<input type="text" name="mail_address" maxlength="20" placeholder="ID" class = "id_box" />
     <input type="text" name="password" maxlength="20" placeholder="Password" class = "password_box" />
     <input type="submit" value="LOGIN" class = "login_button" />
     </form>

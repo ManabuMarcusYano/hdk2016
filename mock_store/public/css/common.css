@@ -266,7 +266,7 @@ body{
 	-webkit-appearance: none;
 }
 .message_box{
-	height: 150px
+	max-height: 100px
 }
 
 

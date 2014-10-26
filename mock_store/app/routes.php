@@ -39,11 +39,12 @@ Route::when('/{page}/', 'auth');
 Route::post('login', function(){
      // バリデーション省略
 	
-	if(Auth::attempt(Input::only('username', 'password'))){
+	if(Auth::attempt(Input::only('mail_address', 'password'))){
 		return Redirect::intended('/');
 	}
 	return Redirect::back()->withInput();
 });
+
 
 Route::get('logout', function(){
 	Auth::logout();
