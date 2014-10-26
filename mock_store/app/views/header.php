@@ -27,7 +27,7 @@
     <div class = "sorts modal_user">
 		<div class = "modal_box">
             <img src = "img/icon_user_l.png" class = "user_icon">
-            <p class = "user_info"><?php echo Auth::user()->username;?><br /><?php echo Auth::user()->mail_address;?></p>
+            <p class = "user_info"><?php if(Auth::user()){ echo Auth::user()->username.'<br />'.Auth::user()->mail_address; }?></p>
             <a class = "user_term" href="/term">利用規約</a><a class = "user_logout" href = "/logout">ログアウト</a><div class = "clearfix"></div>
 		</div>
     </div>

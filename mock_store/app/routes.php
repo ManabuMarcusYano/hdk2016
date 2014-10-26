@@ -33,8 +33,7 @@ Route::get('/hello', function(){
 });
 
 // Auth
-Route::when('/*', 'auth');
-Route::when('/{page}/', 'auth');
+Route::when('/', 'auth');
 
 Route::post('login', function(){
      // バリデーション省略
