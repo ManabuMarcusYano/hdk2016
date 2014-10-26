@@ -18,7 +18,7 @@
     </div>
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
-        <img src="img/icon_review.png" class = "icon_review icon btn_write_review" name = "<?php echo $db->name; ?>">
+        <img src="img/icon_review.png" class = "icon_review icon btn_write_review" name = "<?php echo $db->name; ?>" app_id = "<?php echo $db->id; ?>">
         <img src="img/btn_android_dl.png" class = "btn_android icon">
         <img src="img/btn_ios_dl.png" class = "btn_ios icon">
     </div>
@@ -63,7 +63,7 @@
         </ul>
     </div>
 </section>
-<img src = "img/btn_write_review.png" class = "write_review btn_write_review" name = "<?php echo $db->name; ?>">
+<img src = "img/btn_write_review.png" class = "write_review btn_write_review" name = "<?php echo $db->name; ?>" app_id = "<?php echo $db->id; ?>">
 
 <?php foreach($reviews as $review){ ?>
 <hr class = "separation">
@@ -73,7 +73,7 @@
             <img src = "img/btn_feedback.png" class = "action_feedback">
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>
-        <div class = "app_star" data-score="4.5"></div><p class = "commenter"><?php echo $review->reviewer['name'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
+        <div class = "app_star" data-score="<?php echo ($review->completion + $review->interest + $review->potence) / 3 ;?>"></div><p class = "commenter"><?php echo $review->reviewer['name'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
         <p class = "comment_message"><?php echo $review->message ;?></p>
     </div>
 <?php } ?>

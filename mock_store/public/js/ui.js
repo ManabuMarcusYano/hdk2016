@@ -46,7 +46,7 @@ $(document).ready(function() {
    		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',
     	starOn       : 'lib/raty-2.7.0/lib/images/star-on.png',
   		score: function() {
-    	return $(this).attr('data-score');
+    		return $(this).attr('data-score');
   		}
 	});
 
@@ -57,8 +57,11 @@ $(document).ready(function() {
 		starHalf     : 'lib/raty-2.7.0/lib/images/star-half.png',
    		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',
     	starOn       : 'lib/raty-2.7.0/lib/images/star-on.png',
+    	scoreName    : function(){
+        	return $(this).attr('id');
+        },
   		score: function() {
-    	return $(this).attr('data-score');
+    		return $(this).attr('data-score');
     	}
   	});
 
@@ -96,14 +99,11 @@ $(document).ready(function() {
 			showReviewModalDialog();
 			var title = "";
 			var message = "";
-			//title = $(this).parent().parent().children(".ranking_upper").children(".ranking_info").children(".app_title").html();
-
-
-			//if(!title){
-				title = $(this).attr("name");
-			//}
+			title = $(this).attr("name");
+			id = $(this).attr("app_id");
 			message = title + "をプレイしてレビューしよう！";
 			$(".message_box").attr({placeholder : message});
+			$("#review_form").children(".modal_box").children("form").attr({ action : "/" + id + "/post/review"});
 		}
 		return false;
 	});

@@ -33,12 +33,12 @@
     </div>
     <div id = "review_form" class = "sorts modal_user">
    		<div class = "modal_box">
-            <ul>
-                <li>完成度<div class = "app_star" data-score="3"></div></li>
-                <li>面白さ<div class = "app_star" data-score="3"></div></li>
-                <li>将来性<div class = "app_star" data-score="3"></div></li>
-       		</ul>
-            <form action = "">
+            <form action = "" method = "post">
+                <ul>
+                    <li>完成度<div class = "app_star" id = "completion" data-score="3"></div></li>
+                    <li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
+                    <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>
+                </ul>
             	<input type="text" name="title" maxlength="20" placeholder="タイトル" class = "title_box"  autofocus="autofocus" required />
                 <textarea name="message" class = "message_box" placeholder = "" cols = "18" rows ="9" wrap = "physical" required></textarea>
                 <input type="submit" value="投稿する" class = "submit_button" />

@@ -11,4 +11,22 @@ class AppController extends BaseController{
 		$reviews = Review::with('reviewer')->whereRaw("feedback_id = $id")->get();
 		return Response::json($reviews);
 	}
+	
+	public function postReview($id){
+		Input::flash();
+		if(Input::has('title') && Input::has('message')){
+			// Modelへ書き込み
+			$review = new Review;
+			$review->application_id = $id;
+			$review->feedback_id = '';
+			$review->completion = Input::get('completion');
+			$review->interest = Input::get('interest');
+			$review->potence = Input::get('potence');
+			$review->title = Input::get('title');
+			$review->message = Input::get('message');
+			$review->save();
+			return Redirect::back();
+		}
+		return Redirect::back()->withInput();
+	}
 }
