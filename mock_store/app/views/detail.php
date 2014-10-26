@@ -11,7 +11,7 @@
         </div>
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
-            <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['name']; ?></p>
+            <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['username']; ?></p>
             <div class = "app_star" data-score="3.5"></div>
             <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?></span>日<p>
         </div>
@@ -73,7 +73,7 @@
             <img src = "img/btn_feedback.png" class = "action_feedback">
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>
-        <div class = "app_star" data-score="<?php echo ($review->completion + $review->interest + $review->potence) / 3 ;?>"></div><p class = "commenter"><?php echo $review->reviewer['name'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
+        <div class = "app_star" data-score="<?php echo ($review->completion + $review->interest + $review->potence) / 3 ;?>"></div><p class = "commenter"><?php echo $review->reviewer['username'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
         <p class = "comment_message"><?php echo $review->message ;?></p>
     </div>
 <?php } ?>

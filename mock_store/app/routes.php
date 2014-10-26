@@ -16,6 +16,7 @@ Route::get('/', 'PageController@index');
 Route::get('/index', function(){
 	return Redirect::to('/');
 });
+
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
 Route::get('/term', 'PageController@term');
@@ -29,4 +30,22 @@ Route::post('/{page}/post/review', 'AppController@postReview');
 // テスト
 Route::get('/user', 'User@showUser');
 Route::get('/hello', function(){
+});
+
+// Auth
+Route::when('/*', 'auth');
+Route::when('/{page}/', 'auth');
+
+Route::post('login', function(){
+     // バリデーション省略
+	
+	if(Auth::attempt(Input::only('username', 'password'))){
+		return Redirect::intended('/');
+	}
+	return Redirect::back()->withInput();
+});
+
+Route::get('logout', function(){
+	Auth::logout();
+	return Redirect::to('/login');
 });
