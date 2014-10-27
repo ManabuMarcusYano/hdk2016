@@ -70,7 +70,7 @@
     <div class = "detail_content comment" comment_id = "<?php echo $review->id ;?>">
     	<div class = "action_box">
         	<img src = "img/btn_unlike.png" class = "action_like">
-            <img src = "img/btn_feedback.png" class = "action_feedback">
+            <img src = "img/btn_feedback.png" class = "action_feedback btn_write_review" comment_id = "<?php echo $review->id ;?>" app_id = "<?php echo $db->id; ?>" name = "<?php echo $db->name; ?>">
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>
         <div class = "app_star" data-score="<?php echo ($review->completion + $review->interest + $review->potence) / 3 ;?>"></div><p class = "commenter"><?php echo $review->reviewer['username'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>

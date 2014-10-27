@@ -8,7 +8,8 @@ class UserTableSeeder extends Seeder
  
         User::create( array(
             'username' => 'test',
-            'password' => 'test'
+            'password' => 'test',
+			'mail_address' => 'test@cyberagent.co.jp'
         ) );
     }
  
