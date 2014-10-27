@@ -2,7 +2,7 @@ $(document).ready(function() {
 	// OSの取得
 	var ua = navigator.userAgent;
 	var os = "";
-	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0){
+	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
 		os = "iOS";
 	} else if (ua.indexOf("Android") > 0){
 		os = "Android"

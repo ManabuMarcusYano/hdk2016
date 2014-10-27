@@ -14,11 +14,12 @@ class AppController extends BaseController{
 	
 	public function postReview($id){
 		Input::flash();
-		if(Input::has('title') && Input::has('message')){
+		if(Input::has('title') && Input::has('message') && Input::has('user_id')){
 			// Modelへ書き込み
 			$review = new Review;
 			$review->application_id = $id;
-			$review->feedback_id = '';
+			$review->reviewer_id = Input::get('user_id');
+			$review->feedback_id = Input::get('feedback_id', '');;
 			$review->completion = Input::get('completion');
 			$review->interest = Input::get('interest');
 			$review->potence = Input::get('potence');

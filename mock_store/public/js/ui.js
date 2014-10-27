@@ -84,7 +84,7 @@ $(document).ready(function() {
 				var count = Object.keys(data).length; //フィードバック数	
 				for(var i = 0 ; i < count ; i++){
 					var json = data[i];
-					var html = '<div class = "feedback"><p><span class = "feedback_title">' + json.title + '</span><br />' + json.reviewer.name + ' - ' + formatDate(json.created_at) + '</p>' + json.message + '</div>';
+					var html = '<div class = "feedback"><p><span class = "feedback_title">' + json.title + '</span><br />' + json.reviewer.username + ' - ' + formatDate(json.created_at) + '</p>' + json.message + '</div>';
 					comment.append(html);
 					comment.children(".feedback").slideDown();					
 				}
@@ -99,11 +99,15 @@ $(document).ready(function() {
 			showReviewModalDialog();
 			var title = "";
 			var message = "";
+			var id = "";
+			var feedback_id = "";
 			title = $(this).attr("name");
 			id = $(this).attr("app_id");
+			feedback_id = $(this).attr("comment_id");
 			message = title + "をプレイしてレビューしよう！";
 			$(".message_box").attr({placeholder : message});
 			$("#review_form").children(".modal_box").children("form").attr({ action : "/" + id + "/post/review"});
+			$("#feedback_id").val(feedback_id);
 		}
 		return false;
 	});
