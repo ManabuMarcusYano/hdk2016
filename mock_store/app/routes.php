@@ -49,3 +49,12 @@ Route::get('logout', function(){
 	Auth::logout();
 	return Redirect::to('/login');
 });
+
+App::error(function(Exception $exception, $code)
+{
+    //Log::error($exception);
+ 
+    //if (Config::get('app.debug') == false) {
+        return Redirect::to('/');
+    //}
+});
