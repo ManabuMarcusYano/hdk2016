@@ -9,4 +9,4 @@
 </div>
 <p class = "can_not_login"><a href="">ログインができない方</a></p>
 <?php //echo $footer; ?>
-<p class="copyright">CyberAgent<p>
+<p class="copyright">Applibot, Inc.<p>

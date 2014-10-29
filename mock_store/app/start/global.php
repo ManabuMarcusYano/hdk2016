@@ -64,7 +64,13 @@ App::error(function(Exception $exception, $code)
 
 App::down(function()
 {
-	return Response::make("Be right back!", 503);
+	//return Response::make("Be right back!", 503);
+	$view = View::make('maintenance');
+	$data = array(
+		'title'=>'Mock Store メンテナンス'
+	);
+	$view->nest('head', 'head', $data);
+	return $view;
 });
 
 /*

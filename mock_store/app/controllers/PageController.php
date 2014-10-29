@@ -65,4 +65,13 @@ class PageController extends BaseController{
 		$view->nest('global_nav', 'global_nav');
 		return $view;
 	}
+	
+	public function maintenance(){
+		$view = View::make('maintenance');
+		$data = array(
+		 	'title'=>'Mock Store メンテナンス中'
+		);
+		$view->nest('head', 'head', $data);
+		return $view;
+	}
 }

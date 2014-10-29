@@ -847,3 +847,23 @@ ranking_info .app_star img{
 	font-size: 10px;
 	color:#000000;
 }
+
+/**
+* メンテ中
+*/
+
+.maintenance_box{
+	width: 209px;
+	height: auto;
+	background-color: #c7c3c2;
+	margin-top: 35px;
+	padding: 15px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	/* Centering*/
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+	text-align:center;
+}
