@@ -11,7 +11,7 @@
 <?php
 $today = date("Y年m月d日 H時i分s秒");
 	print $today;
-	$link = mysql_connect('localhost', 'root', 'root') or die(mysql_error()); 
+	$link = mysql_connect('localhost', 'root', 'applibot') or die(mysql_error()); 
 	mysql_select_db('mock_store') or die(mysql_error());
 	$result = mysql_query('SELECT * from os') or die(mysql_error());
 	while ($data = mysql_fetch_array($result)) {

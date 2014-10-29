@@ -1,0 +1,2 @@
+Commit : commit ebe5d895a8ac81d19e64cb4deccea3f5e4b61ea8 Author: Manabu_YANO <yano_manabu@applibot.co.jp> Date: Thu Oct 30 01:16:07 2014 +0900 メンテシェル
+Branch : deploy_test
