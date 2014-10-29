@@ -17,6 +17,11 @@ Route::get('/index', function(){
 	return Redirect::to('/');
 });
 
+Route::get('/updated', 'PageController@updated');
+Route::get('/unupdated', 'PageController@unupdated');
+Route::get('/recentlyStarted', 'PageController@recentlyStarted');
+Route::get('/previouslyStarted', 'PageController@previouslyStarted');
+
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
 Route::get('/term', 'PageController@term');

@@ -131,6 +131,10 @@ body{
 	text-align: center;
 }
 
+.sort a{
+	display:block;
+}
+
 
 .separation{
 	padding: 0px;

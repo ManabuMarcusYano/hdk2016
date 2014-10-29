@@ -24,6 +24,23 @@ class PageController extends BaseController{
 			return $view;
 		}
 	}
+	
+	public function updated(){
+		return 'updated()';
+	}
+	
+	public function unupdated(){
+		return 'unupdated()';
+	}
+	
+	public function recentlyStarted(){
+		return 'recentlyStarted';	
+	}
+	
+	public function previouslyStarted(){
+		return 'previouslyStarted';
+	}
+	
 
 	public function detail($id){
 		// Modelの呼び出し
