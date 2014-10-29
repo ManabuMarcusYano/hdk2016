@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'mock_store',
 			'username'  => 'root',
-			'password'  => 'root',
+			'password'  => 'applibot',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
