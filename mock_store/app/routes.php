@@ -44,6 +44,7 @@ Route::get('/hello', function(){
 
 // Auth
 Route::when('/', 'auth');
+Route::when('/', 'userAgent');
 
 Route::post('login', function(){
      // バリデーション省略

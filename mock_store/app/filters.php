@@ -48,6 +48,27 @@ Route::filter('auth', function()
 	}
 });
 
+Route::filter('userAgent', function(){
+	$ua = Request::server('HTTP_USER_AGENT');
+	if ((strpos($ua, 'Android') !== false) && (strpos($ua, 'Mobile') !== false) || (strpos($ua, 'iPhone') !== false) || (strpos($ua, 'Windows Phone') !== false)){
+		// スマートフォンからアクセスされた場合
+		//Session::put('layout','jqm');
+	} else if ((strpos($ua, 'Android') !== false) || (strpos($ua, 'iPad') !== false)) {
+		// タブレットからアクセスされた場合	
+		//Session::put('layout','f5');
+	}else{
+		// その他（PC）からアクセスされた場合
+		//Session::put('layout','tbs');
+		$view = View::make('restricted');
+		$data = array(
+			'title'=>'Mock Store'
+		);
+		$view->nest('head', 'head', $data);
+		return $view;	
+	}
+
+});
+
 
 Route::filter('auth.basic', function()
 {
