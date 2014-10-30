@@ -9,13 +9,13 @@
 <div class="header_break"></div>
 <div id = "modal_screen">
     <div class = "sorts modal_sort">
-        <div class = "sort"><a href="/updated">開発開始日が新しい順</a></div>
+        <div class = "sort"><a href="/recentlyStarted">開発開始日が新しい順</a></div>
         <hr class = "separation" />
-        <div class = "sort"><a href="/unupdated">開発開始日が古い順</a></div>
+        <div class = "sort"><a href="/previouslyStarted">開発開始日が古い順</a></div>
         <hr class = "separation" />
-        <div class = "sort"><a href="/recentlyStarted">アップデート日が新しい順</a></div>
+        <div class = "sort"><a href="/updated">アップデート日が新しい順</a></div>
         <hr class = "separation" />
-        <div class = "sort"><a href="/previouslyStarted">アップデート日が古い順</a></div>
+        <div class = "sort"><a href="/unupdated">アップデート日が古い順</a></div>
     </div>
     <div class = "sorts modal_search">
         <div class = "sort">

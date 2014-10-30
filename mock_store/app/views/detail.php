@@ -42,6 +42,7 @@
             <li>カテゴリー : <?php echo $db->category['name']; ?></li>
             <li>最終アップデート : <?php echo date('Y/m/d', strtotime($db->updated_at)); ?></li>
             <li>開発開始 : <?php echo date('Y/m/d', strtotime($db->started_developing_at)); ?></li>
+            <li>リリース予定日 : <?php echo is_null($db->will_release_at) ? '未定' : date('Y/m/d', strtotime($db->will_release_at)); ?></li>
             <li>バージョン : <?php echo $db->version; ?></li>
         </ul>
     </div>

@@ -700,7 +700,7 @@ ranking_info .app_star img{
 }
 
 .detail_info li{
-	list-style-type: decimal;
+	list-style-type:disc;
 	list-style-position: inside;
 }
 

@@ -1,11 +1,11 @@
 <?php
 
 class PageController extends BaseController{
-	public function index(){
+	public function index($sort = 'completion + interest + potence desc'){
 		// Modelの呼び出し
 		define('MAX_CELL_COUNT', 10);
-		$current_dbs = Application::with('company')->with('user')->with('category')->take(MAX_CELL_COUNT)->orderby('id', 'desc')->get();
-		$past_dbs = Application::with('company')->with('user')->with('category')->take(MAX_CELL_COUNT)->orderby('id', 'desc')->get();
+		$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw('will_release_at >= NOW() OR will_release_at is NULL')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+		$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
 		if($current_dbs && $past_dbs){
 
 			// Viewの生成
@@ -26,9 +26,7 @@ class PageController extends BaseController{
 	}
 	
 	public function updated(){
-		//$this->index();
-		
-		
+		return $this->index('updated_at desc');
 		
 		// テスト
 		/*
@@ -38,20 +36,18 @@ class PageController extends BaseController{
             	->subject( 'テストメール' );
    		});
 		*/
-		
-		
 	}
 	
 	public function unupdated(){
-		$this->index();
+		return $this->index('updated_at asc');
 	}
 	
 	public function recentlyStarted(){
-		$this->index();
+		return $this->index('started_developing_at desc');
 	}
 	
 	public function previouslyStarted(){
-		$this->index();
+		return $this->index('started_developing_at asc');
 	}
 	
 
