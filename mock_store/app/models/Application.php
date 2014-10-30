@@ -11,4 +11,8 @@ class Application extends Eloquent{
 	public function category(){
 		return $this->belongsTo('Category', 'category_id');
 	}
+	
+	public function reviewer(){
+		return $this->belongsTo('Review', 'reviewer_id');
+	}
 }

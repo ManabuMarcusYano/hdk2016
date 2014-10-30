@@ -1,13 +1,22 @@
 <?php
 
-class PageController extends BaseController{
-	public function index($sort = 'completion + interest + potence desc'){
-		// Modelの呼び出し
-		define('MAX_CELL_COUNT', 10);
-		$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw('will_release_at >= NOW() OR will_release_at is NULL')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
-		$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
-		if($current_dbs && $past_dbs){
+define('DEFAULT_SORT', 'completion + interest + potence desc');
+define('MAX_CELL_COUNT', 10);
 
+class PageController extends BaseController{
+	public function index($sort = DEFAULT_SORT){
+		// Modelの呼び出し
+		
+		if($sort != 'reviewed'){
+			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+		}else{
+			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->whereRaw("(will_release_at >= NOW() OR will_release_at is NULL)")->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
+			//return Response::json($current_dbs[0]->user['id']);
+			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
+		}
+		
+		if($current_dbs && $past_dbs){
 			// Viewの生成
 			$view = View::make('index');
 			$data = array(
@@ -50,6 +59,9 @@ class PageController extends BaseController{
 		return $this->index('started_developing_at asc');
 	}
 	
+	public function reviewed(){
+		return $this->index('reviewed');
+	}
 
 	public function detail($id){
 		// Modelの呼び出し
