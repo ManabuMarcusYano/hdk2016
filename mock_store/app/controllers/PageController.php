@@ -10,6 +10,9 @@ class PageController extends BaseController{
 		if($sort != 'reviewed'){
 			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
 			$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+		}else if($sort != 'search'){
+			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
 		}else{
 			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->whereRaw("(will_release_at >= NOW() OR will_release_at is NULL)")->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
 			//return Response::json($current_dbs[0]->user['id']);
@@ -63,6 +66,30 @@ class PageController extends BaseController{
 		return $this->index('reviewed');
 	}
 
+	public function search(){
+		Input::flash();
+		if(Input::has('keyword')){
+			$keyword = Input::get('keyword');
+			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
+			
+			if($current_dbs && $past_dbs){
+				// Viewの生成
+				$view = View::make('index');
+				$data = array(
+					'title'=>'Mock Store 検索 '.$keyword
+				);
+				$view->nest('head', 'head', $data);
+				$view->nest('header', 'header');
+				$view->nest('banner', 'banner');
+				$view->nest('global_nav', 'global_nav');
+				$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs);
+				return $view;
+			}
+		}
+		return Redirect::to('/index');
+	}
+	
 	public function detail($id){
 		// Modelの呼び出し
 		$app = Application::with('company')->with('user')->find($id);

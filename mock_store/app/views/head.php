@@ -5,6 +5,8 @@
 	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
 	<meta name="viewport" content="width=270, user-scalable=no">
 	<meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
+	<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
 	<title><?php echo $title;?></title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
     <link rel="stylesheet" type="text/css" href="css/common.css" />

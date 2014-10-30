@@ -19,7 +19,7 @@
     </div>
     <div class = "sorts modal_search">
         <div class = "sort">
-        	<form action = "">
+        	<form action = "/search"  method = "post">
             	<img src = "img/icon_search.png" class = "search_icon"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /><a class = "search_cancel">Cancel</a>
             </form>
     	</div>
