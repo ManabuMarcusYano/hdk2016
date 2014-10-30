@@ -119,6 +119,15 @@ class PageController extends BaseController{
 		$view->nest('head', 'head', $data);
 		return $view;
 	}
+	
+	public function signin(){
+		$view = View::make('signin');
+		$data = array(
+		 	'title'=>'Mock Store ユーザー登録'
+		);
+		$view->nest('head', 'head', $data);
+		return $view;
+	}
 
 	public function term(){
 		$view = View::make('term');

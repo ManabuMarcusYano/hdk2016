@@ -3,7 +3,7 @@
 .login_logo{
 	width: 135px;
 	height: 25px;
-	margin-top: 72px;
+	margin-top: 10px;
 	padding-top: 17px;
 	padding-bottom: 17px;
 	margin-bottom: 0px;
@@ -15,9 +15,9 @@
 
 .login_box{
 	width: 209px;
-	height: 130px;
+	height: auto;
 	background-color: #c7c3c2;
-	margin-top: 35px;
+	margin-top: 10px;
 	padding: 15px;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
@@ -26,6 +26,13 @@
 	display: block;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+.login_box select{
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;	
+	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(0.5, #eeeeee), to(#dddddd));
 }
 
 .id_box, .password_box{

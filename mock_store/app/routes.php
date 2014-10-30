@@ -29,6 +29,7 @@ Route::post('/search', 'PageController@search');
 
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
+Route::get('/signin', 'PageController@signin');
 Route::get('/term', 'PageController@term');
 
 // API
@@ -46,6 +47,7 @@ Route::get('/hello', function(){
 Route::when('/', 'auth');
 Route::when('/', 'userAgent');
 
+// ログイン処理
 Route::post('login', function(){
      // バリデーション省略
 	
@@ -54,8 +56,6 @@ Route::post('login', function(){
 	}
 	return Redirect::back()->withInput();
 });
-
-
 Route::get('logout', function(){
 	Auth::logout();
 	return Redirect::to('/login');
