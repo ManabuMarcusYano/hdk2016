@@ -765,7 +765,7 @@ ranking_info .app_star img{
 
 .review_total{
 	text-align:center;
-	width: 42px;
+	/*width: 42px;*/
 	font-size: 35pt;
 	line-height: 42px;
 	margin-left: auto;
@@ -799,6 +799,7 @@ ranking_info .app_star img{
 	width: 33px;
 	padding:0;
 	margin:0;
+	visibility: hidden;
 }
 
 .action_feedback{

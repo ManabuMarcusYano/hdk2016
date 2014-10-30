@@ -41,6 +41,7 @@ $(document).ready(function() {
 	// レート
 	$(".app_star").raty({
 		halfShow     : true,
+		half     	 : true,
 		readOnly     : true,
 		starHalf     : 'lib/raty-2.7.0/lib/images/star-half.png',
    		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',
@@ -53,6 +54,7 @@ $(document).ready(function() {
 	// レート レビュー
 	$("#review_form .app_star").raty({
 		halfShow     : true,
+		half     	 : true,
 		readOnly     : false,
 		starHalf     : 'lib/raty-2.7.0/lib/images/star-half.png',
    		starOff      : 'lib/raty-2.7.0/lib/images/star-off.png',

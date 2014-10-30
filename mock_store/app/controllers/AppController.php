@@ -26,6 +26,14 @@ class AppController extends BaseController{
 			$review->title = Input::get('title');
 			$review->message = Input::get('message');
 			$review->save();
+			
+			$application = Application::find($id);
+			$application->review_count = Review::whereRaw("application_id = $id AND feedback_id = 0")->count();
+			$application->completion = Review::whereRaw("application_id = $id AND feedback_id = 0")->avg('completion');
+			$application->interest = Review::whereRaw("application_id = $id AND feedback_id = 0")->avg('interest');
+			$application->potence = Review::whereRaw("application_id = $id AND feedback_id = 0")->avg('potence');
+			$application->save();
+			
 			return Redirect::back();
 		}
 		return Redirect::back()->withInput();

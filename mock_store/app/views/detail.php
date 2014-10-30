@@ -12,7 +12,7 @@
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['username']; ?></p>
-            <div class = "app_star" data-score="3.5"></div>
+            <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
             <p class = "app_period">開発から<span class = "app_days"><?php echo( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 );?></span>日<p>
         </div>
     </div>
@@ -51,15 +51,15 @@
 <section class = "review_summary detail_content">
 	<div class = "review_summary_left">
         <p class = "">レビュー</p>
-        <a class = "review_total">4</a>
-        <div class = "app_star" data-score="3.5"></div>
+        <a class = "review_total"><?php echo round(($db->completion + $db->interest + $db->potence) / 3, 1) ;?></a>
+        <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
     </div>
     <div class = "review_summary_right">
-        <p class = "">100件の評価(バージョン1.0)<br />(4325387)<br />
+        <p class = ""><?php echo $db->review_count ;?>件の評価<br /><br />
         <ul>
-            <li>完成度 4.5 <div class = "app_star" data-score="4.5"></div></li>
-            <li>面白さ 2.5 <div class = "app_star" data-score="2.5"></div></li>
-            <li>将来性 4 <div class = "app_star" data-score="4"></div></li>
+            <li>完成度 <?php echo round($db->completion, 1) ;?> <div class = "app_star" data-score="<?php echo $db->completion ;?>"></div></li>
+            <li>面白さ <?php echo round($db->interest, 1) ;?> <div class = "app_star" data-score="<?php echo $db->interest ;?>"></div></li>
+            <li>将来性 <?php echo round($db->potence, 1) ;?> <div class = "app_star" data-score="<?php echo $db->potence ;?>"></div></li>
         </ul>
     </div>
 </section>
