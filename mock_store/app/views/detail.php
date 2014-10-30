@@ -35,7 +35,7 @@
         <div class = "app_img_container"><img src="<?php echo $db->image3_path; ?>" class = "app_img" /></div>
     </section>
     <hr class = "separation" />
-    <p class = "detail_content"><?php echo $db->description; ?></p>
+    <p class = "detail_content"><?php echo nl2br($db->description); ?></p>
     <hr class = "separation" />
     <div class = "detail_content">
     	<ul class = "detail_info">
