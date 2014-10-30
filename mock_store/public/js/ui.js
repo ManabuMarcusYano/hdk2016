@@ -73,7 +73,7 @@ $(document).ready(function() {
 		return false;
 	});
 
-	// フィードバック
+	// フィードバック表示
 	$(".comment").click(function(){
 		var comment = $(this);
 		var id = $(this).attr("comment_id");
@@ -106,7 +106,13 @@ $(document).ready(function() {
 			title = $(this).attr("name");
 			id = $(this).attr("app_id");
 			feedback_id = $(this).attr("comment_id");
-			message = title + "をプレイしてレビューしよう！";
+			if($(this).hasClass("write_review")){
+				message = title + "のコメントにフィードバックしよう！";
+				$(".modal_box form ul").hide();
+			}else{
+				message = title + "をプレイしてレビューしよう！";
+				$(".modal_box form ul").show();
+			}
 			$(".message_box").attr({placeholder : message});
 			$("#review_form").children(".modal_box").children("form").attr({ action : "/" + id + "/post/review"});
 			$("#feedback_id").val(feedback_id);
