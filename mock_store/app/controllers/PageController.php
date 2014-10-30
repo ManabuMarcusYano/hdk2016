@@ -26,19 +26,51 @@ class PageController extends BaseController{
 	}
 	
 	public function updated(){
-		return 'updated()';
+		//$this->index();
+		
+		// これは失敗
+		Mail::send( 'mail', array('user'=>'ミスター'), function ($e){
+        	$e->to( 'mockstore@gmail.com')
+            	->from( 'mockstore@gmail.com', 'Mock Store管理者' )
+            	->subject( 'テストメール' );
+   		});
+		
+		
+		/*
+		//これは成功
+		//文字コード定義(phpソースやHTMLのソースに合わせて設定してください)
+		//以下の定義しないと、文字化けの原因になります。
+		mb_language("Japanese");
+		mb_internal_encoding("UTF-8");
+		
+		//宛先
+		$to = "markn0109@gmail.com";
+		//差出人
+		$header = "From: "."mockstore@applibot.co.jp";
+		//件名
+		$subject = "お問い合わせ";
+		//本文
+		$body = "テストメール送信";
+		
+		if(mb_send_mail($to,$subject,$body,$header)){
+		   echo "Succeeded";
+		}else{
+		   echo "Failed";
+		}
+		}*/
+		
 	}
 	
 	public function unupdated(){
-		return 'unupdated()';
+		$this->index();
 	}
 	
 	public function recentlyStarted(){
-		return 'recentlyStarted';	
+		$this->index();
 	}
 	
 	public function previouslyStarted(){
-		return 'previouslyStarted';
+		$this->index();
 	}
 	
 

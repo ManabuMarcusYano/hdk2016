@@ -15,7 +15,7 @@ return array(
 	|
 	*/
 
-	'driver' => 'smtp',
+	'driver' => 'mail',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -28,7 +28,7 @@ return array(
 	|
 	*/
 
-	'host' => 'smtp.mailgun.org',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'mockstore@applibot.co.jp', 'name' => 'Mock Store 開発チーム'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -67,7 +67,7 @@ return array(
 	|
 	*/
 
-	'encryption' => 'tls',
+	'encryption' => 'ssl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +80,7 @@ return array(
 	|
 	*/
 
-	'username' => null,
+	'username' => 'mockstore@applibot.co.jp',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,11 +93,11 @@ return array(
 	|
 	*/
 
-	'password' => null,
+	'password' => 'yD8BZLHp',
 
 	/*
 	|--------------------------------------------------------------------------
-	| Sendmail System Path
+	| Sendmail System 
 	|--------------------------------------------------------------------------
 	|
 	| When using the "sendmail" driver to send e-mails, we will need to know
