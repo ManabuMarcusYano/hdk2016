@@ -106,7 +106,7 @@ $(document).ready(function() {
 			title = $(this).attr("name");
 			id = $(this).attr("app_id");
 			feedback_id = $(this).attr("comment_id");
-			if($(this).hasClass("write_review")){
+			if($(this).hasClass("action_feedback")){
 				message = title + "のコメントにフィードバックしよう！";
 				$(".modal_box form ul").hide();
 			}else{
