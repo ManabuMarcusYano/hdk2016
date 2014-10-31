@@ -35,7 +35,7 @@
 	background: -webkit-gradient(linear, left top, left bottom, from(#ffffff), color-stop(0.5, #eeeeee), to(#dddddd));
 }
 
-.id_box, .password_box{
+.form_box{
 	background-color: #FFFFFF;
 	color: #c7c3c2;
 	width: 100%;
@@ -44,7 +44,7 @@
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	line-height: 35px;
-	font-size: 14px;
+	font-size: 10px;
 	text-align: left;
 	text-indent: 5px;
 	margin-bottom: 15px;
@@ -58,7 +58,18 @@
 	padding: 0px;
 }
 
-.login_button{
+.mail_address_box{
+	width: 100px;
+	float: left;
+}
+
+.domain_box{
+	width: 100px;
+	font-size:9px;
+	float:right;
+}
+
+.login_button, .signin_button{
 	background-color: #6091c0;
 	color: #FFFFFF;
 	width: 100%;

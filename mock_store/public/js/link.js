@@ -8,6 +8,30 @@ $(document).ready(function() {
 		os = "Android"
 	}
 
+	// 新規登録
+	$(".signin_button").click(function(){
+		var message = "";
+		var username = $("#username").val();
+		var company = $("#company").val();
+		var role = $("#role").val();
+		var mail_address = $("#mail_address").val();
+		var password = $("#password").val();
+		var password_confirmation = $("#password_confirmation").val();
+
+		if(!username){ message += "・ユーザー名を入力してください\n" ; }
+		if(company == 0){ message += "・会社を選択してください\n" ; }
+		if(role == 0){ message += "・ユーザーレベルを選択してください\n" ; }
+		if(!username){ message += "・メールアドレスを入力してください\n" ; }
+		if(!password){ message += "・パスワードを入力してください\n" ; }
+		if(password && password != password_confirmation){ message += "・パスワードが一致しません\n" ; }
+
+		if(message){
+			alert(message);
+			return false;
+		}
+		return true;
+	});
+
 	// 各セル
 	$(".ranking_mod").click(function(){
 		var id = $(this).attr("id"); 
