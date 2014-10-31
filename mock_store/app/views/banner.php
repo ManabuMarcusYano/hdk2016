@@ -1,5 +1,5 @@
 <section class = "banner">
-	<!--<div><img src="banner/banner_test.jpg" class = "banner_img" /></div>-->
-    <div><img src="banner/banner_test2.jpg" class = "banner_img" /></div>
-    <div><img src="banner/banner_test3.jpg" class = "banner_img" /></div>
+	<?php foreach($banners as $banner){?>
+    	<div><a href = "<?php echo $banner->link_path; ?>"><img src="<?php echo $banner->img_path; ?>" class = "banner_img" /></a></div>
+    <?php }?>
 </section>

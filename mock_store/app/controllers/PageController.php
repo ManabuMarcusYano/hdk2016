@@ -18,7 +18,7 @@ class PageController extends BaseController{
 			//return Response::json($current_dbs[0]->user['id']);
 			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
 		}
-		
+		$banners = Banner::all();
 		if($current_dbs && $past_dbs){
 			// Viewの生成
 			$view = View::make('index');
@@ -27,7 +27,7 @@ class PageController extends BaseController{
 			);
 			$view->nest('head', 'head', $data);
 			$view->nest('header', 'header');
-			$view->nest('banner', 'banner');
+			$view->nest('banner', 'banner', array('banners' => $banners));
 			// $view->nest('ranking_mod1', 'ranking_mod1', array('current_dbs' => $current_dbs));
 			// $view->nest('ranking_mod2', 'ranking_mod2', array('past_dbs' => $past_dbs));
 			//$view->nest('footer', 'footer');
@@ -72,7 +72,7 @@ class PageController extends BaseController{
 			$keyword = Input::get('keyword');
 			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
 			$past_dbs    = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
-			
+			$banners = Banner::all();
 			if($current_dbs && $past_dbs){
 				// Viewの生成
 				$view = View::make('index');
@@ -83,7 +83,7 @@ class PageController extends BaseController{
 				$view->nest('header', 'header');
 				$view->nest('banner', 'banner');
 				$view->nest('global_nav', 'global_nav');
-				$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs);
+				$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs)->with('banners', $banners);
 				return $view;
 			}
 		}
