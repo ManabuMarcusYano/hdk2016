@@ -36,6 +36,7 @@ Route::get('/term', 'PageController@term');
 Route::get('/{page}/get', 'AppController@getAppInfo');
 Route::get('/{page}/feedbacks/get', 'AppController@getAppFeedbacks');
 Route::post('/{page}/post/review', 'AppController@postReview');
+Route::post('/register', 'UserController@register');
 
 
 // テスト
@@ -48,15 +49,6 @@ Route::when('/', 'auth');
 Route::when('/', 'userAgent');
 
 // ログイン処理
-Route::post('login', function(){
-     // バリデーション省略
-	
-	if(Auth::attempt(Input::only('mail_address', 'password'))){
-		return Redirect::intended('/');
-	}
-	return Redirect::back()->withInput();
-});
-Route::get('logout', function(){
-	Auth::logout();
-	return Redirect::to('/login');
-});
+
+Route::post('/login', 'LogInOutController@logIn');
+Route::get('/logout', 'LogInOutController@logOut');

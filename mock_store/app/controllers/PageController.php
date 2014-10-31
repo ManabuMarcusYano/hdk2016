@@ -114,19 +114,24 @@ class PageController extends BaseController{
 	public function login(){
 		$view = View::make('login');
 		$data = array(
-		 	'title'=>'Mock Store ログイン'
+			'title'=>'Mock Store ログイン'
 		);
 		$view->nest('head', 'head', $data);
 		return $view;
 	}
 	
 	public function signin(){
-		$view = View::make('signin');
-		$data = array(
-		 	'title'=>'Mock Store ユーザー登録'
-		);
-		$view->nest('head', 'head', $data);
-		return $view;
+		// Modelの呼び出し
+		$companies = Company::all();
+		if($companies){
+			$view = View::make('signin');
+			$data = array(
+				'title'=>'Mock Store ユーザー登録'
+			);
+			$view->nest('head', 'head', $data);
+			$view->with('companies', $companies);
+			return $view;
+		}
 	}
 
 	public function term(){
