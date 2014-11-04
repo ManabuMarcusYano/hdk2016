@@ -39,15 +39,6 @@ class PageController extends BaseController{
 	
 	public function updated(){
 		return $this->index('updated_at desc');
-		
-		// テスト
-		/*
-		Mail::send( 'mail', array('user'=>'ミスター'), function ($e){
-        	$e->to( 'mockstore@gmail.com')
-            	->from( 'mockstore@gmail.com', 'Mock Store管理者' )
-            	->subject( 'テストメール' );
-   		});
-		*/
 	}
 	
 	public function unupdated(){

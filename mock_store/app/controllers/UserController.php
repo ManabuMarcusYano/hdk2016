@@ -31,7 +31,7 @@ class UserController extends BaseController{
 					return Redirect::to('/signin')->withInput();
 				}
 				
-				// Model
+				// Model¸
 				$user = new User();
 				$user->company_id = $company;
 				$user->mail_address = $mail_address;
@@ -40,6 +40,13 @@ class UserController extends BaseController{
 				$user->password = $password;
 				$user->role = $role;
 				$user->save();
+				
+				Mail::send( 'mail', array('username'=> $username), function ($e) use($mail_address){
+        		$e
+				->to($mail_address)
+            	->from('mockstore@applibot.co.jp', 'Mock Store管理者')
+            	->subject('Mock Storeの登録ありがとうございます');
+   				});
 				
 				return Redirect::to('/login')->withInput();
 				
