@@ -36,7 +36,8 @@ class UserController extends BaseController{
 				$user->company_id = $company;
 				$user->mail_address = $mail_address;
 				$user->username = $username;
-				$user->password = Hash::make($password);
+				//$user->password = Hash::make($password);
+				$user->password = $password;
 				$user->role = $role;
 				$user->save();
 				
