@@ -29,7 +29,7 @@ Route::post('/search', 'PageController@search');
 
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
-Route::get('/signin', 'PageController@signin');
+//Route::get('/signin', 'PageController@signin');
 Route::get('/term', 'PageController@term');
 
 // API
