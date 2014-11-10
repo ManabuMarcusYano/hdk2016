@@ -40,12 +40,13 @@
                     <li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
                     <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>
                 </ul>
+                <input type="hidden" name = "rate_valid" value = "1" id = "rate_valid" />
                 <?php }?>
             	<input type="text" name="title" maxlength="20" placeholder="タイトル" class = "title_box" required />
                 <textarea name="message" class = "message_box" placeholder = "" cols = "18" rows ="5" wrap = "physical" required></textarea>
                 <input type="submit" value="投稿する" class = "submit_button" />
                 <input type="hidden" name = "user_id" value="<?php if(Auth::user()){ echo Auth::user()->id; } ?>" />
-                <input type="hidden" name = "feedback_id" value = "" / id = "feedback_id" >
+                <input type="hidden" name = "feedback_id" value = "" id = "feedback_id" />
             </form>
         </div>
 	</div>
