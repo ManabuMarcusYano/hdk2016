@@ -12,9 +12,9 @@
     </select>
     
     <select name = "role" class = "form_box" id = "role" >
-        <option value = "user" label = "--ユーザーレベル--">--ユーザーレベル--</option>
+        <!--<option value = "user" label = "--ユーザーレベル--">--ユーザーレベル--</option>-->
         <option value = "user" label = "一般ユーザー">一般ユーザー</option>
-        <option value = "owner" label = "開発責任者">開発責任者</option>
+        <!--<option value = "owner" label = "開発責任者">開発責任者</option>-->
     </select>
     
 	<input type="text" name="mail_address" maxlength="50" placeholder="メールアドレス" class = "form_box mail_address_box" id = "mail_address" required />

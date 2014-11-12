@@ -91,18 +91,18 @@
 }
 
 .can_not_login{
-	color: #c7c3c2;
+	color: #777777;
 	text-decoration: underline;
 	text-align: center;
 	font-size: 11px;
 	margin-top: 10px;
 }
 .can_not_login a:link, .can_not_login a:visited, .can_not_login a:hover, .can_not_login a:active{
-	color: #c7c3c2;
+	color: #777777;
 }
 
 .copyright{
-	color: #c7c3c2;
+	color: #777777;
 	text-align: center;
 	font-size: 9px;
 	margin-top: 10px;
