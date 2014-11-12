@@ -66,7 +66,7 @@
         <li class="list_common list_sort"><a href="/unupdated">▽アップデート日が古い順</a></li>
         <li class="list_search_icon"><img src = "img/icon_search.png" class = "search_icon_img"></li>
         <li class=""><form action = "/search"  method = "post"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /></form></li>
-        <li class="list_common list_user"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
+        <li class="list_common list_user_info"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
         <li class="list_common"><a href = "/term">利用規約</a></li>
         <li class="list_common"><a href = "/logout">ログアウト</a></li>
     </ul>

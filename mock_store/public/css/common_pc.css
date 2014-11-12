@@ -88,7 +88,7 @@ body{
 	width:105px;
 }
 
-.list_user{
+.list_user_info{
 	width:auto;
 	background-color:transparent;
 }
@@ -370,8 +370,8 @@ body{
 * バナー
 */
 
-.banner_img{
-	width: 100%;
+.banner{
+	display: none;
 }
 
 /**
@@ -379,63 +379,9 @@ body{
 */
 
 .tab{
-	text-align: center;
-	background-color: #FFFFFF;
-	padding: 0;
-	color: #838384;
-	margin-left: 5px;
-	margin-right: 5px;
-	/*margin-top: -25px;*/
-	margin-bottom: 5px;
-	border-radius: 3px;
-	-webkit-border-radius: 3px;
-	padding: 0px;
-	box-sizing: border-box;
-}
-
-.tab li{
-	width: 50%;
-	height: 27px;
-	/*display:block;*/
-	line-height: 27px;
-	float: left;
-	border: 1px solid #838384;
-	box-sizing: border-box;
-	font-size: 12px;
-	box-sizing: border-box;
-}
-
-.tab:after{
-	content: "."; 
-	display:block;
- 	height: 0; 
-  	font-size:0;	
-  	clear: both; 
-  	visibility:hidden;
-}
-
-.tab li:first-child{
-	border-radius:5px 0 0 5px;
-	-webkit-border-radius:5px 0 0 5px;
-}
-
-.tab li:last-child{
-	border-radius:0 5px 5px 0;
-	-webkit-border-radius:0 5px 5px 0;
-}
-
-.tab deselect{
-	background-color: #FFFFFFF;
-	color: #838384;
-}
-
-.tab .select{
-	background-color: #838384;
-	color: #FFFFFF;
-}
-
-.disnon{
-	display: none;
+	visibility:hidden;
+	margin-top: -25px;
+	
 }
 
 /**
