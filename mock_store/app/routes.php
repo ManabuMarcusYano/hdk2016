@@ -16,6 +16,7 @@ Route::get('/', 'PageController@index');
 Route::get('/index', function(){
 	return Redirect::to('/');
 });
+Route::get('/maintenance', 'PageController@maintenance');
 
 // ソート
 Route::get('/updated', 'PageController@updated');
@@ -29,7 +30,7 @@ Route::post('/search', 'PageController@search');
 
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
-//Route::get('/signin', 'PageController@signin');
+Route::get('/signin', 'PageController@signin');
 Route::get('/term', 'PageController@term');
 
 // API
