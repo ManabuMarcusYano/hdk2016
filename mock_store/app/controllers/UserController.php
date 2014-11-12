@@ -73,6 +73,7 @@ class UserController extends BaseController{
 		if(!empty($user)){
 			// パスワード生成
 			$password = str_random(10);
+			$password = 'test';
 			
 			$username = $user->username;
 			$mail_address = $user->mail_address;

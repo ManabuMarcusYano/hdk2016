@@ -35,6 +35,9 @@
 	<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
 	<title><?php if(!empty($title)){ echo $title; }?></title>
 	<link rel="stylesheet" type="text/css" href="css/reset.css" />
+    <link rel="stylesheet" type="text/css" href="css/common.css" />
+    <link rel="stylesheet" type="text/css" href="css/login.css" />
+    <link rel="stylesheet" type="text/css" href="css/term.css" />
     <link rel="stylesheet" type="text/css" href="css/common_pc.css" />
     <link rel="stylesheet" type="text/css" href="css/login_pc.css" />
     <link rel="stylesheet" type="text/css" href="css/term_pc.css" />

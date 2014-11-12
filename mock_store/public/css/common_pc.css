@@ -332,96 +332,12 @@ body{
  * グローバルナビ
  */
 
-.global_nav_break{
-	margin-top: 37px;
-}
 
 .global_nav{
-	width: 100%;
-	height: 37px;
-	background-color: #FFF;
-	border-top-width: 1px;
-	border-top-style: solid;
-	border-top-color: #efefef;
-	position: fixed;
-	bottom: 0px;
-	left: 0px;
-	-webkit-box-shadow: 0 -4px 4px 0 rgba(0,0,0,0.2);
-	box-shadow: 0 -4px 4px 0 rgba(0,0,0,0.2);
+	visibility: hidden;
+	display: none;
 }
 
-.global_nav_box{
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	display: block;
-	text-align: center;
-}
-
-.global_nav_box li{
-	display: inline-block;
-	width: 33%;
-	margin-top: 0px;
-	margin-left: -2px;
-	margin-right: -2px;
-	margin-bottom: 0px;
-}
-
-.global_nav_box li img{
-	display: inline-block;
-	width: 37px;
-	margin: 0px;
-}
-
-.global_nav_box:after{
-	content: "."; 
-	display:block;
- 	height: 0; 
-  	font-size:0;	
-  	clear: both; 
-  	visibility:hidden;
-}
-
-/**
-* フッタ 
-*/
-
-footer{
-	color: #c7c3c2;
-	text-align: center;
-	margin-top: 10px;
-	z-index: 999;
-}
-
-footer ul li{
-	display: inline;
-	text-decoration: underline;
-	line-height: 14px;
-	margin-right:20px;
-}
-
-footer ul li:last-child{
-	margin-right:0px;
-}
-
-footer li:after{
-	content: "."; 
- 	height: 0; 
-  	font-size:0;	
-  	clear: both; 
-  	visibility:hidden;
-}
-
-footer p{
-	margin-top: 10px;
-	padding-bottom: 10px;
-	font-size: 11px;
-}
-
-footer a:link, footer a:visited, footer a:hover, footer a:active{
-	color: #c7c3c2;
-} 
 
 /**
 * バナー
