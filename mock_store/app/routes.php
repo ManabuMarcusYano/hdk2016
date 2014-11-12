@@ -26,7 +26,7 @@ Route::get('/previouslyStarted', 'PageController@previouslyStarted');
 Route::get('/reviewed', 'PageController@reviewed');
 
 // 検索
-Route::post('/search', 'PageController@search');
+Route::any('/search', 'PageController@search');
 
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
@@ -50,6 +50,11 @@ Route::when('/', 'auth');
 Route::when('/', 'userAgent');
 
 // ログイン処理
-
 Route::post('/login', 'LogInOutController@logIn');
 Route::get('/logout', 'LogInOutController@logOut');
+
+Route::get('/iptest', function(){
+	echo Request::ip();
+	//echo Request::server('REMOTE_ADDR');
+	//echo $ipAddress = $_SERVER["REMOTE_ADDR"];
+});

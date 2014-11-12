@@ -62,19 +62,17 @@ class PageController extends BaseController{
 		if(Input::has('keyword')){
 			$keyword = Input::get('keyword');
 			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
-			$past_dbs    = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
 			$banners = Banner::all();
-			if($current_dbs && $past_dbs){
+			if($current_dbs){
 				// Viewの生成
-				$view = View::make('index');
+				$view = View::make('search');
 				$data = array(
 					'title'=>'Mock Store 検索 '.$keyword
 				);
 				$view->nest('head', 'head', $data);
 				$view->nest('header', 'header');
-				$view->nest('banner', 'banner');
 				$view->nest('global_nav', 'global_nav');
-				$view->with('current_dbs', $current_dbs)->with('past_dbs', $past_dbs)->with('banners', $banners);
+				$view->with('current_dbs', $current_dbs)->with('banners', $banners);
 				return $view;
 			}
 		}

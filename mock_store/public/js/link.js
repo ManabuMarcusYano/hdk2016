@@ -32,6 +32,12 @@ $(document).ready(function() {
 		return true;
 	});
 
+	// 検索開始
+	$(".search_icon").click(function(){
+		var keyword = $(".search_box").val();
+		location.href = "/search?keyword="+keyword;
+	});
+
 	// 各セル
 	$(".ranking_mod").click(function(){
 		var id = $(this).attr("id"); 
