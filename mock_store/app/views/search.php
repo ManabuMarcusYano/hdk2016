@@ -1,7 +1,5 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
-<link rel="stylesheet" type="text/css" href="../../public/css/reset.css" />
-<link rel="stylesheet" type="text/css" href="../../public/css/common.css" />
 
 <div class = "search_break"></div>
 <div class = "wrapper">
@@ -9,7 +7,7 @@
 
 <div class = "ranking_mod" id = "<?php echo $db->id; ?>">
     <div class = "ranking_upper">
-        <p class = "ranking_number"><?php echo $i?></p>
+        <p class = "ranking_number"></p>
         <div "ranking_icon">
             <img src="<?php echo $db->logo_path ? $db->logo_path : 'img/no_app_icon.jpg' ; ?>" class = "app_icon">
         </div>

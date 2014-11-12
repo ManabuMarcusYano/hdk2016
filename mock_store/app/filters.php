@@ -52,19 +52,21 @@ Route::filter('userAgent', function(){
 	$ua = Request::server('HTTP_USER_AGENT');
 	if ((strpos($ua, 'Android') !== false) && (strpos($ua, 'Mobile') !== false) || (strpos($ua, 'iPhone') !== false) || (strpos($ua, 'Windows Phone') !== false)){
 		// スマートフォンからアクセスされた場合
-		//Session::put('layout','jqm');
+		Session::put('layout','sp');
 	} else if ((strpos($ua, 'Android') !== false) || (strpos($ua, 'iPad') !== false)) {
 		// タブレットからアクセスされた場合	
-		//Session::put('layout','f5');
+		Session::put('layout','sp');
 	}else{
 		// その他（PC）からアクセスされた場合
-		//Session::put('layout','tbs');
+		Session::put('layout','pc');
+		/*
 		$view = View::make('restricted');
 		$data = array(
 			'title'=>'Mock Store'
 		);
 		$view->nest('head', 'head', $data);
 		return $view;	
+		*/
 	}
 
 });

@@ -1,2 +1,2 @@
-Commit : commit ebe5d895a8ac81d19e64cb4deccea3f5e4b61ea8 Author: Manabu_YANO <yano_manabu@applibot.co.jp> Date: Thu Oct 30 01:16:07 2014 +0900 メンテシェル
-Branch : deploy_test
+Commit : commit 7062c2c618b4e2ad08966dc5c71811d995d61c9e Author: Manabu_YANO <yano_manabu@applibot.co.jp> Date: Wed Nov 12 22:42:59 2014 +0900 裏本番設定
+Branch : master

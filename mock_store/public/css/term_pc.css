@@ -1,0 +1,77 @@
+@charset "UTF-8";
+/* HELP MODULE
+--------------------------------------------------------- */
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  color: white;
+  font-family: 'Hiragino Kaku Gothic ProN', selif;
+  font-size: 1.1rem;
+  font-weight: bold;
+  height: 100%;
+  margin: 0px auto;
+  overflow-x: hidden;
+  vertical-align: baseline;
+  width: 270px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+body > article {
+  font-size: 1.2rem;
+  font-weight: bold;
+  line-height: 1.1rem;
+  text-align: left;
+}
+
+
+body {
+  text-shadow: none;
+  color: #29261f;
+}
+
+body > article {
+  width: 270px;
+  text-shadow: none;
+  color: #29261f;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-shadow: none;
+  line-height: 1.5rem;
+  margin-top: 43px;
+  margin-bottom: 43px;
+}
+
+a {
+  color: #29261f;
+  text-shadow: none;
+}
+
+/** 小分類詳細 **/
+.helpDetail {
+  width: 230px;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+
+.helpGroupDetail h1 {
+  margin-top: 3px;
+  width: 270px;
+  height: 20px;
+  background: url(../../img/popup/ui_popup_belt_001.png) no-repeat;
+  background-size: contain;
+  background-repeat: no-repeat;
+  font-size: 1.3rem;
+  text-align: center;
+  line-height: 20px;
+}
+
+.helpGroupDetail > div {
+  margin: 7px;
+}
