@@ -58,6 +58,14 @@
 	padding: 0px;
 }
 
+.error{
+	color:#F00;
+	background-color:#FCA1A1;
+	text-align:center;
+	line-height:20px;
+	height: 20px;
+}
+
 .mail_address_box{
 	width: 100px;
 	float: left;

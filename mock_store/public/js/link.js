@@ -15,15 +15,15 @@ $(document).ready(function() {
 		var company = $("#company").val();
 		var role = $("#role").val();
 		var mail_address = $("#mail_address").val();
-		var password = $("#password").val();
-		var password_confirmation = $("#password_confirmation").val();
+		// var password = $("#password").val();
+		// var password_confirmation = $("#password_confirmation").val();
 
 		if(!username){ message += "・ユーザー名を入力してください\n" ; }
 		if(company == 0){ message += "・会社を選択してください\n" ; }
 		if(role == 0){ message += "・ユーザーレベルを選択してください\n" ; }
 		if(!username){ message += "・メールアドレスを入力してください\n" ; }
-		if(!password){ message += "・パスワードを入力してください\n" ; }
-		if(password && password != password_confirmation){ message += "・パスワードが一致しません\n" ; }
+		// if(!password){ message += "・パスワードを入力してください\n" ; }
+		// if(password && password != password_confirmation){ message += "・パスワードが一致しません\n" ; }
 
 		if(message){
 			alert(message);

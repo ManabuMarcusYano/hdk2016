@@ -7,6 +7,9 @@
 <div class = "login_box">
         <p>{{$username}}さん</p>
         <p>Mock Storeのユーザー登録ありがとうございます。<br />
+        あなたのパスワードは<br />
+        {{$password}}<br/>
+        です。<br />
         下記リンクからログインしてください。</p>
         <p>
         <div class = "signin_button"><a href="http://mockstore.applibot.co.jp/login">ログイン</a></div>
