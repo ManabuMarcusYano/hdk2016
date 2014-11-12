@@ -1,19 +1,29 @@
 $(document).ready(function() {
+	// OSの取得
+	var ua = navigator.userAgent;
+	var os = "";
+	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
+		os = "iOS";
+	} else if (ua.indexOf("Android") > 0){
+		os = "Android"
+	}
 
 	// テキストリア
 	//$(".message_box").autosize();
 
     // バナー
-	$(".banner").slick({
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 3000,
-		arrows: false,
-		dots: false,
-		easing: true
-	});
+    if(!$(".banner") == undefined){
+		$(".banner").slick({
+			infinite: true,
+			slidesToShow: 1,
+			slidesToScroll: 1,
+			autoplay: true,
+			autoplaySpeed: 3000,
+			arrows: false,
+			dots: false,
+			easing: true
+		});
+	}
 
 	/*
 	$(".banner").slick({
@@ -30,27 +40,31 @@ $(document).ready(function() {
 	*/
 
 	// アプリ画像
-	$(".app_imgs").slick({
-		infinite: false,
-		slidesToShow: 1.86,
-		slidesToScroll: 2,
-		autoplay: false,
-		arrows: false,
-		dots: false,
-		adaptiveHeight: true,
-		touchThreshold: 20
-	});
+	if(!$(".app_imgs") == undefined){
+		$(".app_imgs").slick({
+			infinite: false,
+			slidesToShow: 1.86,
+			slidesToScroll: 2,
+			autoplay: false,
+			arrows: false,
+			dots: false,
+			adaptiveHeight: true,
+			touchThreshold: 20
+		});
+	}
 	
 	// タブ
-	$(".tab li").click(function(){
-		var num = $(".tab li").index(this);
-		$(".wrapper").addClass("disnon");
-		$(".wrapper").eq(num).removeClass("disnon");
-		$(".tab li").removeClass("select");
-		$(".tab li").addClass("deselect");
-		$(this).addClass("select");
-		$(this).removeClass("deselect");
-	});
+	if(os !==''){
+		$(".tab li").click(function(){
+			var num = $(".tab li").index(this);
+			$(".wrapper").addClass("disnon");
+			$(".wrapper").eq(num).removeClass("disnon");
+			$(".tab li").removeClass("select");
+			$(".tab li").addClass("deselect");
+			$(this).addClass("select");
+			$(this).removeClass("deselect");
+		});
+	}
 	
 	// レート
 	$(".app_star").raty({

@@ -379,16 +379,27 @@ body{
 */
 
 .tab{
+	/*
 	visibility:hidden;
 	margin-top: -25px;
-	
+	*/
+	margin-top: 47px;
 }
 
 /**
 * ランキング
 */
 
+.wrapper{
+	float:left;
+}
+
+.disnon{
+	display:block;
+}
+
 .ranking_mod{
+	width: 260px;
 	height: 100px;
 	background-color: #FFF;
 	border-radius: 3px;
