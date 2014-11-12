@@ -30,9 +30,9 @@
 </ul>
 <div class = "wrapper">
     <section class = "app_imgs">
-        <div class = "app_img_container"><img src="<?php echo $db->image1_path; ?>" class = "app_img" /></div>
-        <div class = "app_img_container"><img src="<?php echo $db->image2_path; ?>" class = "app_img" /></div>
-        <div class = "app_img_container"><img src="<?php echo $db->image3_path; ?>" class = "app_img" /></div>
+        <div class = "app_img_container"><img src="<?php echo $db->image1_path; ?>" class = "app_img" data-lightbox = "1" /></div>
+        <div class = "app_img_container"><img src="<?php echo $db->image2_path; ?>" class = "app_img" data-lightbox = "2" /></div>
+        <div class = "app_img_container"><img src="<?php echo $db->image3_path; ?>" class = "app_img" data-lightbox = "3" /></div>
     </section>
     <hr class = "separation" />
     <p class = "detail_content"><?php echo nl2br($db->description); ?></p>
