@@ -67,13 +67,15 @@
         <li class="list_search_icon"><img src = "img/icon_search.png" class = "search_icon_img"></li>
         <li class=""><form action = "/search"  method = "post"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /></form></li>
         <li class="list_common list_user"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
+        <li class="list_common"><a href = "/term">利用規約</a></li>
         <li class="list_common"><a href = "/logout">ログアウト</a></li>
     </ul>
 </header>
 <div class="header_break"></div>
 
-<!--
+
 <div id = "modal_screen">
+<!--
     <div class = "sorts modal_sort">
         <div class = "sort"><a href="/recentlyStarted">開発開始日が新しい順</a></div>
         <hr class = "separation" />
@@ -97,6 +99,7 @@
             <a class = "user_term" href="/term">利用規約</a><a class = "user_logout" href = "/logout">ログアウト</a><div class = "clearfix"></div>
 		</div>
     </div>
+    -->
     <div id = "review_form" class = "sorts modal_user">
    		<div class = "modal_box">
             <form action = "" method = "post">
@@ -117,6 +120,5 @@
         </div>
 	</div>
 </div>
--->
 
 <?php } ?>
