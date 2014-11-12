@@ -1,4 +1,5 @@
 <?php if(Session::get('layout') == 'sp'){ // スマホ用 ?>
+
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>
@@ -25,7 +26,9 @@
     <script src="js/link.js" type="text/javascript"></script>
 </head>
 <body>
+
 <?php }else{ // PC用 ?>
+
 <!DOCTYPE HTML>
 <html lang="ja">
 <head>

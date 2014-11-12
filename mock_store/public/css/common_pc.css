@@ -50,6 +50,7 @@ body{
 	padding-right: 15px;
 	padding-left: 15px;
 	text-align: center;
+	width: 960px;
 }
 
 .header_box li{
@@ -68,28 +69,74 @@ body{
   	visibility:hidden;
 }
 
-.list_category, .list_search, .list_user{
-	width: 16px;
+.list_common{
+	font-size: 10px;
+	background-color: #c7c3c2;
 	height: 16px;
 	margin: 0px;
+	float: left;
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: -3px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 3px;
+}
+.list_sort{
+	font-size: 8px;
+	width:105px;
 }
 
 .list_user{
+	width:auto;
+	background-color:transparent;
+}
+
+.list_search_icon{
+	float:left;
+	height: 16px;
+	margin: 0px;
+	float: left;
+	margin-right: 5px;
 	margin-left: 10px;
-}  
+	margin-top: 0px;
+}
+
+
+.search_icon_img{
+	width: 16px;
+}
+
+.search_box{
+	background-color: #dbdbdf;
+	color: #000000;
+	width: 150px;
+	height: 16px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	line-height: 16px;
+	font-size: 10px;
+	text-align: left;
+	text-indent: 5px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	margin-right: 5px;
+	border: none;
+	padding: 3px;
+	float:left;
+	margin-top: -3px;
+}
 
 .list_logo{
 	width: 94px;
 	height: 16px;
 	margin-top: 0px;
 	margin-bottom: 0px;
-	margin-right: 20px;
-	margin-left: 55px;
-}
-
-.icon_category, .icon_search, .icon_user{
-	height: 16px;
-	width: 16px;
+	margin-right: 10px;
+	margin-left: 5px;
+	float: left;
 }
 
 .header_logo{
@@ -165,26 +212,6 @@ body{
 	display:none;
 }
 
-.search_box{
-	background-color: #dbdbdf;
-	color: #000000;
-	width: 205px;
-	height: 25px;
-	border-radius: 3px;
-	-moz-border-radius: 3px;
-	-webkit-border-radius: 3px;
-	line-height: 25px;
-	font-size: 10px;
-	text-align: left;
-	text-indent: 20px;
-	margin-bottom: 0px;
-	margin-left: 8px;
-	margin-right: 8px;
-	border: none;
-	padding: 0px;
-	float:left;
-	margin-top: 10px;
-}
 
 .search_cancel{
 	color: #6091c0;
