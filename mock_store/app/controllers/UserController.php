@@ -44,10 +44,10 @@ class UserController extends BaseController{
 				$user->save();
 				
 				Mail::send( 'mail', array('username'=> $username, 'password' => $password), function ($e) use($mail_address){
-        		$e
-				->to($mail_address)
-            	->from('mockstore@applibot.co.jp', 'Mock Store管理者')
-            	->subject('Mock Storeの登録ありがとうございます');
+					$e
+					->to($mail_address)
+					->from('mockstore@applibot.co.jp', 'Mock Store管理者')
+					->subject('Mock Storeの登録ありがとうございます');
    				});
 				
 				return Redirect::to('/login')->withInput();
@@ -58,5 +58,37 @@ class UserController extends BaseController{
 		}
 		$error = "入力漏れがあります。";
 		return Redirect::to('/signin')->withInput()->with('error', $error);;
+	}
+	
+	public function allPasswordChange(){
+		$users = User::all();
+		foreach($users as $user){
+			$id = $user->id;
+			$this->passwordChange($id);
+		}
+	}
+	
+	public function passwordChange($id){
+		$user = User::find($id);
+		if(!empty($user)){
+			// パスワード生成
+			$password = str_random(10);
+			
+			$username = $user->username;
+			$mail_address = $user->mail_address;
+			
+			$user->password = $password;
+			$user->save();
+			
+			Mail::send( 'passwordchange', array('username'=> $username, 'password' => $password), function ($e) use($mail_address){
+				$e
+				->to($mail_address)
+				->from('mockstore@applibot.co.jp', 'Mock Store管理者')
+				->subject('Mock Storeパスワード変更のお知らせ');
+			});
+			// echo 'your password: '.$password;
+		}else{
+			// echo 'no user found';
+		}
 	}
 }

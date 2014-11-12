@@ -58,3 +58,8 @@ Route::get('/iptest', function(){
 	//echo Request::server('REMOTE_ADDR');
 	//echo $ipAddress = $_SERVER["REMOTE_ADDR"];
 });
+
+// パスワード変更
+// 厳重注意！
+Route::get('/allpasswordchange', 'UserController@allPasswordChange');
+Route::get('/{id}/passwordchange', 'UserController@passwordChange');
