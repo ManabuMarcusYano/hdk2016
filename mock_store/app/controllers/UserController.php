@@ -73,7 +73,6 @@ class UserController extends BaseController{
 		if(!empty($user)){
 			// パスワード生成
 			$password = str_random(10);
-			$password = 'test';
 			
 			$username = $user->username;
 			$mail_address = $user->mail_address;
@@ -81,13 +80,15 @@ class UserController extends BaseController{
 			$user->password = $password;
 			$user->save();
 			
+			
 			Mail::send( 'passwordchange', array('username'=> $username, 'password' => $password), function ($e) use($mail_address){
 				$e
 				->to($mail_address)
 				->from('mockstore@applibot.co.jp', 'Mock Store管理者')
-				->subject('Mock Storeパスワード変更のお知らせ');
+				->subject('Mock Storeパスワード登録・変更のお知らせ');
 			});
-			// echo 'your password: '.$password;
+			
+			 echo 'your password: '.$password;
 		}else{
 			// echo 'no user found';
 		}

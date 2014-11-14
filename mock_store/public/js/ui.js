@@ -12,7 +12,7 @@ $(document).ready(function() {
 	//$(".message_box").autosize();
 
     // バナー
-    if(!$(".banner") == undefined){
+    if($(".banner") != undefined){
 		$(".banner").slick({
 			infinite: true,
 			slidesToShow: 1,
@@ -40,7 +40,7 @@ $(document).ready(function() {
 	*/
 
 	// アプリ画像
-	if(!$(".app_imgs") == undefined){
+	if($(".app_imgs") != undefined){
 		$(".app_imgs").slick({
 			infinite: false,
 			slidesToShow: 1.86,
