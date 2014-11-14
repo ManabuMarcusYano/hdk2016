@@ -80,6 +80,8 @@ class UserController extends BaseController{
 			$user->password = $password;
 			$user->save();
 			
+			echo str_pad('',256);
+  			flush();
 			
 			Mail::send( 'passwordchange', array('username'=> $username, 'password' => $password), function ($e) use($mail_address){
 				$e
@@ -92,5 +94,14 @@ class UserController extends BaseController{
 		}else{
 			// echo 'no user found';
 		}
+	}
+	
+	public function showPassword($id){
+			$user = User::find($id);
+			if(!empty($user)){
+				$password =  $user->password;
+				echo 'your pw:'.$password;
+			}
+			return; 
 	}
 }
