@@ -63,3 +63,6 @@ Route::get('/iptest', function(){
 // 厳重注意！
 Route::get('/allpasswordchange', 'UserController@allPasswordChange');
 Route::get('/{id}/passwordchange', 'UserController@passwordChange');
+
+// パスワード確認
+Route::get('/{id}/showpassword', 'UserController@showPassword');

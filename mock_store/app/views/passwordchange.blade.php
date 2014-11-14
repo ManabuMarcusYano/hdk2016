@@ -6,7 +6,8 @@
 <body>
 <div class = "login_box">
         <p>{{$username}}さん</p>
-        <p>Mock Storeのパスワードが変更されました。<br />
+        <p>Mock Storeのパスワードが登録・変更されました。<br />
+        このメールアドレスになります<br />
         あなたのパスワードは<br />
         {{$password}}<br/>
         です。<br />
