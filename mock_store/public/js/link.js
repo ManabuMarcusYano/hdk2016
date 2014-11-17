@@ -1,4 +1,4 @@
-$(document).ready(function() {	
+$(window).load(function() {	
 	// OSの取得
 	var ua = navigator.userAgent;
 	var os = "";
@@ -15,7 +15,7 @@ $(document).ready(function() {
 		var password = $(this).children(".password").val();
 		if(mail_address != undefined && password != undefined){
 			if(os == "iOS"){
-				location.href = "native://setUserData/" + mail_address + "/" +password);
+				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}else if(os == "Android"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}
