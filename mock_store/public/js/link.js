@@ -8,6 +8,17 @@ $(document).ready(function() {
 		os = "Android"
 	}
 
+	$("form").submit(function(){
+		var mail_address = $(this).children(".mail_address").val();
+		var password = $(this).children(".password").val();
+		if(mail_address != undefined && password != undefined){
+			open("native://setUserData/" + mail_address + "/" +password);
+		}
+		return true;
+	});
+	
+	location.href = "native://getUserData/";
+
 	// 新規登録
 	$(".signin_button").click(function(){
 		var message = "";
@@ -101,3 +112,8 @@ $(document).ready(function() {
 	});
 	
 });
+
+function getUserDataFromNative(mail_address, password){
+		$('form').children('.mail_address').val(mail_address);
+		$('form').children('.password').val(password);
+}
