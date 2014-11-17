@@ -1,7 +1,6 @@
 $(document).ready(function() {	
 	// OSの取得
 	var ua = navigator.userAgent;
-	alert(ua);
 	var os = "";
 	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
 		os = "iOS";
@@ -18,14 +17,13 @@ $(document).ready(function() {
 			}else if(os == "Android"){
 				//jsInterface.setUserData(mail_address, password);
 				location.href = "native://setUserData/" + mail_address + "/" +password;
-				return false;
 			}
 		}
 		return true;
 	});
 	
 	if(os == "iOS"){
-		location.href = "native://getUserData/";
+		open("native://getUserData/");
 	}else if(os == "Android"){
 		//jsInterface.getUserData();
 		location.href = "native://getUserData/";
@@ -127,7 +125,7 @@ $(document).ready(function() {
 });
 
 function getUserDataFromNative(mail_address, password){
-		alert("mail_address");
+		alert(mail_address);
 		$('form').children('.mail_address').val(mail_address);
 		$('form').children('.password').val(password);
 }
