@@ -4,8 +4,10 @@ $(document).ready(function() {
 	var os = "";
 	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
 		os = "iOS";
+		location.href = "native://getUserData/";
 	} else if (ua.indexOf("Android") > 0){
-		os = "Android"
+		os = "Android";
+		location.href = "native://getUserData/";
 	}
 
 	$("form").submit(function(){
@@ -13,22 +15,13 @@ $(document).ready(function() {
 		var password = $(this).children(".password").val();
 		if(mail_address != undefined && password != undefined){
 			if(os == "iOS"){
-				open("native://setUserData/" + mail_address + "/" +password);
+				location.href = "native://setUserData/" + mail_address + "/" +password);
 			}else if(os == "Android"){
-				//jsInterface.setUserData(mail_address, password);
 				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}
 		}
 		return true;
 	});
-	
-	if(os == "iOS"){
-		open("native://getUserData/");
-	}else if(os == "Android"){
-		//jsInterface.getUserData();
-		location.href = "native://getUserData/";
-	}
-
 
 	// 新規登録
 	$(".signin_button").click(function(){
@@ -125,7 +118,6 @@ $(document).ready(function() {
 });
 
 function getUserDataFromNative(mail_address, password){
-		alert(mail_address);
 		$('form').children('.mail_address').val(mail_address);
 		$('form').children('.password').val(password);
 }
