@@ -4,6 +4,10 @@
  * 共通
  */
  
+html{
+	width 320px;
+} 
+ 
 body{ 
 	background-image:url("../img/bg.jpg");
 	background-repeat:repeat;

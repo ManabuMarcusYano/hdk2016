@@ -19,7 +19,7 @@ body {
   margin: 0px auto;
   overflow-x: hidden;
   vertical-align: baseline;
-  width: 270px;
+  /*width: 270px;*/
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
@@ -28,6 +28,8 @@ body > article {
   font-weight: bold;
   line-height: 1.1rem;
   text-align: left;
+  margin-right:auto;
+  margin-left:auto;
 }
 
 

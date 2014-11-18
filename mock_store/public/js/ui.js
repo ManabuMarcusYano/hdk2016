@@ -8,6 +8,10 @@ $(document).ready(function() {
 		os = "Android"
 	}
 
+	// $(window).width(320);
+	// var width = document.documentElement.clientWidth;
+	// alert("ClientWidth = " + width);
+
 	// テキストリア
 	//$(".message_box").autosize();
 
