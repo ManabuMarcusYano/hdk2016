@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="ROBOTS" content="NOINDEX, NOFOLLOW">
-	<meta name="viewport" content="width=270, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="viewport" content="width=270, user-scalable=no">
 	<!--<meta name="apple-mobile-web-app-capable" content="yes" />-->
     <link rel="shortcut icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
 	<link rel="icon" href="/favicon.ico" type="image/vnd.microsoft.icon">
