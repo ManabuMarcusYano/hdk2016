@@ -58,6 +58,18 @@
 	padding: 0px;
 }
 
+.mockstore_app_download{
+	display:block;
+	color:#000000;
+	text-decoration:none;
+	text-align:center;
+}
+
+.mockstore_app_download:link, .mockstore_app_download:active, .mockstore_app_download:visited, .mockstore_app_download:hover{
+	color:#000000;
+	text-decoration:none;
+}
+
 .error{
 	color:#F00;
 	background-color:#FCA1A1;

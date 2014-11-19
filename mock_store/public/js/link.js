@@ -114,6 +114,20 @@ $(window).load(function() {
 		}
 		return false;
 	});
+
+	$(".btn_mock_stoe_app_ios").click(function(){
+		if(os != "iOS"){
+			alert("お使いの端末ではアプリをインストールすることができません");
+			return false;
+		}
+	});
+
+	$(".btn_mock_stoe_app_android").click(function(){
+		if(os != "Android"){
+			alert("お使いの端末ではアプリをインストールすることができません");
+			return false;
+		}
+	});
 	
 });
 
