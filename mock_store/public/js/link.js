@@ -13,7 +13,7 @@ $(window).load(function() {
 	$("form").submit(function(){
 		var mail_address = $(this).children(".mail_address").val();
 		var password = $(this).children(".password").val();
-		if(mail_address != undefined && password != undefined){
+		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
 			if(os == "iOS"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}else if(os == "Android"){
@@ -118,6 +118,12 @@ $(window).load(function() {
 });
 
 function getUserDataFromNative(mail_address, password){
-		$('form').children('.mail_address').val(mail_address);
-		$('form').children('.password').val(password);
+		mail_address_val = $('form').children('.mail_address').val();
+		password_val = ('form').children('.password').val();
+		if(mail_address_val == ""){
+			$('form').children('.mail_address').val(mail_address);
+		}
+		if(password_val){
+			$('form').children('.password').val(password);
+		}
 }
