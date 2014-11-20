@@ -46,8 +46,8 @@ Route::get('/hello', function(){
 });
 
 // Auth
-Route::when('/', 'auth');
 Route::when('/', 'userAgent');
+Route::when('/', 'auth');
 
 // ログイン処理
 Route::post('/login', 'LogInOutController@logIn');

@@ -16,8 +16,10 @@ $(window).load(function() {
 		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
 			if(os == "iOS"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
-			}else if(os == "Android"){
+				return false;
+			} else if(os == "Android"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
+				return false;
 			}
 		}
 		return true;
@@ -128,16 +130,16 @@ $(window).load(function() {
 			return false;
 		}
 	});
-	
+
 });
 
 function getUserDataFromNative(mail_address, password){
 		mail_address_val = $('form').children('.mail_address').val();
-		password_val = ('form').children('.password').val();
+		password_val = $('form').children('.password').val();
 		if(mail_address_val == ""){
 			$('form').children('.mail_address').val(mail_address);
 		}
-		if(password_val){
+		if(password_val == ""){
 			$('form').children('.password').val(password);
 		}
 }
