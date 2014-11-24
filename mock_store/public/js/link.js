@@ -131,6 +131,7 @@ $(window).load(function() {
 		}
 	});
 
+	// レビュー削除
 	$(".action_delete").click(function(){
 		var id = $(this).parent().parent().attr("comment_id");
 		if(confirm("レビューを削除してもよろしいですか？")){

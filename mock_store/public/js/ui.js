@@ -128,29 +128,80 @@ $(document).ready(function() {
 
 	// レビューを書く
 	$(".btn_write_review").click(function(){
+		writeReview(this, true);
+		return false;
+	});
+
+	function writeReview(object, isNewPost){
 		if(isShowingModal == false){
 			hideOtherButtonsAndShowModal();
 			showReviewModalDialog();
+
 			var title = "";
 			var message = "";
 			var id = "";
 			var feedback_id = "";
-			title = $(this).attr("name");
-			id = $(this).attr("app_id");
-			feedback_id = $(this).attr("comment_id");
-			if($(this).hasClass("action_feedback")){
-				message = title + "のコメントにフィードバックしよう！";
-				$(".modal_box form ul").hide();
+			var actionURL = "";
+
+			if(isNewPost){
+				title = $(object).attr("name");
+				id = $(object).attr("app_id");
+				feedback_id = $(object).attr("comment_id");
+				actionURL = "/" + id + "/post/review";
+
+				if($(object).hasClass("action_feedback")){
+					message = title + "のコメントにフィードバックしよう！";
+					$(".modal_box form ul").hide();
+				}else{
+					message = title + "をプレイしてレビューしよう！";
+					$(".modal_box form ul").show();
+				}
+
+				$(".message_box").attr({placeholder : message});
+				$("#review_form").children(".modal_box").children("form").attr({ action : actionURL });
+				$("#feedback_id").val(feedback_id);
+				$(".submit_button").val("投稿する");
+				return;
+
 			}else{
-				message = title + "をプレイしてレビューしよう！";
-				$(".modal_box form ul").show();
+				id = $(object).parent().parent().attr("comment_id");
+				actionURL = "/" + id + "/edit/review";
+				$.ajax({
+				type: "GET",
+				scriptCharset: 'utf-8',
+				dataType:'json',
+				url: id + "/review/get",
+				}).done(function(data) {
+					title = data.title;
+					message = data.message;
+					var completion = data.completion;
+					var interest = data.interest;
+					var potence = data.potence;
+
+				$(".message_box").attr({placeholder : message});
+				$("#review_form").children(".modal_box").children("form").attr({ action : actionURL });
+				$("#feedback_id").val("");
+				$(".title_box").val(title);
+				$("#completion").raty({ score: completion });
+				$("#interest").raty({ score: interest });
+				$("#potence").raty({ score: potence });
+				$(".submit_button").val("編集する");
+								
+				}).fail(function(data){
+					return;
+				});
 			}
-			$(".message_box").attr({placeholder : message});
-			$("#review_form").children(".modal_box").children("form").attr({ action : "/" + id + "/post/review"});
-			$("#feedback_id").val(feedback_id);
+
+			
 		}
-		return false;
+	}
+
+	// 自身が投稿したレビューを編集する
+	$(".action_edit").click(function(){
+		//var id = $(this).parent().parent().attr("comment_id");
+		writeReview(this, false);
 	});
+
 
 	// ヘッダ
 	var isShowingModal = false;

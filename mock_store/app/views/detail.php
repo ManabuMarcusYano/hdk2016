@@ -72,7 +72,7 @@
     	<div class = "action_box">
         	<img src = "img/btn_unlike.png" class = "action_like">
             <?php if(Auth::user()->id == $review->reviewer_id){ ?> <img src = "img/btn_delete.png" class = "action_delete"> <?php } ?>
-        	<img src = "img/btn_edit.png" class = "action_edit">
+        	<!--<img src = "img/btn_edit.png" class = "action_edit">-->
             <?php if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?><img src = "img/btn_feedback.png" class = "action_feedback btn_write_review" comment_id = "<?php echo $review->id ;?>" app_id = "<?php echo $db->id; ?>" name = "<?php echo $db->name; ?>"><?php }?>
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>

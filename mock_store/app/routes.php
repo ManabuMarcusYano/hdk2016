@@ -36,7 +36,9 @@ Route::get('/term', 'PageController@term');
 // API
 Route::get('/{page}/get', 'AppController@getAppInfo');
 Route::get('/{page}/feedbacks/get', 'AppController@getAppFeedbacks');
+Route::get('/{page}/review/get', 'AppController@getAppReview');
 Route::post('/{page}/post/review', 'AppController@postReview');
+Route::post('/{page}/edit/review', 'AppController@editReview');
 Route::any('/{page}/delete/review', 'AppController@deleteReview');
 Route::post('/register', 'UserController@register');
 

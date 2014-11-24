@@ -12,6 +12,13 @@ class AppController extends BaseController{
 		return Response::json($reviews);
 	}
 	
+	public function getAppReview($id){
+		$review = Review::find($id);
+		if(!empty($review)){
+			return Response::json($review);
+		}
+	}
+	
 	public function postReview($id){
 		Input::flash();
 		if(Input::has('title') && Input::has('message') && Input::has('user_id')){
