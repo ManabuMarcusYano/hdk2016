@@ -131,6 +131,13 @@ $(window).load(function() {
 		}
 	});
 
+	$(".action_delete").click(function(){
+		var id = $(this).parent().parent().attr("comment_id");
+		if(confirm("レビューを削除してもよろしいですか？")){
+			location.href = id + "/delete/review";
+		}
+	});
+
 });
 
 function getUserDataFromNative(mail_address, password){

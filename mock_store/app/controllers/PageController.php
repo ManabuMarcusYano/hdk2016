@@ -82,7 +82,7 @@ class PageController extends BaseController{
 	public function detail($id){
 		// Modelの呼び出し
 		$app = Application::with('company')->with('user')->find($id);
-		$reviews = Review::with('reviewer')->with('feedbacker')->whereRaw("application_id = $id and feedback_id = ''")->get();
+		$reviews = Review::with('reviewer')->with('feedbacker')->whereRaw("application_id = $id and feedback_id = '' and deleted = false")->get();
 		
 		if($app && $reviews){
 			// Viewの生成

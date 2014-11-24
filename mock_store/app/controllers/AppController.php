@@ -39,4 +39,20 @@ class AppController extends BaseController{
 		}
 		return Redirect::back()->withInput();
 	}
+	
+	public function deleteReview($id){
+		// Model経書き込み
+		$review = Review::find($id);
+		if(empty($review)){	
+			return;
+		}
+		if($review->reviewer_id != Auth::user()->id){
+			return;
+		}
+		
+		$review->deleted = true;
+		$review->save();
+		
+		return Redirect::back();
+	}
 }
