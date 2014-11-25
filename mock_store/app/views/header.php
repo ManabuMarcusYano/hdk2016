@@ -47,7 +47,7 @@
                 <?php }}?>
             	<input type="text" name="title" maxlength="20" placeholder="タイトル" class = "title_box" required />
                 <textarea name="message" class = "message_box" placeholder = "" cols = "18" rows ="5" wrap = "physical" required></textarea>
-                <input type="submit" value="投稿する" class = "submit_button" />
+                <input type="submit" value="投稿する" class = "submit_button"  id="post_review" />
                 <input type="hidden" name = "user_id" value="<?php if(Auth::user()){ if(Auth::user()){ echo Auth::user()->id; }} ?>" />
                 <input type="hidden" name = "feedback_id" value = "" id = "feedback_id" />
             </form>

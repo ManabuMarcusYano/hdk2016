@@ -10,7 +10,7 @@ $(window).load(function() {
 		location.href = "native://getUserData/";
 	}
 
-	$("#login").submit(function(){
+	$("#login").click(function(){
 		var mail_address = $(this).children(".mail_address").val();
 		var password = $(this).children(".password").val();
 		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
@@ -25,7 +25,7 @@ $(window).load(function() {
 
 	// 新規登録
 	$(".signin_button").click(function(){
-		var message = "";
+		var error = "";
 		var username = $("#username").val();
 		var company = $("#company").val();
 		var role = $("#role").val();
@@ -33,18 +33,46 @@ $(window).load(function() {
 		// var password = $("#password").val();
 		// var password_confirmation = $("#password_confirmation").val();
 
-		if(!username){ message += "・ユーザー名を入力してください\n" ; }
-		if(company == 0){ message += "・会社を選択してください\n" ; }
-		if(role == 0){ message += "・ユーザーレベルを選択してください\n" ; }
-		if(!username){ message += "・メールアドレスを入力してください\n" ; }
+		if(!username){ error += "・ユーザー名を入力してください\n" ; }
+		if(company == 0){ error += "・会社を選択してください\n" ; }
+		if(role == 0){ error += "・ユーザーレベルを選択してください\n" ; }
+		if(!username){ error += "・メールアドレスを入力してください\n" ; }
 		// if(!password){ message += "・パスワードを入力してください\n" ; }
 		// if(password && password != password_confirmation){ message += "・パスワードが一致しません\n" ; }
 
-		if(message){
-			alert(message);
+		if(error){
+			alert(error);
 			return false;
 		}
 		return true;
+	});
+
+	// レビューバリデート
+	$("#post_review").click(function(){
+		var error = "";
+		var title = "";
+		var message = "";
+		var confirmation = "";
+		title = $(this).parent().find("input[name=title]").val();
+		message = $(this).parent().find("textarea[name=message]").val();
+
+		var completion = $("#completion").find("input[name=completion]").val();
+		var interest = $("#interest").find("input[name=interest]").val();
+		var potence = $("#potence").find("input[name=potence]").val();
+
+		confirmation = "下記の内容でレビューを投稿しますか？\n" + "完成度:" + completion + "\n面白さ:" + interest + "\n将来性:" + potence + "\n" + title + "\n" + message; 
+
+		if(!title){ error += "タイトルを入力してください\n"; }
+		if(!message){ error += "レビュー詳細を入力してください\n"; }
+		if(error){
+			alert(error);
+			return false;
+		}
+		if(confirm(confirmation)){
+			return true;
+		}
+		return false;
+		
 	});
 
 	// 検索開始
