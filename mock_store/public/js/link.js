@@ -10,7 +10,7 @@ $(window).load(function() {
 		location.href = "native://getUserData/";
 	}
 
-	$("form").submit(function(){
+	$("#login").submit(function(){
 		var mail_address = $(this).children(".mail_address").val();
 		var password = $(this).children(".password").val();
 		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){

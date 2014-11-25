@@ -158,8 +158,21 @@ $(document).ready(function() {
 				}
 
 				$(".message_box").attr({placeholder : message});
+				$(".message_box").val("");
 				$("#review_form").children(".modal_box").children("form").attr({ action : actionURL });
 				$("#feedback_id").val(feedback_id);
+				$(".title_box").val("");
+
+				$("#review_form .app_star").attr({"data-score" : 3});
+				$("#review_form .app_star").raty({
+			    	scoreName    : function(){
+			        	return $(this).attr('id');
+			        },
+			  		score: function() {
+			    		return $(this).attr('data-score');
+			    	}
+			  	});
+
 				$(".submit_button").val("投稿する");
 				return;
 
@@ -178,13 +191,24 @@ $(document).ready(function() {
 					var interest = data.interest;
 					var potence = data.potence;
 
-				$(".message_box").attr({placeholder : message});
+				$(".message_box").val(message);
 				$("#review_form").children(".modal_box").children("form").attr({ action : actionURL });
 				$("#feedback_id").val("");
 				$(".title_box").val(title);
-				$("#completion").raty({ score: completion });
-				$("#interest").raty({ score: interest });
-				$("#potence").raty({ score: potence });
+
+				$("#completion").attr({"data-score" : completion});
+				$("#interest").attr({"data-score" : interest});
+				$("#potence").attr({"data-score" : potence});
+
+				$("#review_form .app_star").raty({
+			    	scoreName    : function(){
+			        	return $(this).attr('id');
+			        },
+			  		score: function() {
+			    		return $(this).attr('data-score');
+			    	}
+			  	});
+
 				$(".submit_button").val("編集する");
 								
 				}).fail(function(data){

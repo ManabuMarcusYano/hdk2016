@@ -1,7 +1,7 @@
 <?php echo $head; ?>
 <img src="img/logo.png" class="login_logo" />
 <div class = "login_box">
-	<form action = "/login" method = "post">
+	<form action = "/login" method = "post" id="login">
 	<input type="text" name="mail_address" maxlength="50" placeholder="メールアドレス" class = "form_box mail_address" value="<?php echo Session::get('mail_address'); ?>"/>
     <input type="password" name="password" maxlength="30" placeholder="パスワード" class = "form_box password"  value="<?php echo Session::get('password'); ?>" />
     <input type="submit" value="ログイン" class = "login_button" />
