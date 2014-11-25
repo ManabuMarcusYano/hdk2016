@@ -617,11 +617,12 @@ ranking_info .app_star img{
 
 .app_period{
 	color: #a9a4a1;
-	font-size: 10px;
-	display: inline-block;
-	margin-top: 5px;
+	font-size: 6px;
+	display: inline;
+	margin-top: 0px;
 	float: right;
 	line-height: 10px;
+	height: 10px;
 }
 
 .app_days{
@@ -872,7 +873,7 @@ ranking_info .app_star img{
 .maintenance_box{
 	width: 209px;
 	height: auto;
-	background-color: #c7c3c2;
+	background-color: #c7c3c2;.
 	margin-top: 35px;
 	padding: 15px;
 	border-radius: 3px;
