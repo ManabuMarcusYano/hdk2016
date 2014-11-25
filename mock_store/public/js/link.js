@@ -16,10 +16,8 @@ $(window).load(function() {
 		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
 			if(os == "iOS"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
-				return false;
-			} else if(os == "Android"){
+			}else if(os == "Android"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
-				return false;
 			}
 		}
 		return true;
