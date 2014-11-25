@@ -57,10 +57,11 @@ $(window).load(function() {
 		message = $(this).parent().find("textarea[name=message]").val();
 
 		var completion = $("#completion").find("input[name=completion]").val();
-		var interest = $("#interest").find("input[name=interest]").val();
-		var potence = $("#potence").find("input[name=potence]").val();
+		// var interest = $("#interest").find("input[name=interest]").val();
+		// var potence = $("#potence").find("input[name=potence]").val();
 
-		confirmation = "下記の内容でレビューを投稿しますか？\n" + "完成度:" + completion + "\n面白さ:" + interest + "\n将来性:" + potence + "\n" + title + "\n" + message; 
+		//confirmation = "下記の内容でレビューを投稿しますか？\n" + "完成度:" + completion + "\n面白さ:" + interest + "\n将来性:" + potence + "\n" + title + "\n" + message; 
+		confirmation = "下記の内容でレビューを投稿しますか？\n" + "評価:" + completion + "\n" + title + "\n" + message; 
 
 		if(!title){ error += "タイトルを入力してください\n"; }
 		if(!message){ error += "レビュー詳細を入力してください\n"; }

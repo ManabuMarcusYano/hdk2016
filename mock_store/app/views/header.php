@@ -38,10 +38,9 @@
    		<div class = "modal_box">
             <form action = "" method = "post">
             	<?php if(Auth::user()){ if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?>
-                <ul>
-                    <li>完成度<div class = "app_star" id = "completion" data-score="3"></div></li>
-                    <li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
-                    <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>
+                <ul>評価<div class = "app_star" id = "completion" data-score="3"></div></li>
+                    <!--<li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
+                    <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>-->
                 </ul>
                 <input type="hidden" name = "rate_valid" value = "1" id = "rate_valid" />
                 <?php }}?>
@@ -105,9 +104,9 @@
             <form action = "" method = "post">
             	<?php if(Auth::user()){ if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?>
                 <ul>
-                    <li>完成度<div class = "app_star" id = "completion" data-score="3"></div></li>
-                    <li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
-                    <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>
+                    <li>評価<div class = "app_star" id = "completion" data-score="3"></div></li>
+                    <!--<li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
+                    <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>-->
                 </ul>
                 <input type="hidden" name = "ra}e_valid" value = "1" id = "rate_valid" />
                 <?php }} ?>

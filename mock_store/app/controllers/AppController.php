@@ -28,8 +28,8 @@ class AppController extends BaseController{
 			$review->reviewer_id = Input::get('user_id');
 			$review->feedback_id = Input::get('feedback_id', '');;
 			$review->completion = Input::get('completion', 0);
-			$review->interest = Input::get('interest', 0);
-			$review->potence = Input::get('potence', 0);
+			// $review->interest = Input::get('interest', 0);
+			// $review->potence = Input::get('potence', 0);
 			$review->title = Input::get('title');
 			$review->message = Input::get('message');
 			$review->rate_valid = Input::get('rate_valid', 0);
@@ -38,8 +38,8 @@ class AppController extends BaseController{
 			$application = Application::find($id);
 			$application->review_count = Review::whereRaw("application_id = $id AND rate_valid = 1")->count();
 			$application->completion = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('completion');
-			$application->interest = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('interest');
-			$application->potence = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('potence');
+			// $application->interest = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('interest');
+			// $application->potence = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('potence');
 			$application->save();
 			
 			return Redirect::back();
@@ -53,8 +53,8 @@ class AppController extends BaseController{
 			// Modelへ書き込み
 			$review = Review::find($id);
 			$review->completion = Input::get('completion', 0);
-			$review->interest = Input::get('interest', 0);
-			$review->potence = Input::get('potence', 0);
+			// $review->interest = Input::get('interest', 0);
+			// $review->potence = Input::get('potence', 0);
 			$review->title = Input::get('title');
 			$review->message = Input::get('message');
 			$review->save();
@@ -65,8 +65,8 @@ class AppController extends BaseController{
 			$application = Application::find($application_id);
 			$application->review_count = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->count();
 			$application->completion = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->avg('completion');
-			$application->interest = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->avg('interest');
-			$application->potence = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->avg('potence');
+			// $application->interest = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->avg('interest');
+			// $application->potence = Review::whereRaw("application_id = $application_id AND rate_valid = 1")->avg('potence');
 			$application->save();
 			
 			return Redirect::back();
@@ -75,7 +75,7 @@ class AppController extends BaseController{
 	}
 	
 	public function deleteReview($id){
-		// Model経書き込み
+		// Model書き込み
 		$review = Review::find($id);
 		if(empty($review)){	
 			return;
