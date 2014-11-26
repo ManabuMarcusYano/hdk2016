@@ -19,7 +19,7 @@
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['username']; ?></p>
-            <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
+            <div class = "app_star" data-score="<?php echo ($db->completion) ;?>"></div>
             <p class = "app_period">アップデート<span class = "app_days"><?php echo $db->update_count; ?></span>回</p>
             <p class = "app_period">アップデートから<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d H:i:s')) - strtotime($db->updated_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
             <p class = "app_period">開発から<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
@@ -49,7 +49,7 @@
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['username']; ?></p>
-            <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
+            <div class = "app_star" data-score="<?php echo ($db->completion);?>"></div>
             <p class = "app_period">アップデート<span class = "app_days"><?php echo $db->update_count; ?></span>回</p>
             <p class = "app_period">アップデートから<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d H:i:s')) - strtotime($db->updated_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
             <p class = "app_period">開発から<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 ));?></span>日</p>

@@ -12,7 +12,7 @@
         <div class = "ranking_info">
             <p class = "app_title" ><?php echo $db->name; ?></p>
             <p class = "app_developer"><?php echo $db->company['name']; ?>/<?php echo $db->user['username']; ?></p>
-            <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
+            <div class = "app_star" data-score="<?php echo ($db->completion) ;?>"></div>
             <p class = "app_period">アップデート<span class = "app_days"><?php echo $db->update_count; ?></span>回</p>
             <p class = "app_period">アップデートから<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d H:i:s')) - strtotime($db->updated_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
             <p class = "app_period">開発から<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
@@ -54,16 +54,18 @@
 <section class = "review_summary detail_content">
 	<div class = "review_summary_left">
         <p class = "">レビュー</p>
-        <a class = "review_total"><?php echo round(($db->completion + $db->interest + $db->potence) / 3, 1) ;?></a>
-        <div class = "app_star" data-score="<?php echo ($db->completion + $db->interest + $db->potence) / 3 ;?>"></div>
+        <a class = "review_total"><?php echo round(($db->completion), 1) ;?></a>
+        <div class = "app_star" data-score="<?php echo ($db->completion);?>"></div>
     </div>
     <div class = "review_summary_right">
-        <p class = ""><?php echo $db->review_count ;?>件の評価<br /><br />
+        <p><span class="review_count"><?php echo $db->review_count ;?></span>件の評価<br /><br />
+        <!--
         <ul>
-            <li>完成度 <?php echo round($db->completion, 1) ;?> <div class = "app_star" data-score="<?php echo $db->completion ;?>"></div></li>
+            <li>評価<?php echo round($db->completion, 1) ;?> <div class = "app_star" data-score="<?php echo $db->completion ;?>"></div></li>
             <li>面白さ <?php echo round($db->interest, 1) ;?> <div class = "app_star" data-score="<?php echo $db->interest ;?>"></div></li>
             <li>将来性 <?php echo round($db->potence, 1) ;?> <div class = "app_star" data-score="<?php echo $db->potence ;?>"></div></li>
         </ul>
+        -->
     </div>
 </section>
 <img src = "img/btn_write_review.png" class = "write_review btn_write_review" name = "<?php echo $db->name; ?>" app_id = "<?php echo $db->id; ?>">
@@ -78,7 +80,7 @@
             <?php if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?><img src = "img/btn_feedback.png" class = "action_feedback btn_write_review" comment_id = "<?php echo $review->id ;?>" app_id = "<?php echo $db->id; ?>" name = "<?php echo $db->name; ?>"><?php }?>
         </div>
     	<p class = "comment_title"><?php echo $review->title ;?></p>
-        <div class = "app_star" data-score="<?php echo ($review->completion + $review->interest + $review->potence) / 3 ;?>"></div><p class = "commenter"><?php echo $review->reviewer['username'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
+        <div class = "app_star" data-score="<?php echo ($review->completion);?>"></div><p class = "commenter"><?php echo $review->reviewer['username'] ;?> - <?php echo date('Y/m/d', strtotime($review->created_at));?></p>
         <p class = "comment_message"><?php echo $review->message ;?></p>
     </div>
 <?php } ?>

@@ -188,8 +188,8 @@ $(document).ready(function() {
 					title = data.title;
 					message = data.message;
 					var completion = data.completion;
-					var interest = data.interest;
-					var potence = data.potence;
+					// var interest = data.interest;
+					// var potence = data.potence;
 
 				$(".message_box").val(message);
 				$("#review_form").children(".modal_box").children("form").attr({ action : actionURL });
@@ -197,8 +197,8 @@ $(document).ready(function() {
 				$(".title_box").val(title);
 
 				$("#completion").attr({"data-score" : completion});
-				$("#interest").attr({"data-score" : interest});
-				$("#potence").attr({"data-score" : potence});
+				// $("#interest").attr({"data-score" : interest});
+				// $("#potence").attr({"data-score" : potence});
 
 				$("#review_form .app_star").raty({
 			    	scoreName    : function(){
