@@ -504,7 +504,6 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 */
 
 .ranking_mod{
-	height: 100px;
 	background-color: #FFF;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -530,7 +529,7 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 }
 
 .ranking_upper{
-	height: 60px;
+	height: 75px;
 	box-sizing: border-box;
 }
 
