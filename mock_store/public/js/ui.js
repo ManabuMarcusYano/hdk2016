@@ -72,7 +72,6 @@ $(document).ready(function() {
 	
 	// レート
 	$(".app_star").raty({
-		number		 : 10,
 		halfShow     : true,
 		half     	 : true,
 		readOnly     : true,
@@ -86,7 +85,6 @@ $(document).ready(function() {
 
 	// レート レビュー
 	$("#review_form .app_star").raty({
-		number		 : 10,
 		halfShow     : true,
 		half     	 : true,
 		readOnly     : false,
@@ -165,7 +163,7 @@ $(document).ready(function() {
 				$("#feedback_id").val(feedback_id);
 				$(".title_box").val("");
 
-				$("#review_form .app_star").attr({"data-score" : 5});
+				$("#review_form .app_star").attr({"data-score" : 3});
 				$("#review_form .app_star").raty({
 			    	scoreName    : function(){
 			        	return $(this).attr('id');

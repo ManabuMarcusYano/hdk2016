@@ -57,12 +57,14 @@
         <div class = "app_star" data-score="<?php echo ($db->completion);?>"></div>
     </div>
     <div class = "review_summary_right">
-        <p class = ""><?php echo $db->review_count ;?>件の評価<br /><br />
+        <p><span class="review_count"><?php echo $db->review_count ;?></span>件の評価<br /><br />
+        <!--
         <ul>
-            <li>評価 <?php echo round($db->completion, 1) ;?> <div class = "app_star" data-score="<?php echo $db->completion ;?>"></div></li>
-            <!--<li>面白さ <?php echo round($db->interest, 1) ;?> <div class = "app_star" data-score="<?php echo $db->interest ;?>"></div></li>
-            <li>将来性 <?php echo round($db->potence, 1) ;?> <div class = "app_star" data-score="<?php echo $db->potence ;?>"></div></li>-->
+            <li>評価<?php echo round($db->completion, 1) ;?> <div class = "app_star" data-score="<?php echo $db->completion ;?>"></div></li>
+            <li>面白さ <?php echo round($db->interest, 1) ;?> <div class = "app_star" data-score="<?php echo $db->interest ;?>"></div></li>
+            <li>将来性 <?php echo round($db->potence, 1) ;?> <div class = "app_star" data-score="<?php echo $db->potence ;?>"></div></li>
         </ul>
+        -->
     </div>
 </section>
 <img src = "img/btn_write_review.png" class = "write_review btn_write_review" name = "<?php echo $db->name; ?>" app_id = "<?php echo $db->id; ?>">

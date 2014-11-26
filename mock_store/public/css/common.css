@@ -289,7 +289,15 @@ body{
 	display:block;
 	margin-right:auto;
 	margin-left:auto;
+	height:25px;
+	line-height:23px;
+	font-size:14px;
 }
+#review_form ul a{
+	float:left;
+	margin-right:10px;
+}
+
 #review_form ul li{
 	height: 30px;
 	display: inline-block;
@@ -764,6 +772,17 @@ ranking_info .app_star img{
 .review_summary_left .app_star img{
 	width: 14px;
 	height: 14px;
+}
+
+.review_summary_right > p{
+	margin-top: 15px;
+	font-size:18px;
+	height: 25px;	
+}
+
+.review_summary_right .review_count{
+	font-size:25px;
+	height: 25px;	
 }
 
 .review_summary_right .app_star{

@@ -38,7 +38,7 @@
    		<div class = "modal_box">
             <form action = "" method = "post">
             	<?php if(Auth::user()){ if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?>
-                <ul>評価<div class = "app_star" id = "completion" data-score="3"></div></li>
+                <ul><a>評価</a><div class = "app_star" id = "completion" data-score="3"></div></li>
                     <!--<li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
                     <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>-->
                 </ul>
