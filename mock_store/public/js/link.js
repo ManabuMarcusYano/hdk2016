@@ -3,10 +3,10 @@ $(window).load(function() {
 	// OSの取得
 	var ua = navigator.userAgent;
 	var os = "";
-	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
+	if(isApp && ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
 		os = "iOS";
 		location.href = "native://getUserData/";
-	} else if (ua.indexOf("Android") > 0){
+	} else if (isApp && ua.indexOf("Android") > 0){
 		os = "Android";
 		location.href = "native://getUserData/";
 	}
