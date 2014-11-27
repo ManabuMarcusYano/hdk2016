@@ -8,7 +8,7 @@ class LogInOutController extends BaseController{
 			Session::put('password', Input::get('password'));
 			return Redirect::intended('/');
 		}
-		return Redirect::back()->withInput();		
+		return Redirect::to('/login');
 	}
 
 	public function logOut(){

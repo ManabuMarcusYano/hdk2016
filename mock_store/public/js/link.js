@@ -1,4 +1,5 @@
-$(window).load(function() {	
+var isApp = false;
+$(window).load(function() {
 	// OSの取得
 	var ua = navigator.userAgent;
 	var os = "";
@@ -10,17 +11,17 @@ $(window).load(function() {
 		location.href = "native://getUserData/";
 	}
 
-	$("#login").click(function(){
+	$("#login").submit(function(){
 		var mail_address = $(this).children(".mail_address").val();
 		var password = $(this).children(".password").val();
-		if(mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
+		if(isApp && mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
 			if(os == "iOS"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}else if(os == "Android"){
 				location.href = "native://setUserData/" + mail_address + "/" +password;
 			}
 		}
-		return true;
+		return !isApp;
 	});
 
 	// 新規登録
@@ -177,4 +178,8 @@ function getUserDataFromNative(mail_address, password){
 		if(password_val == ""){
 			$('form').children('.password').val(password);
 		}
+}
+
+function setIsAppFromNative(){
+	isApp = true;
 }
