@@ -24,23 +24,28 @@ class MockAppController extends BaseController{
     $view->nest('global_nav', 'global_nav');
 
     $companies = Company::all();
-    $view->with('companies', $companies);
+    $users = User::all();
+    $categories = Category::all();
+    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories);
 
     return $view;
   }
   public function postAddApp(){
-    $view = View::make('app_add');
-    $data = array(
-      'title'=>'Mock Store 新しいアプリ'
-    );
-    $view->nest('head', 'head', $data);
-    $view->nest('header', 'header');
-    $view->nest('global_nav', 'global_nav');
 
-    $companies = Company::all();
-    $view->with('companies', $companies);
 
-    return $view;
+    $applicationData = Input::only(array(
+      "name",
+      "company_id",
+      "manager_id",
+      "description",
+      "manager_id",
+      "started_developing_at",
+      "will_release_at",
+      "version"));
+
+      $application =  Application::create($applicationData);
+
+      return var_dump($applicationData);
   }
 
   public function edit($applicationId){
