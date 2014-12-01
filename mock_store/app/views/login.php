@@ -7,7 +7,8 @@
     <input type="submit" value="ログイン" class = "login_button" />
     </form>
 </div>
-<p class = "can_not_login"><a href="/signin">新規登録はこちら</a></p>
+<!--<p class = "can_not_login"><a href="/signin">新規登録はこちら</a></p>-->
+<p class = "can_not_login"><a href="download.html">Mock Storeアプリのダウンロード</a></p>
 <p class = "can_not_login"><!--<a href="">ログインができない方</a>--></p>
 <?php //echo $footer; ?>
 <p class="copyright">Applibot, Inc.<p>
