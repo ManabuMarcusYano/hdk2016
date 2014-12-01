@@ -5,7 +5,7 @@ $(document).ready(function() {
 	if(ua.indexOf("iPod") > 0 || ua.indexOf("iPhone") > 0　|| ua.indexOf("iPad") > 0){
 		os = "iOS";
 	} else if (ua.indexOf("Android") > 0){
-		os = "Android"
+		os = "Android";
 	}
 
 	// $(window).width(320);

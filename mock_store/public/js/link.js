@@ -9,21 +9,18 @@ $(window).load(function() {
 		os = "Android";
 	}
 
-	if(isApp){
+	if(ua.indexOf("MockStore") > 0){
 		location.href = "native://getUserData/";
 	}
 
 	$("#login").submit(function(){
 		var mail_address = $(this).children(".mail_address").val();
 		var password = $(this).children(".password").val();
-		if(isApp && mail_address != undefined && password != undefined && mail_address != "" && password !="" ){
-			if(os == "iOS"){
-				location.href = "native://setUserData/" + mail_address + "/" +password;
-			}else if(os == "Android"){
-				location.href = "native://setUserData/" + mail_address + "/" +password;
-			}
+		if(mail_address != "" && password != "" && ua.indexOf("MockStore") > 0){
+			location.href = "native://setUserData/" + mail_address + "/" +password;
+			return (os == "iOS");
 		}
-		return !isApp;
+		return true;
 	});
 
 	// 新規登録
@@ -180,8 +177,5 @@ function getUserDataFromNative(mail_address, password){
 		if(password_val == ""){
 			$('form').children('.password').val(password);
 		}
-}
-
-function setIsAppFromNative(){
-	isApp = true;
+		// alert("mail_address from native : " + mail_address);
 }
