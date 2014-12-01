@@ -625,11 +625,12 @@ ranking_info .app_star img{
 .app_period{
 	color: #a9a4a1;
 	font-size: 6px;
-	display: inline;
+	display: block;
 	margin-top: 0px;
 	float: right;
 	line-height: 10px;
 	height: 10px;
+	clear:both;
 }
 
 .app_days{
