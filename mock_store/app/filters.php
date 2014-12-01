@@ -68,6 +68,13 @@ Route::filter('userAgent', function(){
 		return $view;	
 		
 	}
+	
+	// アプリ以外からアクセス
+	if((strpos($ua, 'MockStore') == false)){
+		//dd("アプリ以外");
+		Session::put('layout','sp');
+		return Redirect::to('/download.html');
+	}
 
 });
 
