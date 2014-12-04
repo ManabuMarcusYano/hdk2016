@@ -1,28 +1,31 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 <div id="wrapper">
-  <div style="height: 100px;"></div>
-  <form id="addApp" action="/app-manage/add" method="post">
+  <div style="height: 100px;"></div> <!-- テスト用 -->
+  <form id="addApp" action="/app-manage/add" method="post" enctype="multipart/form-data">
     <div>
       <div id="logo_preview" style="width: 100px; height: 100px; background: white;"></div>
     </div>
     <div>
-      <input type="file" name="logo_file" accept="image/*" multiple />
+      <input type="file" name="logo_file" accept="image/*" />
     </div>
     <div>
       タイトル：<input type="text" name="name" value="" />
     </div>
 
     <div>
-      <input type="file" name="apk_file">
+      Android(.apk):<input type="file" name="apk_file">
     </div>
     <div>
-      <input type="file" name="ipa_file">
+      iPhone(.ipa):<input type="file" name="ipa_file"> <br />
+      (plist)<input type="file" name="plist_file">
     </div>
 
 
     <div>
-      <input type="file" name="app_images" accept="image/*">
+      アプリイメージ1：<input type="file" name="app_image1" accept="image/*"><br />
+      アプリイメージ2：<input type="file" name="app_image2" accept="image/*"><br />
+      アプリイメージ3：<input type="file" name="app_image3" accept="image/*">
     </div>
 
     <div>
@@ -66,7 +69,7 @@
     </div>
 
     <input type="submit" name="regist" value="登録" />
-  </form>
-
+  </form
 
 </div>
+<?php phpinfo(); ?>
