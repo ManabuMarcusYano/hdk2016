@@ -78,7 +78,7 @@ class MockAppController extends BaseController{
 
     $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
 
-    // $application =  Application::create($applicationData);
+    $application =  Application::create($applicationData);
 
     $this->s3 = App::make('aws')->get('s3');
     $this->uploadS3($logoImage,$logo_dir);
