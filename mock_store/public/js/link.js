@@ -61,7 +61,11 @@ $(window).load(function() {
 		// var potence = $("#potence").find("input[name=potence]").val();
 
 		//confirmation = "下記の内容でレビューを投稿しますか？\n" + "完成度:" + completion + "\n面白さ:" + interest + "\n将来性:" + potence + "\n" + title + "\n" + message; 
-		confirmation = "下記の内容でレビューを投稿しますか？\n" + "評価:" + completion + "\n" + title + "\n" + message; 
+		if(completion != undefined) {
+			confirmation = "下記の内容でレビューを投稿しますか？\n" + "評価:" + completion + "\n" + title + "\n" + message; 
+		}else{
+			confirmation = "下記の内容でレビューを投稿しますか？\n" + title + "\n" + message; 
+		}
 
 		if(!title){ error += "タイトルを入力してください\n"; }
 		if(!message){ error += "レビュー詳細を入力してください\n"; }

@@ -32,7 +32,7 @@ class AppController extends BaseController{
 			// $review->potence = Input::get('potence', 0);
 			$review->title = Input::get('title');
 			$review->message = Input::get('message');
-			$review->rate_valid = Input::get('rate_valid', 0);
+			$review->rate_valid = Input::get('rate_valid', 1);
 			$review->save();
 			
 			$application = Application::find($id);
@@ -86,6 +86,13 @@ class AppController extends BaseController{
 		
 		$review->deleted = true;
 		$review->save();
+		
+		// このへんクラスわける
+		$application_id = $review->application_id;
+		$application = Application::find($application_id);
+		$application->review_count = Review::whereRaw("application_id = $id AND rate_valid = 1")->count();
+		$application->completion = Review::whereRaw("application_id = $id AND rate_valid = 1")->avg('completion');
+		$application->save();
 		
 		return Redirect::back();
 	}
