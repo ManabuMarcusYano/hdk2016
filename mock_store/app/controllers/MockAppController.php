@@ -3,6 +3,7 @@
 class MockAppController extends BaseController{
 
   private $s3;
+  private $gameTitle;
 
   public function appList(){
     $view = View::make('app_manage');
@@ -32,90 +33,206 @@ class MockAppController extends BaseController{
 
     return $view;
   }
+
   public function postAddApp(){
 
-    $error = [];
+    // テキストとファイルを分けて考える
 
+    // テキスト
     $applicationData = Input::only(array(
-      "name",
-      "company_id",
-      "manager_id",
-      "description",
-      "manager_id",
-      "started_developing_at",
-      "will_release_at",
-      "version")
+      'name',
+      'company_id',
+      'manager_id',
+      'description',
+      'category_id',
+      'started_developing_at',
+      'will_release_at',
+      'version'
+    ));
+    $this->gameTitle = Input::get('title');
+
+
+    // ファイル
+    $logoImage = Input::hasFile('logo_file') ? Input::file('logo_file') : null;
+    $appImage1 = Input::hasFile('app_image1') ? Input::file('app_image1') : null;
+    $appImage2 = Input::hasFile('app_image2') ? Input::file('app_image2') : null;
+    $appImage3 = Input::hasFile('app_image3') ? Input::file('app_image3') : null;
+    $apkFile = Input::hasFile('apk_file') ? Input::file('apk_file') : null;
+    $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
+
+
+    // apk,ipa,plistのバリデーションを追加
+    // Illuminate\Validation\Validatorを拡張するべき
+    $this->extendValidation();
+
+    // バリデーション
+    $validator = Validator::make(
+      array(
+        'name'                  => $applicationData['name'],
+        'title'                 => $this->gameTitle,
+        'company_id'            => $applicationData['company_id'],
+        'manager_id'            => $applicationData['manager_id'],
+        'description'           => $applicationData['description'],
+        'category_id'           => $applicationData['manager_id'],
+        'started_developing_at' => $applicationData['started_developing_at'],
+        'version'               => $applicationData['version'],
+        'logo' => $logoImage,
+        'img1' => $appImage1,
+        'img2' => $appImage2,
+        'img3' => $appImage3,
+        'apk'  => $apkFile,
+        'ipa'  => $ipaFile
+      ),
+      array(
+        'name'                  => 'required',
+        'title'                 => 'required|alpha_num',
+        'company_id'            => 'required',
+        'manager_id'            => 'required',
+        'description'           => 'required',
+        'category_id'           => 'required',
+        'started_developing_at' => 'required',
+        'version'               => 'required',
+        'logo' => 'image',
+        'img1' => 'image',
+        'img'  => 'image',
+        'img'  => 'image',
+        'apk'  => 'apk',
+        'ipa'  => 'ipa'
+      ),
+      array(
+        'apk'       => '※ .apkファイルを選択してください',
+        'ipa'       => '※ .ipaファイルを選択してください',
+        'required'  => '※入力されていません',
+        'alpha_num' => '※英数字のみでお願いします'
+      )
     );
+
+    // 引っかかったらエラーメッセージとともにリダイレクト
+    if ($validator->fails()){
+      return Redirect::to('/app-manage/add')->withErrors($validator);
+    }
+
 
     $logo_dir = Config::get('const.logo_dir');
     $img_dir = Config::get('const.img_dir');
     $ipa_dir = Config::get('const.ipa_dir');
     $apk_dir = Config::get('const.apk_dir');
 
-    $logoImage = Input::hasFile('logo_file') ? Input::file('logo_file') : null;
+    // アップロードとDB追加の準備
+    $this->s3 = App::make('aws')->get('s3');
+
     $logo_path = $this->createfilePath($logoImage,$logo_dir);
-    $applicationData["logo_path"] = $logo_path;
+    $applicationData['logo_path'] = $logo_path;
+    $this->uploadS3($logoImage,$logo_dir);
 
-    $appImage1 = Input::hasFile('app_image1') ? Input::file('app_image1') : null;
-    $image1_path = $this->createfilePath($appImage1,$img_dir);
-    $applicationData["image1_path"] = $image1_path;
+    $image1_path = $this->createfilePath($appImage1,$img_dir,'_img1');
+    $applicationData['image1_path'] = $image1_path;
+    $this->uploadS3($appImage1,$img_dir,'_img1');
 
-    $appImage2 = Input::hasFile('app_image2') ? Input::file('app_image2') : null;
-    $image2_path = $this->createfilePath($appImage2,$img_dir);
-    $applicationData["image2_path"] = $image2_path;
+    $image2_path = $this->createfilePath($appImage2,$img_dir,'_img2');
+    $applicationData['image2_path'] = $image2_path;
+    $this->uploadS3($appImage2,$img_dir,'_img2');
 
-    $appImage3 = Input::hasFile('app_image3') ? Input::file('app_image3') : null;
-    $image3_path = $this->createfilePath($appImage3,$img_dir);
-    $applicationData["image3_path"] = $image3_path;
+    $image3_path = $this->createfilePath($appImage3,$img_dir,'_img3');
+    $applicationData['image3_path'] = $image3_path;
+    $this->uploadS3($appImage3,$img_dir,'_img3');
 
-    $apkFile = Input::hasFile('apk_file') ? Input::file('apk_file') : null;
     $apk_path = $this->createfilePath($apkFile,$apk_dir);
-    $applicationData["apk_path"] = $apk_path;
+    $applicationData['apk_path'] = $apk_path;
+    $this->uploadS3($apkFile,$apk_dir);
 
-    $plistFile = Input::hasFile('plist_file') ? Input::file('plist_file') : null;
-    $ipa_path = $this->createfilePath($plistFile,$ipa_dir);
-    $applicationData["ipa_path"] = $ipa_path;
 
-    $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
+    // ipaとplistは少し特殊
+    if($ipaFile !== null){
+      $ipa_path = Config::get('const.s3_url').Config::get('const.env').Config::get('const.ipa_dir').'/'.$this->gameTitle.'.plist';
+      $applicationData['ipa_path'] = $ipa_path;
+      // plistファイルを一旦作成
+      $localPlistPath = $this->createPlist($applicationData['name'],$applicationData['version']);
+      $this->uploadS3($ipaFile,$ipa_dir);
+      $this->putObject($ipa_dir.'/'.$this->gameTitle.'.plist',$this->gameTitle.'.plist');
+      File::delete($this->gameTitle.'.plist');
+    }
 
     $application =  Application::create($applicationData);
 
-    $this->s3 = App::make('aws')->get('s3');
-    $this->uploadS3($logoImage,$logo_dir);
-    $this->uploadS3($appImage1,$img_dir);
-    $this->uploadS3($appImage2,$img_dir);
-    $this->uploadS3($appImage3,$img_dir);
-    $this->uploadS3($apkFile,$apk_dir);
-    $this->uploadS3($ipaFile,$ipa_dir);
-    $this->uploadS3($plistFile,$ipa_dir);
-
-    return  $applicationData;
+    return  View::make('app_add_comp')->with($applicationData);
   }
 
   public function edit($applicationId){
   }
 
-  private function createFilePath($file,$dir){
+  private function createFilePath($file,$dir,$prefix = ''){
     if($file !== null){
-      return Config::get('const.s3_url').Config::get('const.env').$dir.'/'.$file->getClientOriginalName();
+      $s3_url_env = Config::get('const.s3_url').Config::get('const.env').$dir;
+      $filename = $this->gameTitle.$prefix.'.'.$file->getClientOriginalExtension();
+      return $s3_url_env.'/'.$filename;
     } else {
       return '';
     }
   }
 
-
-  private function uploadS3($file,$dir){
+  private function uploadS3($file,$dir,$prefix = ''){
     if($file === null){ return false; }
+    $filename = $this->gameTitle.$prefix.'.'.$file->getClientOriginalExtension();
+
+    $this->putObject($dir.'/'.$filename ,$file->getRealPath());
+  }
+
+  private function putObject($dir_filename,$sourcePath){
     try{
       $this->s3->putObject(array(
         'Bucket'     => 'mockstore',
-        'Key'        => Config::get('const.env').$dir.'/'.$file->getClientOriginalName(),
-        'SourceFile' => $file->getRealPath(),
+        'Key'        => Config::get('const.env').$dir_filename,
+        'SourceFile' => $sourcePath,
+        'ACL'        => 'public-read',
       ));
+      return true;
     } catch (S3Exception $e) {
       return false;
     }
-    return true;
+  }
+
+  private function createPlist($name,$version){
+    $filename = 'template.plist';
+    $plist = @simplexml_load_file($filename);
+    if($plist){
+      $dom = new DOMDocument('1.0');
+      $dom->formatOutput = true;
+
+      $filename =$this->gameTitle.'.plist';
+
+      $dict = $plist->dict->array->dict;
+      $assets = $dict->array;
+      $assets->dict->addChild('key','url');
+      $url = Config::get('const.s3_url').Config::get('const.env').Config::get('const.ipa_dir').'/'.$this->gameTitle.'.ipa';
+      $assets->dict->addChild('string',$url);
+
+      $metadata = $dict->dict;
+      $metadata->addChild('key','bundle-version');
+      $metadata->addChild('string',$version);
+      $metadata->addChild('key','title');
+      $metadata->addChild('string', $name);
+
+      $dom->loadXML($plist->asXML());
+      $dom->encoding = 'utf-8';
+      $dom->save($filename);
+
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  // バリデーションの拡張
+  private function extendValidation(){
+    Validator::extend('apk', function($attribute, $value, $parameters)
+    {
+      return $value->getClientOriginalExtension() == 'apk';
+    });
+    Validator::extend('ipa', function($attribute, $value, $parameters)
+    {
+      return $value->getClientOriginalExtension() == 'ipa';
+    });
   }
 
 }
