@@ -272,6 +272,23 @@ $(document).ready(function() {
 		}
 	});
 
+	// アプリ管理画面
+	$('input.app_image_input,#logo_file_hidden').on('change',function(){
+		var $target = $(this).parent();
+		$target.find('img').remove();
+
+		if(!this.files.length) {
+			return;
+		}
+		var imgFile = $(this).prop('files')[0];
+		var fr = new FileReader();
+		var $target = $(this).parent();
+		fr.onload = function(){
+			$target.append($('<img>').attr('src',fr.result));
+		}
+		fr.readAsDataURL(imgFile);
+	});
+
 	function hideOtherButtonsAndShowModal(){
 		isShowingModal = true;
 		$("#modal_screen").slideDown();

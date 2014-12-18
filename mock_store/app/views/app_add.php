@@ -3,51 +3,57 @@
 <div id="app_wrapper">
   <div id="app_manage">
     <form id="addApp" action="/app-manage/add" method="post" enctype="multipart/form-data">
-      <div id="logo_file">
-        <div id="logo_preview_wrap">
-          <!-- 仮 -->
-          <div id="logo_preview"></div>
-          <input type="file" name="logo_file" accept="image/*" id="logo_file_hidden" />
+      <div id="app_manage_top">
+        <div id="logo_file">
+          <div id="logo_preview">
+            アプリイメージをドロップ
+            <input type="file" name="logo_file" accept="image/*" id="logo_file_hidden" />
+          </div>
         </div>
-      </div>
-      <div id="app_title_form">
-        <input type="text" name="name" value="" placeholder="タイトル" /> <?php echo $errors->first('name'); ?><br />
-        <input type="text" name="title" value="" placeholder="英名" /> <?php echo $errors->first('title'); ?>
-      </div>
-      <div id="app_files">
-        <div id="apk_file">
-          Android(.apk):<input type="file" name="apk_file"> <?php echo $errors->first('apk'); ?>
-        </div>
-        <div id="ipa_file">
-          iPhone(.ipa):<input type="file" name="ipa_file"> <?php echo $errors->first('ipa'); ?>
+        <div id="app_title_file_wrap">
+          <div id="app_title_form">
+            <input type="text" name="name" value="" placeholder="タイトル" /> <?php echo $errors->first('name'); ?><br />
+            <input type="text" name="title" value="" placeholder="英名" /> <?php echo $errors->first('title'); ?>
+          </div>
+          <div id="app_files">
+            <div id="apk_file">
+              Android(.apk):<input type="file" name="apk_file"> <?php echo $errors->first('apk'); ?>
+            </div>
+            <div id="ipa_file">
+              iPhone(.ipa):<input type="file" name="ipa_file"> <?php echo $errors->first('ipa'); ?>
+            </div>
+          </div>
         </div>
       </div>
 
       <div id="app_images">
         <div id="app_image1" class="app_image">
           <div>
-            アプリイメージ1：<input type="file" name="app_image1" accept="image/*" class="app_image_input">
+            アプリイメージ1：
           </div>
-          <div>
-            イメージプレビュー1
+          <div class="app_image_preview">
+            ここにドラッグ&amp;ドロップ
+            <input type="file" name="app_image1" accept="image/*" class="app_image_input">
           </div>
         </div>
 
         <div id="app_image2" class="app_image">
           <div>
-            アプリイメージ2：<input type="file" name="app_image2" accept="image/*" class="app_image_input">
+            アプリイメージ2：
           </div>
-          <div>
-            イメージプレビュー2
+          <div class="app_image_preview">
+            ここにドラッグ&amp;ドロップ
+            <input type="file" name="app_image2" accept="image/*" class="app_image_input">
           </div>
         </div>
 
         <div id="app_image3" class="app_image">
           <div>
-            アプリイメージ3：<input type="file" name="app_image3" accept="image/*" class="app_image_input">
+            アプリイメージ3：
           </div>
-          <div>
-            イメージプレビュー3
+          <div class="app_image_preview">
+            ここにドラッグ&amp;ドロップ
+            <input type="file" name="app_image3" accept="image/*" class="app_image_input">
           </div>
         </div>
 
