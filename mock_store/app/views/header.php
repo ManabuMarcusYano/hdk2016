@@ -68,7 +68,7 @@
         <li class="list_common list_user_info"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
         <li class="list_common"><a href = "/term">利用規約</a></li>
         <li class="list_common"><a href = "/logout">ログアウト</a></li>
-        <li class="list_common"><a href = "/app-manage">アプリ管理（仮）</a></li>
+        <li class="list_common"><a href = "/app-manage">新規モック登録</a></li>
     </ul>
 </header>
 <div class="header_break"></div>

@@ -17,17 +17,39 @@ $(document).ready(function() {
 
     // バナー
     if($(".banner") != undefined){
-		$(".banner").slick({
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 3000,
-			arrows: false,
-			dots: false,
-			easing: true
-		});
+    	if(ua.indexOf("Mobile") > 0){
+			$(".banner").slick({
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				arrows: false,
+				dots: false,
+				easing: true
+			});
+		}else{	
+			$(".banner").hide();
+		}
 	}
+
+	$(".list_common").hover(
+		function(){
+			$(this).css("backgroundColor", "#dddbda");
+		}, 
+		function(){
+			$(this).css("backgroundColor", "#c7c3c2");
+		}
+	);
+
+	$(".ranking_mod").hover(
+		function(){
+			$(this).css("backgroundColor", "#EEE");
+		}, 
+		function(){
+			$(this).css("backgroundColor", "#FFF");
+		}
+	);
 
 	/*
 	$(".banner").slick({

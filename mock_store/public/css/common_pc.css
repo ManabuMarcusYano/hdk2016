@@ -50,7 +50,6 @@ body{
 	padding-right: 15px;
 	padding-left: 15px;
 	text-align: center;
-	width: 1050px;
 }
 
 .header_box li{
@@ -70,7 +69,7 @@ body{
 }
 
 .list_common{
-	font-size: 10px;
+	font-size: 6px;
 	background-color: #c7c3c2;
 	height: 16px;
 	margin: 0px;
@@ -84,8 +83,10 @@ body{
 	padding: 3px;
 }
 .list_sort{
-	font-size: 8px;
-	width:105px;
+	font-size: 6px;
+	/*width:105px;*/
+	height:16px;
+	line-height:16px;
 }
 
 .list_user_info{
@@ -112,7 +113,7 @@ body{
 	background-color: #dbdbdf;
 	color: #000000;
 	width: 150px;
-	height: 16px;
+	height: 22px;
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -371,7 +372,7 @@ body{
 */
 
 .banner{
-	display: none;
+	visibility: none;
 }
 
 /**
@@ -379,11 +380,8 @@ body{
 */
 
 .tab{
-	/*
 	visibility:hidden;
-	margin-top: -25px;
-	*/
-	margin-top: 47px;
+	display:none;
 }
 
 /**
@@ -391,21 +389,24 @@ body{
 */
 
 .wrapper{
-	float:left;
+	padding-top: 4px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .disnon{
-	display:block;
+	display:none;
+	visibility:hidden;
 }
 
 .ranking_mod{
-	width: 260px;
+	width: 520px;
 	height: 100px;
 	background-color: #FFF;
 	border-radius: 3px;
 	-webkit-border-radius: 3px;
-	margin-left: 5px;
-	margin-right: 5px;
+	margin-left: auto;
+	margin-right: auto;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
@@ -470,14 +471,14 @@ body{
 .ranking_info{
 	display: block;
 	float: left;
-	width: 165px;
+	width: 425px;
 	font-size: 10px;
 	padding-left: 10px;
 	box-sizing: border-box;
 }
 
 .app_title{
-	width: 165px;
+	width: 425px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -488,7 +489,7 @@ body{
 }
 
 .app_developer{
-	width: 165px;
+	width: 425px;
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
@@ -518,6 +519,7 @@ ranking_info .app_star img{
 	margin-top: 5px;
 	float: right;
 	line-height: 10px;
+	margin-left: 10px;
 }
 
 .app_days{
@@ -557,7 +559,7 @@ ranking_info .app_star img{
 
 .icon_review{
 	width: 19px;
-	margin-right: 12px;
+	margin-right: 272px;
 }
 
 .btn_android{
