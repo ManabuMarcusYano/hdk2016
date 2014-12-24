@@ -155,7 +155,14 @@ class MockAppController extends BaseController{
 
     $application =  Application::create($applicationData);
 
-    return  View::make('app_add_comp')->with($applicationData);
+    $view = View::make('app_add_comp');
+	$data = array(
+      'title'=>'Mock Store 新しいアプリ'
+    );
+    $view->nest('head', 'head', $data);
+	$view->nest('header', 'header');
+    $view->nest('global_nav', 'global_nav');
+	return  $view->with($applicationData);
   }
 
   public function edit($applicationId){
