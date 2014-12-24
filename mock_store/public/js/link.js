@@ -36,10 +36,11 @@ $(window).load(function() {
 		// var password = $("#password").val();
 		// var password_confirmation = $("#password_confirmation").val();
 
-		if(!username){ error += "・ユーザー名を入力してください\n" ; }
+		// if(!username){ error += "・ユーザー名を入力してください\n" ; }
 		if(company == 0){ error += "・会社を選択してください\n" ; }
-		if(role == 0){ error += "・ユーザーレベルを選択してください\n" ; }
-		if(!username){ error += "・メールアドレスを入力してください\n" ; }
+		// if(role == 0){ error += "・ユーザーレベルを選択してください\n" ; }
+		// if(!username){ error += "・メールアドレスを入力してください\n" ; }
+		
 		// if(!password){ message += "・パスワードを入力してください\n" ; }
 		// if(password && password != password_confirmation){ message += "・パスワードが一致しません\n" ; }
 

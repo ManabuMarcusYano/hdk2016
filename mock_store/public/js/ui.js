@@ -73,6 +73,36 @@ $(document).ready(function() {
 		console.log(width);
 		scroller.width(count * width);
 	})();
+
+	// アプリの画像アップロード
+	/*
+	$(".drop_here").click(function(){
+		var img = $(this).parent().find("img");
+		if(img.length > 0){
+			console.log("あるよ");
+			img.remove();
+			 $(this).find("input[type=file]").val('');
+		}else{
+			console.log("ないよ");
+		}
+	});
+	*/
+
+	$(".ipa").change(function() {
+    	var name = $(this).prop("files")[0].name;
+    	if(!name.match(/ipa/g)){
+    		name = "";
+    	}
+    	$(".ipa_name").text(name);
+	});
+
+	$(".apk").change(function() {
+    	var name = $(this).prop("files")[0].name;
+    	if(!name.match(/apk/g)){
+    		name = "";
+    	}
+    	$(".apk_name").text(name);
+	});
 	
 	// レート
 	$(".app_star").raty({
