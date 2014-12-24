@@ -81,17 +81,20 @@ body{
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	padding: 3px;
+	line-height:16px;
 }
+
+.list_common a{
+	display: block;
+}
+
 .list_sort{
-	font-size: 6px;
 	/*width:105px;*/
 	height:16px;
-	line-height:16px;
 }
 
 .list_user_info{
 	width:auto;
-	background-color:transparent;
 }
 
 .list_search_icon{
@@ -117,15 +120,16 @@ body{
 	border-radius: 3px;
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
-	line-height: 16px;
+	line-height: 22px;
 	font-size: 10px;
 	text-align: left;
 	text-indent: 5px;
+	margin-top:0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
 	margin-right: 5px;
 	border: none;
-	padding: 3px;
+	padding: 0px;
 	float:left;
 	margin-top: -3px;
 }
@@ -392,6 +396,7 @@ body{
 	padding-top: 4px;
 	margin-left:auto;
 	margin-right:auto;
+	width: 520px;
 }
 
 .disnon{
@@ -580,23 +585,24 @@ ranking_info .app_star img{
 */
 
 .app_imgs{
-	
+	margin-left:auto;
+	margin-right:auto;
+	width: 520px;
+	overflow:scroll;
+}
+
+.scroller{
+	width: 280px; /* To be controlled by JS*/
 }
 
 .app_img_container{
-	/*width: 165px;*/
-	/*padding-left: 15px;
-	padding-right: 15px;*/
-	/*margin-left: 15px;
-	margin-right: 15px;
-	*/
 	margin-bottom: 10px;
-	/*background-color:#099;*/
+	float:left;
 }
 
 .app_img{
 	/*width: 135px;*/
-	width: 135px;
+	width: 270px;
 	display:block;
 	margin-left: 5px;
 	margin-right: 5px;
@@ -605,7 +611,7 @@ ranking_info .app_star img{
 .detail_content{
 	padding: 5px;
 	color: #606061;
-	font-size: 10px;
+	font-size: 12px;
 }
 
 .detail_info li{
