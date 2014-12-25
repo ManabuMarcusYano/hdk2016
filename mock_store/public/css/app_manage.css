@@ -80,6 +80,12 @@ input.app_image_input{
 }
 */
 
+.alert_box{
+	margin-top: 5px;
+	margin-bottom: 10px;
+	color:#F00;
+}
+
 
 .logo_file{
 	background-color:rgba(204,204,204,0.6);
@@ -156,6 +162,7 @@ input.app_image_input{
 	margin:0;
 	top:25px;
 	left: 10px;
+	font-size:10px;
 }
 
 .description_box{
@@ -173,15 +180,15 @@ input.app_image_input{
 	text-align: right;
 }
 
-#addApp input{
+#addApp input[type="text"]{
 	color:#000000;
 	text-indent:10px;
 }
 
-#addApp input::-webkit-input-placeholder{
+#addApp input[type="text"]::-webkit-input-placeholder{
 	color:#000000;
 }
 
-#addApp input::-moz-placeholder{
+#addApp input[type="text"]::-moz-placeholder{
 	color:#000000;
 }

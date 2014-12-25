@@ -1,32 +1,23 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 <div class = "ranking_mod_break"></div>
-<?php if(!empty($errors)){ ?>
-  <div class = "maintenance_box">
+<?php /*if($errors->count() > 0){ ?>
+  <div class = "maintenance_box alert_box">
 	  <p>
-	  	<?php
-		  echo $errors->first('name')."<br/>";
-		  echo $errors->first('title')."<br/>";
-		  echo $errors->first('ipa')."<br/>";
-		  echo $errors->first('apk')."<br/>";
-		  echo $errors->first('company_id')."<br/>";
-		  echo $errors->first('manager_id')."<br/>";
-		  echo $errors->first('description')."<br/>";
-		  echo $errors->first('category_id')."<br/>";
-		  echo $errors->first('started_developing_at')."<br/>";
-		  echo $errors->first('version')."<br/>";
-  		?>
+		  <?php foreach($errors->all() as $error){
+            echo $error."<br/>";	
+          }?>
 	  </p>
   </div>
-<?php }?>
+<?php }*/?>
 
 <div class = "wrapper" >
 <form id="addApp" action="/app-manage/add" method="post" enctype="multipart/form-data">
   <div id="app_manage_top">
       <div id="app_title_file_wrap">
           <div id="app_title_form">
-            <input class = "form_box" type="text" name="name" value="" placeholder="タイトル" /><br />
-            <input class = "form_box" type="text" name="title" value="" placeholder="英名" />
+            <input class = "form_box" type="text" name="name" value="<?php echo Session::get('name'); ?>" placeholder="モック名 or プロジェクト名" /><br />
+            <!--<input class = "form_box" type="text" name="title" value="" placeholder="英名" />-->
           </div>
           
           <div class = "logo_file app_img_container">
@@ -74,7 +65,7 @@
     <select class = "form_box" name = "company_id">
       <option selected="selected" value = "">--会社--</option>
       <?php foreach($companies as $company){ ?>
-          <option value="<?php echo $company->id ?>"><?php echo $company->name ?></option>
+          <option value="<?php echo $company->id ?>"<?php if(Session::get('company_id') == $company->id){ echo "selected"; } ?>><?php echo $company->name?></option>
       <?php } ?>
     </select>
   </div>
@@ -83,20 +74,20 @@
     <select class = "form_box" name="manager_id">
       <option selected = "selected" value="">--管理者--</option>
       <?php foreach($users as $user){ ?>
-        <option value = "<?php echo $user->id ?>"><?php echo $user->username ?></option>
+        <option value = "<?php echo $user->id ?>"<?php if(Session::get('manager_id') == $user->id){ echo "selected"; } ?>><?php echo $user->username ?></option>
       <?php } ?>
     </select>
   </div>
 
   <div id = "description">
-	<textarea name="description" class = "message_box description_box" placeholder = "モックの説明(全角1000文字以内)"></textarea>
+	<textarea name="description" class = "message_box description_box" placeholder = "モックの説明(全角1000文字以内)"><?php echo Session::get('description'); ?></textarea>
   </div>
         
   <div id = "category_id">
     <select class ="form_box" name="category_id">
       <option selected="selected" value="">--カテゴリ--</option> 
       <?php foreach($categories as $category){ ?>
-          <option value="<?php echo $category->id ?>"><?php echo $category->name ?></option>
+          <option value="<?php echo $category->id ?>"<?php if(Session::get('category_id') == $category->id){ echo "selected"; } ?>><?php echo $category->name ?></option>
       <?php } ?>
     </select>
     
@@ -105,18 +96,18 @@
   <div id = "developing">
 	<div id = "started_developing_at">
 		<a class = "date_index">開発開始日</a>
-        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php echo date('Y-m-d'); ?>" />
+        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php if(empty(Session::get('started_developing_at'))){ echo date('Y-m-d'); }else{ echo Session::get('started_developing_at'); } ?>" />
 		
     </div>
     
     <div id = "will_release_at">
 		<a class = "date_index">リリース予定日</a>
-        <input class = "form_box form_date" type="date" name="will_release_at" value="<?php echo date('Y-m-d'); ?>"/>
+        <input class = "form_box form_date" type="date" name="will_release_at" value="<?php if(empty(Session::get('will_release_at'))){ echo date('Y-m-d'); }else{ echo Session::get('will_release_at'); } ?>"/>
     </div>
   </div>
   
   <div id="version">
-	<input class = "form_box" type="text" name="version" value="" placeholder = "バージョン" />
+	<input class = "form_box" type="text" name="version" value="<?php echo Session::get('version'); ?>" placeholder = "バージョン" />
   </div>
   
   <input class = "signin_button" type="submit" name="regist" value="モック登録" />

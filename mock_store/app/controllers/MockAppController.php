@@ -49,7 +49,9 @@ class MockAppController extends BaseController{
       'will_release_at',
       'version'
     ));
-    $this->gameTitle = Input::get('title');
+	
+    // $this->gameTitle = Input::get('title');
+	$this->gameTitle = date('YmdHis');
 
 
     // ファイル
@@ -59,7 +61,16 @@ class MockAppController extends BaseController{
     $appImage3 = Input::hasFile('app_image3') ? Input::file('app_image3') : null;
     $apkFile = Input::hasFile('apk_file') ? Input::file('apk_file') : null;
     $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
-
+	
+	
+	Session::put('name', $applicationData['name']);
+	Session::put('company_id', $applicationData['company_id']);
+	Session::put('manager_id', $applicationData['manager_id']);
+	Session::put('description', $applicationData['description']);
+	Session::put('category_id', $applicationData['category_id']);
+	Session::put('started_developing_at', $applicationData['started_developing_at']);
+	Session::put('will_release_at', $applicationData['will_release_at']);
+	Session::put('version', $applicationData['version']);
 
     // apk,ipa,plistのバリデーションを追加
     // Illuminate\Validation\Validatorを拡張するべき
@@ -69,11 +80,11 @@ class MockAppController extends BaseController{
     $validator = Validator::make(
       array(
         'name'                  => $applicationData['name'],
-        'title'                 => $this->gameTitle,
+        //'title'                 => $this->gameTitle,
         'company_id'            => $applicationData['company_id'],
         'manager_id'            => $applicationData['manager_id'],
         'description'           => $applicationData['description'],
-        'category_id'           => $applicationData['manager_id'],
+        'category_id'           => $applicationData['category_id'],
         'started_developing_at' => $applicationData['started_developing_at'],
         'version'               => $applicationData['version'],
         'logo' => $logoImage,
@@ -85,7 +96,7 @@ class MockAppController extends BaseController{
       ),
       array(
         'name'                  => 'required',
-        'title'                 => 'required|alpha_num',
+        //'title'                 => 'required | alpha_num',
         'company_id'            => 'required',
         'manager_id'            => 'required',
         'description'           => 'required',
@@ -103,6 +114,9 @@ class MockAppController extends BaseController{
         'apk'       => '※ .apkファイルを選択してください',
         'ipa'       => '※ .ipaファイルを選択してください',
         'required'  => '※入力されていません',
+		'required_name'  => '※モック名が入力されていません',
+		'required_dev'  => '※モック名が入力されていません',
+		'required_version' => '※バージョンが入力されていません',
         'alpha_num' => '※英数字のみでお願いします'
       )
     );
@@ -152,6 +166,15 @@ class MockAppController extends BaseController{
       $this->putObject($ipa_dir.'/'.$this->gameTitle.'.plist',$this->gameTitle.'.plist');
       File::delete($this->gameTitle.'.plist');
     }
+	
+	Session::forget('name');
+	Session::forget('company_id');
+	Session::forget('manager_id');
+	Session::forget('description');
+	Session::forget('category_id');
+	Session::forget('started_developing_at');
+	Session::forget('will_release_at');
+	Session::forget('version');
 
     $application =  Application::create($applicationData);
 
