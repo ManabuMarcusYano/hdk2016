@@ -17,45 +17,39 @@ $(document).ready(function() {
 
     // バナー
     if($(".banner") != undefined){
-		$(".banner").slick({
-			infinite: true,
-			slidesToShow: 1,
-			slidesToScroll: 1,
-			autoplay: true,
-			autoplaySpeed: 3000,
-			arrows: false,
-			dots: false,
-			easing: true
-		});
+    	if(ua.indexOf("Mobile") > 0){
+			$(".banner").slick({
+				infinite: true,
+				slidesToShow: 1,
+				slidesToScroll: 1,
+				autoplay: true,
+				autoplaySpeed: 3000,
+				arrows: false,
+				dots: false,
+				easing: true
+			});
+		}else{	
+			$(".banner").hide();
+		}
 	}
 
-	/*
-	$(".banner").slick({
-		infinite: true,
-		slidesToShow: 1,
-		slidesToScroll: 1,
-		autoplay: true,
-		autoplaySpeed: 5000,
-		arrows: false,
-		dots: false,
-		easing: true,
-		speed: 2000
-	});
-	*/
+	$(".list_common").hover(
+		function(){
+			$(this).css("backgroundColor", "#dddbda");
+		}, 
+		function(){
+			$(this).css("backgroundColor", "#c7c3c2");
+		}
+	);
 
-	// アプリ画像
-	if($(".app_imgs") != undefined){
-		$(".app_imgs").slick({
-			infinite: false,
-			slidesToShow: 1.86,
-			slidesToScroll: 2,
-			autoplay: false,
-			arrows: false,
-			dots: false,
-			adaptiveHeight: true,
-			touchThreshold: 20
-		});
-	}
+	$(".ranking_mod").hover(
+		function(){
+			$(this).css("backgroundColor", "#EEE");
+		}, 
+		function(){
+			$(this).css("backgroundColor", "#FFF");
+		}
+	);
 	
 	// タブ
 	if(os !==''){
@@ -69,6 +63,46 @@ $(document).ready(function() {
 			$(this).removeClass("deselect");
 		});
 	}
+
+	// アプリ画像のスクロール
+	(function(){
+		var scroller = $(".scroller");
+		var count = scroller.children().length;
+		console.log(count)
+		var width =  parseInt(scroller.find(".app_img_container").css("width"));
+		console.log(width);
+		scroller.width(count * width);
+	})();
+
+	// アプリの画像アップロード
+	/*
+	$(".drop_here").click(function(){
+		var img = $(this).parent().find("img");
+		if(img.length > 0){
+			console.log("あるよ");
+			img.remove();
+			 $(this).find("input[type=file]").val('');
+		}else{
+			console.log("ないよ");
+		}
+	});
+	*/
+
+	$(".ipa").change(function() {
+    	var name = $(this).prop("files")[0].name;
+    	if(!name.match(/ipa/g)){
+    		name = "";
+    	}
+    	$(".ipa_name").text(name);
+	});
+
+	$(".apk").change(function() {
+    	var name = $(this).prop("files")[0].name;
+    	if(!name.match(/apk/g)){
+    		name = "";
+    	}
+    	$(".apk_name").text(name);
+	});
 	
 	// レート
 	$(".app_star").raty({
@@ -270,6 +304,23 @@ $(document).ready(function() {
 			hideOtherButtonsAndShowModal();
 			hideReviewModalDialog();
 		}
+	});
+
+	// アプリ管理画面
+	$('input.app_image_input,#logo_file_hidden').on('change',function(){
+		var $target = $(this).parent();
+		$target.find('img').remove();
+
+		if(!this.files.length) {
+			return;
+		}
+		var imgFile = $(this).prop('files')[0];
+		var fr = new FileReader();
+		var $target = $(this).parent();
+		fr.onload = function(){
+			$target.append($('<img>').attr('src',fr.result));
+		}
+		fr.readAsDataURL(imgFile);
 	});
 
 	function hideOtherButtonsAndShowModal(){

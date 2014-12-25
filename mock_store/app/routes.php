@@ -32,6 +32,11 @@ Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
 Route::get('/signin', 'PageController@signin');
 Route::get('/term', 'PageController@term');
+Route::get('/app-manage','MockAppController@list');
+Route::get('/app-manage','MockAppController@appList');
+Route::get('/app-manage/add','MockAppController@getAddApp');
+Route::post('/app-manage/add','MockAppController@postAddApp');
+Route::get('/app-manage/{applicationId}','MockAppController@edit');
 
 // API
 Route::get('/{page}/get', 'AppController@getAppInfo');

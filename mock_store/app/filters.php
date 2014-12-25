@@ -58,15 +58,7 @@ Route::filter('userAgent', function(){
 		Session::put('layout','sp');
 	}else{
 		// その他（PC）からアクセスされた場合
-		//Session::put('layout','pc');
-		
-		$view = View::make('restricted');
-		$data = array(
-			'title'=>'Mock Store'
-		);
-		$view->nest('head', 'head', $data);
-		return $view;	
-		
+		Session::put('layout','pc');
 	}
 	
 	// アプリ以外からアクセス

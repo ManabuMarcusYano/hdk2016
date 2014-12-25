@@ -1,6 +1,7 @@
 <?php
 
 class Application extends Eloquent{
+	protected $guarded = array('id');
 	public function company(){
 		return $this->belongsTo('Company');
 	}
@@ -11,7 +12,7 @@ class Application extends Eloquent{
 	public function category(){
 		return $this->belongsTo('Category', 'category_id');
 	}
-	
+
 	public function reviewer(){
 		return $this->belongsTo('Review', 'reviewer_id');
 	}

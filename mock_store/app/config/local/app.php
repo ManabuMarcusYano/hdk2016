@@ -14,5 +14,10 @@ return array(
 	*/
 
 	'debug' => true,
-
+	'providers' => array(
+		'Aws\Laravel\AwsServiceProvider',
+	),
+	'aliases' => array(
+		'AWS' => 'Aws\Laravel\AwsFacade',
+	),
 );

@@ -1,7 +1,7 @@
 <?php
 
 define('DEFAULT_SORT', 'completion + interest + potence desc');
-define('MAX_CELL_COUNT', 10);
+define('MAX_CELL_COUNT', 20);
 
 class PageController extends BaseController{
 	public function index($sort = DEFAULT_SORT){
