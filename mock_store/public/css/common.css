@@ -3,6 +3,15 @@
 /**
  * 共通
  */
+
+*{
+	/*タップ時の枠消す*/
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+input[type=text] {
+	
+}
  
 html{
 	width 320px;
@@ -523,8 +532,8 @@ footer a:link, footer a:visited, footer a:hover, footer a:active{
 	border-left-style: none;
 	-webkit-box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
 	box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
-	margin-bottom: 7px;
-	margin-top:7px;
+	margin-bottom: 10px;
+	margin-top:0px;
 }
 
 .ranking_mod:last-of-type{
@@ -694,6 +703,9 @@ ranking_info .app_star img{
 	margin-right:auto;
 	width: 260px;
 	overflow:scroll;
+	/*iOSで滑らかにスクロール*/
+	-webkit-overflow-scrolling: touch;
+	-webkit-transform: translateZ(0px);
 }
 
 .scroller{

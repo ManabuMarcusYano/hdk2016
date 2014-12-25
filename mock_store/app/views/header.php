@@ -59,10 +59,11 @@
 <header class = "header">
 	<ul class = "header_box">
         <li class="list_logo"><a href = "/"><img src="/img/logo.png" class = "header_logo"/></a></li>
-        <li class="list_common list_sort"><a href="/recentlyStarted">▽開発開始日が新しい順</a></li>
+        <!--レイアウトの調整のため非表示-->
+        <!--<li class="list_common list_sort"><a href="/recentlyStarted">▽開発開始日が新しい順</a></li>
         <li class="list_common list_sort"><a href="/previouslyStarted">▽開発開始日が古い順</a></li>
         <li class="list_common list_sort"><a href="/updated">▽アップデート日が新しい順</a></li>
-        <li class="list_common list_sort"><a href="/unupdated">▽アップデート日が古い順</a></li>
+        <li class="list_common list_sort"><a href="/unupdated">▽アップデート日が古い順</a></li>-->
         <li class="list_search_icon"><img src = "/img/icon_search.png" class = "search_icon_img"></li>
         <li class=""><form action = "/search"  method = "post"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /></form></li>
         <li class="list_common list_user_info"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
@@ -76,32 +77,8 @@
 
 
 <div id = "modal_screen">
-<!--
-    <div class = "sorts modal_sort">
-        <div class = "sort"><a href="/recentlyStarted">開発開始日が新しい順</a></div>
-        <hr class = "separation" />
-        <div class = "sort"><a href="/previouslyStarted">開発開始日が古い順</a></div>
-        <hr class = "separation" />
-        <div class = "sort"><a href="/updated">アップデート日が新しい順</a></div>
-        <hr class = "separation" />
-        <div class = "sort"><a href="/unupdated">アップデート日が古い順</a></div>
-    </div>
-    <div class = "sorts modal_search">
-        <div class = "sort">
-          <form action = "/search"  method = "post">
-              <img src = "img/icon_search.png" class = "search_icon"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /><a class = "search_cancel">Cancel</a>
-            </form>
-      </div>
-    </div>
-    <div class = "sorts modal_user">
-    <div class = "modal_box">
-            <img src = "img/icon_user_l.png" class = "user_icon">
-            <p class = "user_info"><?php if(Auth::user()){ echo Auth::user()->username.'<br />'.Auth::user()->mail_address.'<br />権限: '.Auth::user()->role; }?></p>
-            <a class = "user_term" href="/term">利用規約</a><a class = "user_logout" href = "/logout">ログアウト</a><div class = "clearfix"></div>
-		</div>
-    </div>
-    -->
     <div id = "review_form" class = "sorts modal_user">
+    	<img src = "/img/button_close.png" class = "form_button_close">
    		<div class = "modal_box">
             <form action = "" method = "post">
             	<?php if(Auth::user()){ if(Auth::user()->role == 'admin' || Auth::user()->role == 'owner'){ ?>

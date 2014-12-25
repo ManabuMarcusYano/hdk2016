@@ -26,7 +26,6 @@ body{
  */
 
 .header{
-	width: 100%;
 	height: 38px;
 	background-color: #FFF;
 	border-bottom-width: 1px;
@@ -38,6 +37,8 @@ body{
 	z-index: 1000;
 	-webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
 	box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+	margin-left:auto;
+	margin-right:auto;
 }
 
 .header_box{
@@ -50,6 +51,7 @@ body{
 	padding-right: 15px;
 	padding-left: 15px;
 	text-align: center;
+	width:650px;
 }
 
 .header_box li{
@@ -73,7 +75,7 @@ body{
 	background-color: #c7c3c2;
 	height: 16px;
 	margin: 0px;
-	float: left;
+	float: right;
 	margin-right: 5px;
 	margin-left: 5px;
 	margin-top: -3px;
@@ -103,7 +105,7 @@ body{
 	margin: 0px;
 	float: left;
 	margin-right: 5px;
-	margin-left: 10px;
+	margin-left: 0px;
 	margin-top: 0px;
 }
 
@@ -151,6 +153,7 @@ body{
 
 .header_break{
 	margin-top: 37px;
+	height: 15px;
 }
 
 .search_break{
@@ -283,7 +286,21 @@ body{
 
 /* レビューフォーム*/
 #review_form{
+	position:absolute;
+	top:50%;
+	left:50%;
+	margin-top:-260px;
+	margin-left:-260px;
 	display:none;
+	width: 520px;
+}
+
+.form_button_close{
+	width:40px;
+	height:40px;
+	position:absolute;
+	right:-20px;
+	top:-20px;	
 }
 
 .title_box, .message_box{
@@ -376,7 +393,9 @@ body{
 */
 
 .banner{
-	visibility: none;
+	visibility: visible;
+	display:none;
+	width:15px;
 }
 
 /**
@@ -384,8 +403,13 @@ body{
 */
 
 .tab{
+	/*
 	visibility:hidden;
 	display:none;
+	*/
+	width: 520px;
+	margin-left:auto;
+	margin-right:auto;
 }
 
 /**
@@ -401,7 +425,6 @@ body{
 
 .disnon{
 	display:none;
-	visibility:hidden;
 }
 
 .ranking_mod{
@@ -418,8 +441,8 @@ body{
 	border-left-style: none;
 	-webkit-box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
 	box-shadow: 0px 2px 4px 0 rgba(150,150,150,1);
-	margin-bottom: 7px;
-	margin-top:7px;
+	margin-bottom: 10px;
+	margin-top:0px;
 }
 
 .ranking_mod:last-of-type{
@@ -640,13 +663,13 @@ ranking_info .app_star img{
 .review_summary_left{
 	float: left;
 	text-align: left;
-	width: 40%;
+	width: 50%;
 }
 
 .review_summary_right{
 	float: right;
 	text-align: left;
-	width: 60%;
+	width: 50%;
 }
 
 .review_summary:after{
@@ -725,7 +748,7 @@ ranking_info .app_star img{
 
 .comment_title{
 	color: #030000;
-	font-size:10px;
+	font-size:12px;
 }
 .comment .app_star{
 	margin-top: 2px;
@@ -733,12 +756,12 @@ ranking_info .app_star img{
 
 .commenter{
 	margin-left: 6px;
-	font-size: 8px;
+	font-size: 10px;
 	display:inline;
 }
 
 .comment_message{
-	font-size: 8px;
+	font-size: 12px;
 }
 
 .feedback{

@@ -1,7 +1,6 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 
-<div class = "ranking_mod_break"></div>
 
 <div class = "ranking_mod" id = "<?php echo $db->id; ?>">
     <div class = "ranking_upper">

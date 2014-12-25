@@ -52,17 +52,15 @@ $(document).ready(function() {
 	);
 	
 	// タブ
-	if(os !==''){
-		$(".tab li").click(function(){
-			var num = $(".tab li").index(this);
-			$(".wrapper").addClass("disnon");
-			$(".wrapper").eq(num).removeClass("disnon");
-			$(".tab li").removeClass("select");
-			$(".tab li").addClass("deselect");
-			$(this).addClass("select");
-			$(this).removeClass("deselect");
-		});
-	}
+	$(".tab li").click(function(){
+		var num = $(".tab li").index(this);
+		$(".wrapper").addClass("disnon");
+		$(".wrapper").eq(num).removeClass("disnon");
+		$(".tab li").removeClass("select");
+		$(".tab li").addClass("deselect");
+		$(this).addClass("select");
+		$(this).removeClass("deselect");
+	});
 
 	// アプリ画像のスクロール
 	(function(){
@@ -263,7 +261,7 @@ $(document).ready(function() {
 
 	// ヘッダ
 	var isShowingModal = false;
-	$(".list_category, .search_cancel").click(function(){
+	$(".list_category, .search_cancel, .form_button_close").click(function(){
 		if(isShowingModal == false){
 			switch(state){
 				case t_state.ONLY_BACK :
