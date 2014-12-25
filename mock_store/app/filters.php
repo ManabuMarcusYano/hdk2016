@@ -62,7 +62,7 @@ Route::filter('userAgent', function(){
 	}
 	
 	// アプリ以外からアクセス
-	if((strpos($ua, 'MockStore') == false)){
+	if(Session::get('layout') == 'sp' && strpos($ua, 'MockStore') == false){
 		//dd("アプリ以外");
 		Session::put('layout','sp');
 		return Redirect::to('/download.html');
