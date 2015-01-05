@@ -51,7 +51,7 @@ body{
 	padding-right: 15px;
 	padding-left: 15px;
 	text-align: center;
-	width:650px;
+	width:700px;
 }
 
 .header_box li{
@@ -823,3 +823,14 @@ ranking_info .app_star img{
 * アプリアップロード
 */
 
+/**
+* 管理者権限
+*/
+
+.critical, .critical a:link, .critical a:visited, .critical a:hover, .critical a:active{
+	background-color:#F69;
+}
+
+.critical:link, .critical:visited, .critical:hover, .critical:active{
+	background-color:#F69;
+}

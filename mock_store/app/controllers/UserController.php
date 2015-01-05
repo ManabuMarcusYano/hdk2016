@@ -66,14 +66,20 @@ class UserController extends BaseController{
 			$id = $user->id;
 			$this->passwordChange($id);
 		}
+		
+		echo "All Passwords were reset";
 	}
 	
 	public function passwordChange($id){
-		set_time_limit(600);
+		if(Auth::user()->role != 'admin'){
+			return Redirect::to('/');
+		}
+		
+		set_time_limit(6000);
 		$user = User::find($id);
 		if(!empty($user)){
 			// パスワード生成
-			$password = "bonbaie30";
+			$password = str_random(6);
 			
 			$username = $user->username;
 			$mail_address = $user->mail_address;
@@ -84,14 +90,12 @@ class UserController extends BaseController{
 			echo str_pad('',1);
             flush();
 			
-			/*
 			Mail::send( 'passwordchange', array('username'=> $username, 'password' => $password), function ($e) use($mail_address){
 				$e
 				->to($mail_address)
 				->from('mockstore@applibot.co.jp', 'Mock Store管理者')
 				->subject('Mock Storeパスワード登録・変更のお知らせ');
 			});
-			*/
 			
 			 echo 'your password: '.$password.' id: '.$id;
 		}else{

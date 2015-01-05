@@ -71,6 +71,7 @@
         <li class="list_common"><a href = "/logout">ログアウト</a></li>
         <!--<li class="list_common"><a href = "/app-manage">新規モック登録</a></li>-->
         <li class="list_common"><a href = "/app-manage/add">新規モック登録</a></li>
+        <?php if(Auth::user()->role == 'admin'){ ?><li class="list_common critical"><a href = "/allpasswordchange">全PW変更</a></li><?php } ?>
     </ul>
 </header>
 <div class="header_break"></div>

@@ -171,6 +171,11 @@ $(window).load(function() {
 		}
 	});
 
+	// 管理者操作最終確認
+	$(".critical").click(function(){
+		return confirm("本当によろしいですか？");
+	});
+
 });
 
 function getUserDataFromNative(mail_address, password){
