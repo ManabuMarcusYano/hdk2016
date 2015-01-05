@@ -43,6 +43,7 @@
           <div class = "logo_file app_img_container">
               <p class = "drop_here">アイコン(152 x 152)</p>
               <input type="file" name="logo_file" accept="image/*" id="logo_file_hidden" class="icon_image_input" />
+			  <!--<?php if(Session::has('logo_path')){ ?> <img src="<?php echo Session::get('logo_path'); ?>"> <?php }?>-->
           </div>
           
       </div>

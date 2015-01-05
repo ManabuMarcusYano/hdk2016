@@ -18,6 +18,46 @@ class MockAppController extends BaseController{
   }
 
   public function getAddApp(){
+	/*
+	Session::forget('name');
+	Session::forget('company_id');
+	Session::forget('manager_id');
+	Session::forget('description');
+	Session::forget('category_id');
+	Session::forget('started_developing_at');
+	Session::forget('will_release_at');
+	Session::forget('version');
+	*/
+	  
+    $view = View::make('app_add');
+    $data = array(
+      'title'=>'Mock Store 新しいアプリ'
+    );
+    $view->nest('head', 'head', $data);
+    $view->nest('header', 'header');
+    $view->nest('global_nav', 'global_nav');
+
+    $companies = Company::all();
+    $users = User::all();
+    $categories = Category::all();
+    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories);
+
+    return $view;
+  }
+  
+  public function editApp($id){
+	$applicationData = Application::find($id);
+	Session::put('name', $applicationData['name']);
+	Session::put('company_id', $applicationData['company_id']);
+	Session::put('manager_id', $applicationData['manager_id']);
+	Session::put('description', $applicationData['description']);
+	Session::put('category_id', $applicationData['category_id']);
+	Session::put('started_developing_at', $applicationData['started_developing_at']);
+	Session::put('will_release_at', $applicationData['will_release_at']);
+	Session::put('version', $applicationData['version']);
+	
+	Session::put('logo_path', $applicationData['logo_path']);
+	  
     $view = View::make('app_add');
     $data = array(
       'title'=>'Mock Store 新しいアプリ'

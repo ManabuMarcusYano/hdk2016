@@ -587,7 +587,15 @@ ranking_info .app_star img{
 
 .icon_review{
 	width: 19px;
-	margin-right: 272px;
+	/*margin-right: 234px;*/
+	margin-right: 264px;
+}
+
+.btn_edit_mock{
+	width: 30px;
+	margin-right: 8px;
+	border-radius: 2px;
+	-webkit-border-radius: 2px;
 }
 
 .btn_android{
