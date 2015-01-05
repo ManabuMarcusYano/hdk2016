@@ -1,15 +1,23 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 <div class = "ranking_mod_break"></div>
-<?php /*if($errors->count() > 0){ ?>
+<?php if($errors->count() > 0){ ?>
   <div class = "maintenance_box alert_box">
 	  <p>
-		  <?php foreach($errors->all() as $error){
-            echo $error."<br/>";	
-          }?>
+			<?php
+            	if($errors->has('name')){ echo "※名前が入力されていません<br />" ;}
+				if($errors->has('company_id')){ echo "※会社が選択されていません<br />";}
+            	if($errors->has('manager_id')){ echo "※管理者が入力されていません<br />";}
+            	if($errors->has('description')){ echo "※モックの説明が入力されていません<br />";}
+            	if($errors->has('category_id')){ echo "※カテゴリが入力されていません<br />";}
+				if($errors->has('started_developing_at')){ echo "※開発開始日が入力されていません<br />";}
+				if($errors->has('version')){ echo "※バージョンが入力されていません<br />";}
+				if($errors->has('apk')){ echo "※apkが選択されていません<br />";}
+				if($errors->has('ipa')){ echo "※ipaが選択されていません<br />";}	
+            ?>
 	  </p>
   </div>
-<?php }*/?>
+<?php }?>
 
 <div class = "wrapper" >
 <form id="addApp" action="/app-manage/add" method="post" enctype="multipart/form-data">
@@ -96,7 +104,7 @@
   <div id = "developing">
 	<div id = "started_developing_at">
 		<a class = "date_index">開発開始日</a>
-        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php if(empty(Session::get('started_developing_at'))){ echo date('Y-m-d'); }else{ echo Session::get('started_developing_at'); } ?>" />
+        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php if(empty(Session::get('started_developing_at'))){ echo date('Y-m-d',strtotime("-1 day")); }else{ echo Session::get('started_developing_at'); } ?>" />
 		
     </div>
     
