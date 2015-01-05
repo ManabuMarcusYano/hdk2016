@@ -87,38 +87,21 @@ class MockAppController extends BaseController{
         'category_id'           => $applicationData['category_id'],
         'started_developing_at' => $applicationData['started_developing_at'],
         'version'               => $applicationData['version'],
-        'logo' => $logoImage,
-        'img1' => $appImage1,
-        'img2' => $appImage2,
-        'img3' => $appImage3,
         'apk'  => $apkFile,
         'ipa'  => $ipaFile
       ),
       array(
         'name'                  => 'required',
-        //'title'                 => 'required | alpha_num',
         'company_id'            => 'required',
         'manager_id'            => 'required',
         'description'           => 'required',
         'category_id'           => 'required',
         'started_developing_at' => 'required',
         'version'               => 'required',
-        'logo' => 'image',
-        'img1' => 'image',
-        'img'  => 'image',
-        'img'  => 'image',
-        'apk'  => 'apk',
-        'ipa'  => 'ipa'
-      ),
-      array(
-        'apk'       => '※ .apkファイルを選択してください',
-        'ipa'       => '※ .ipaファイルを選択してください',
-        'required'  => '※入力されていません',
-		'required_name'  => '※モック名が入力されていません',
-		'required_dev'  => '※モック名が入力されていません',
-		'required_version' => '※バージョンが入力されていません',
-        'alpha_num' => '※英数字のみでお願いします'
+        'apk'  => 'apk | required',
+        'ipa'  => 'ipa | required'
       )
+	  /* エラーメッセージはview内に記載*/
     );
 
     // 引っかかったらエラーメッセージとともにリダイレクト
@@ -133,28 +116,38 @@ class MockAppController extends BaseController{
     $apk_dir = Config::get('const.apk_dir');
 
     // アップロードとDB追加の準備
+	
     $this->s3 = App::make('aws')->get('s3');
+	
+	if(!empty($logoImage)){
+	  $logo_path = $this->createfilePath($logoImage,$logo_dir);
+	  $applicationData['logo_path'] = $logo_path;
+	  $this->uploadS3($logoImage,$logo_dir);
+	}
+	
+	if(!empty($appImage1)){
+	  $image1_path = $this->createfilePath($appImage1,$img_dir,'_img1');
+	  $applicationData['image1_path'] = $image1_path;
+	  $this->uploadS3($appImage1,$img_dir,'_img1');
+	}
+	
+	if(!empty($appImage2)){
+	  $image2_path = $this->createfilePath($appImage2,$img_dir,'_img2');
+	  $applicationData['image2_path'] = $image2_path;
+	  $this->uploadS3($appImage2,$img_dir,'_img2');
+	}
 
-    $logo_path = $this->createfilePath($logoImage,$logo_dir);
-    $applicationData['logo_path'] = $logo_path;
-    $this->uploadS3($logoImage,$logo_dir);
+	if(!empty($appImage3)){
+	  $image3_path = $this->createfilePath($appImage3,$img_dir,'_img3');
+	  $applicationData['image3_path'] = $image3_path;
+	  $this->uploadS3($appImage3,$img_dir,'_img3');
+	}
 
-    $image1_path = $this->createfilePath($appImage1,$img_dir,'_img1');
-    $applicationData['image1_path'] = $image1_path;
-    $this->uploadS3($appImage1,$img_dir,'_img1');
-
-    $image2_path = $this->createfilePath($appImage2,$img_dir,'_img2');
-    $applicationData['image2_path'] = $image2_path;
-    $this->uploadS3($appImage2,$img_dir,'_img2');
-
-    $image3_path = $this->createfilePath($appImage3,$img_dir,'_img3');
-    $applicationData['image3_path'] = $image3_path;
-    $this->uploadS3($appImage3,$img_dir,'_img3');
-
-    $apk_path = $this->createfilePath($apkFile,$apk_dir);
-    $applicationData['apk_path'] = $apk_path;
-    $this->uploadS3($apkFile,$apk_dir);
-
+	if(!empty($apkFile)){
+	  $apk_path = $this->createfilePath($apkFile,$apk_dir);
+	  $applicationData['apk_path'] = $apk_path;
+	  $this->uploadS3($apkFile,$apk_dir);
+	}
 
     // ipaとplistは少し特殊
     if($ipaFile !== null){
