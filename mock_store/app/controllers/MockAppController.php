@@ -138,8 +138,8 @@ class MockAppController extends BaseController{
         'category_id'           => 'required',
         'started_developing_at' => 'required',
         'version'               => 'required',
-        'apk'  => 'apk | required',
-        'ipa'  => 'ipa | required'
+        'apk'  => 'apk',
+        'ipa'  => 'ipa'
       )
 	  /* エラーメッセージはview内に記載*/
     );
