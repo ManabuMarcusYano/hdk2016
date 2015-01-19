@@ -105,13 +105,13 @@
   <div id = "developing">
 	<div id = "started_developing_at">
 		<a class = "date_index">開発開始日</a>
-        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php if(empty(Session::get('started_developing_at'))){ echo date('Y-m-d',strtotime("-1 day")); }else{ echo Session::get('started_developing_at'); } ?>" />
+        <input class = "form_box form_date" type="date" name="started_developing_at" value="<?php if(empty(Session::get('started_developing_at'))){ echo date('Y-m-d'); }else{ echo Session::get('started_developing_at'); } ?>" />
 		
     </div>
     
     <div id = "will_release_at">
 		<a class = "date_index">リリース予定日</a>
-        <input class = "form_box form_date" type="date" name="will_release_at" value="<?php if(empty(Session::get('will_release_at'))){ echo date('Y-m-d'); }else{ echo Session::get('will_release_at'); } ?>"/>
+        <input class = "form_box form_date" type="date" name="will_release_at" value="<?php if(empty(Session::get('will_release_at'))){ echo date('Y-m-d',strtotime("+1 day"));; }else{ echo Session::get('will_release_at'); } ?>"/>
     </div>
   </div>
   
