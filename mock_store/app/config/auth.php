@@ -64,7 +64,7 @@ return array(
 
 		'table' => 'password_reminders',
 
-		'expire' => 60 * 24 * 365 * 5,
+		'expire' => 60 * 24 * 14,
 
 	),
 
