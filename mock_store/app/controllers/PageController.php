@@ -18,7 +18,7 @@ class PageController extends BaseController{
 			//return Response::json($current_dbs[0]->user['id']);
 			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
 		}
-		$banners = Banner::all();
+		$banners = Banner::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();
 		if($current_dbs && $past_dbs){
 			// Viewの生成
 			$view = View::make('index');
