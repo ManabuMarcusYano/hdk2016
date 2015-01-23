@@ -47,6 +47,9 @@ Route::post('/{page}/edit/review', 'AppController@editReview');
 Route::any('/{page}/delete/review', 'AppController@deleteReview');
 Route::post('/register', 'UserController@register');
 
+// ログ
+Route::post('/{id}/{device}/downloadLog', 'LogController@setDownloadLog');
+
 
 // テスト
 Route::get('/user', 'User@showUser');

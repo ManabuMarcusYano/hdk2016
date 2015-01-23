@@ -112,6 +112,7 @@ $(window).load(function() {
 			}).done(function(data) {
 			  	// 絶対パス指定が必要
 			  	if(data != ""){
+			  		$.post(id + "/" + os + "/downloadLog");
 					window.location.href = "itms-services://?action=download-manifest&url=" + data.ipa_path;
 				}else{
 					alert("ipaの準備ができていないようです");
@@ -140,6 +141,7 @@ $(window).load(function() {
 			}).done(function(data) {
 			  	// 絶対パス指定が必要
 			  	if(data != ""){
+			  		$.post(id + "/" + os + "/downloadLog");
 					window.location.href = data.apk_path;
 				}else{
 					alert("apkの準備ができていないようです");
