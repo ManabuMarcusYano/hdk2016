@@ -115,8 +115,15 @@
     </div>
   </div>
   
-  <div id="version">
+  <div id = "version">
 	<input class = "form_box" type="text" name="version" value="<?php echo Session::get('version'); ?>" placeholder = "バージョン" />
+  </div>
+  
+  <div id = "event_id" class = "form_box">
+  	<input class = "" type="radio" name="event_id" value="NULL" checked="checked"/>イベント指定なし
+  	<?php foreach($events as $event){ ?>
+  		<input class = "" type="radio" name="event_id" value="<?php echo $event->id; ?>" <?php if(Session::get('event_id') == $event->id){ echo "checked"; } ?> /><?php echo $event->title; ?>
+	<?php } ?>
   </div>
   
   <input class = "signin_button" type="submit" name="regist" value="モック登録" />

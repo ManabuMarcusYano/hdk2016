@@ -40,7 +40,8 @@ class MockAppController extends BaseController{
     $companies = Company::all();
     $users = User::all();
     $categories = Category::all();
-    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories);
+	$events = EventModel::all();
+    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories)->with('events', $events);
 
     return $view;
   }
@@ -87,7 +88,8 @@ class MockAppController extends BaseController{
       'category_id',
       'started_developing_at',
       'will_release_at',
-      'version'
+      'version',
+	  'event_id'
     ));
 	
     // $this->gameTitle = Input::get('title');
@@ -111,6 +113,7 @@ class MockAppController extends BaseController{
 	Session::put('started_developing_at', $applicationData['started_developing_at']);
 	Session::put('will_release_at', $applicationData['will_release_at']);
 	Session::put('version', $applicationData['version']);
+	Session::put('event_id', $applicationData['event_id']);
 
     // apk,ipa,plistのバリデーションを追加
     // Illuminate\Validation\Validatorを拡張するべき
@@ -208,6 +211,7 @@ class MockAppController extends BaseController{
 	Session::forget('started_developing_at');
 	Session::forget('will_release_at');
 	Session::forget('version');
+	Session::forget('event_id');
 
     $application =  Application::create($applicationData);
 
