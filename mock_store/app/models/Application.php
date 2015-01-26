@@ -16,4 +16,8 @@ class Application extends Eloquent{
 	public function reviewer(){
 		return $this->belongsTo('Review', 'reviewer_id');
 	}
+	
+	public function event(){
+		return $this->belongsTo('EventModel', 'event_id');
+	}
 }

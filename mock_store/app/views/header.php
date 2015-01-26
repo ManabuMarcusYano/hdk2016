@@ -22,7 +22,7 @@
     </div>
     <div class = "sorts modal_search">
         <div class = "sort">
-          <form action = "/search"  method = "post">
+          <form action = "/search?keyword="  method = "get">
               <img src = "/img/icon_search.png" class = "search_icon"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /><a class = "search_cancel">Cancel</a>
             </form>
       </div>
@@ -65,7 +65,7 @@
         <li class="list_common list_sort"><a href="/updated">▽アップデート日が新しい順</a></li>
         <li class="list_common list_sort"><a href="/unupdated">▽アップデート日が古い順</a></li>-->
         <li class="list_search_icon"><img src = "/img/icon_search.png" class = "search_icon_img"></li>
-        <li class=""><form action = "/search"  method = "post"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /></form></li>
+        <li class=""><form action = "/search"  method = "get"><input type="search" name="keyword" maxlength="15" placeholder="Search" class = "search_box" /></form></li>
         <li class="list_common list_user_info"><a><?php if(Auth::user()){ echo Auth::user()->username.'/権限: '.Auth::user()->role; }?></a></li>
         <li class="list_common"><a href = "/term">利用規約</a></li>
         <li class="list_common"><a href = "/logout">ログアウト</a></li>

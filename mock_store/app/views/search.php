@@ -1,11 +1,10 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 
-<div class = "search_break"></div>
 <div class = "wrapper">
 <?php $i = 1; foreach($current_dbs as $db){ ?>
 
-<div class = "ranking_mod" id = "<?php echo $db->id; ?>">
+<div class = "ranking_mod" id = "<?php echo $db->id; ?>" style = "background:<?php if($db->event['color'] != null && strtotime(date($db->event['start_at'])) <= strtotime(date('Y-m-d')) && strtotime(date('Y-m-d')) <= strtotime(date($db->event['end_at']))){ echo $db->event['color']; }?>">
     <div class = "ranking_upper">
         <p class = "ranking_number"></p>
         <div "ranking_icon">

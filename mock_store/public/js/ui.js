@@ -42,14 +42,16 @@ $(document).ready(function() {
 		}
 	);
 
+	
 	$(".ranking_mod").hover(
 		function(){
-			$(this).css("backgroundColor", "#EEE");
+			$(this).css("opacity", 0.7);
 		}, 
 		function(){
-			$(this).css("backgroundColor", "#FFF");
+			$(this).css("opacity", 1.0);
 		}
 	);
+	
 	
 	// タブ
 	$(".tab li").click(function(){

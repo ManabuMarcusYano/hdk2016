@@ -1,22 +1,22 @@
 <?php
 
 define('DEFAULT_SORT', 'completion + interest + potence desc');
-define('MAX_CELL_COUNT', 20);
+define('MAX_CELL_COUNT', 30);
 
 class PageController extends BaseController{
 	public function index($sort = DEFAULT_SORT){
 		// Modelの呼び出し
 		
 		if($sort != 'reviewed'){
-			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
-			$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
 		}else if($sort != 'search'){
-			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
-			$past_dbs    = Application::with('company')->with('user')->with('category')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->whereRaw("will_release_at >= NOW() OR will_release_at is NULL")->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
 		}else{
-			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->whereRaw("(will_release_at >= NOW() OR will_release_at is NULL)")->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->whereRaw("(will_release_at >= NOW() OR will_release_at is NULL)")->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
 			//return Response::json($current_dbs[0]->user['id']);
-			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(DEFAULT_SORT)->take(MAX_CELL_COUNT)->get();
 		}
 		$banners = Banner::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();
 		if($current_dbs && $past_dbs){
@@ -61,7 +61,7 @@ class PageController extends BaseController{
 		Input::flash();
 		if(Input::has('keyword')){
 			$keyword = Input::get('keyword');
-			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->leftJoin('events', 'applications.event_id', '=', 'events.id')->where('name', 'LIKE', "%$keyword%")->orWhere('applications.description', 'LIKE', "%$keyword%")->orWhere('events.title', 'LIKE', "%$keyword%")->orWhere('events.description', 'LIKE', "%$keyword%")->take(MAX_CELL_COUNT)->get();
 			$banners = Banner::all();
 			if($current_dbs){
 				// Viewの生成

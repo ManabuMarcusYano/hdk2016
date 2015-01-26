@@ -26,7 +26,7 @@ Route::get('/previouslyStarted', 'PageController@previouslyStarted');
 Route::get('/reviewed', 'PageController@reviewed');
 
 // 検索
-Route::any('/search', 'PageController@search');
+Route::get('/search', 'PageController@search');
 
 Route::get('/{page}', 'PageController@detail')->where('page', '[0-9]+');
 Route::get('/login', 'PageController@login');
