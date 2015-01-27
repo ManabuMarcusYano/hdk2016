@@ -42,12 +42,15 @@ class MockAppController extends BaseController{
     $categories = Category::all();
 	$events = EventModel::all();
     $view->with('companies', $companies)->with('users',$users)->with('categories',$categories)->with('events', $events);
+	
+	Session::put('edit_mode' ,'new');
 
     return $view;
   }
   
   public function editApp($id){
 	$applicationData = Application::find($id);
+	Session::put('id', $id);
 	Session::put('name', $applicationData['name']);
 	Session::put('company_id', $applicationData['company_id']);
 	Session::put('manager_id', $applicationData['manager_id']);
@@ -56,8 +59,11 @@ class MockAppController extends BaseController{
 	Session::put('started_developing_at', $applicationData['started_developing_at']);
 	Session::put('will_release_at', $applicationData['will_release_at']);
 	Session::put('version', $applicationData['version']);
-	
 	Session::put('logo_path', $applicationData['logo_path']);
+	Session::put('app_image1', $applicationData['image1_path']);
+	Session::put('app_image2', $applicationData['image2_path']);
+	Session::put('app_image3', $applicationData['image3_path']);
+	Session::put('event_id', $applicationData['event_id']);
 	  
     $view = View::make('app_add');
     $data = array(
@@ -70,16 +76,26 @@ class MockAppController extends BaseController{
     $companies = Company::all();
     $users = User::all();
     $categories = Category::all();
-    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories);
+	$events = EventModel::all();
+    $view->with('companies', $companies)->with('users',$users)->with('categories',$categories)->with('events', $events);
+	
+	Session::put('edit_mode' ,'edit');
 
     return $view;
   }
 
-  public function postAddApp(){
+  public function postAddApp($id = ""){
 
     // テキストとファイルを分けて考える
-
-    // テキスト
+    
+	if($id == ""){ // 新規
+		$this->gameTitle = date('YmdHis');	
+	}else{
+		$application = Application::find($id);
+		$this->gameTitle = $application->name;
+	}
+	
+	// テキスト
     $applicationData = Input::only(array(
       'name',
       'company_id',
@@ -92,19 +108,6 @@ class MockAppController extends BaseController{
 	  'event_id'
     ));
 	
-    // $this->gameTitle = Input::get('title');
-	$this->gameTitle = date('YmdHis');
-
-
-    // ファイル
-    $logoImage = Input::hasFile('logo_file') ? Input::file('logo_file') : null;
-    $appImage1 = Input::hasFile('app_image1') ? Input::file('app_image1') : null;
-    $appImage2 = Input::hasFile('app_image2') ? Input::file('app_image2') : null;
-    $appImage3 = Input::hasFile('app_image3') ? Input::file('app_image3') : null;
-    $apkFile = Input::hasFile('apk_file') ? Input::file('apk_file') : null;
-    $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
-	
-	
 	Session::put('name', $applicationData['name']);
 	Session::put('company_id', $applicationData['company_id']);
 	Session::put('manager_id', $applicationData['manager_id']);
@@ -114,6 +117,15 @@ class MockAppController extends BaseController{
 	Session::put('will_release_at', $applicationData['will_release_at']);
 	Session::put('version', $applicationData['version']);
 	Session::put('event_id', $applicationData['event_id']);
+	
+	
+    // ファイル
+    $logoImage = Input::hasFile('logo_file') ? Input::file('logo_file') : null;
+    $appImage1 = Input::hasFile('app_image1') ? Input::file('app_image1') : null;
+    $appImage2 = Input::hasFile('app_image2') ? Input::file('app_image2') : null;
+    $appImage3 = Input::hasFile('app_image3') ? Input::file('app_image3') : null;
+    $apkFile = Input::hasFile('apk_file') ? Input::file('apk_file') : null;
+    $ipaFile = Input::hasFile('ipa_file') ? Input::file('ipa_file') : null;
 
     // apk,ipa,plistのバリデーションを追加
     // Illuminate\Validation\Validatorを拡張するべき
@@ -149,7 +161,11 @@ class MockAppController extends BaseController{
 
     // 引っかかったらエラーメッセージとともにリダイレクト
     if ($validator->fails()){
-      return Redirect::to('/app-manage/add')->withErrors($validator);
+		//if($id == ""){
+      		return Redirect::to('/app-manage/add')->withErrors($validator);
+		//}else{
+			//return Redirect::to('/app-manage/'.$id.'/edit')->withErrors($validator);
+		//}
     }
 
 
@@ -217,7 +233,7 @@ class MockAppController extends BaseController{
 
     $view = View::make('app_add_comp');
 	$data = array(
-      'title'=>'Mock Store 新しいアプリ'
+      'title'=>'Mock Store モック登録/更新'
     );
     $view->nest('head', 'head', $data);
 	$view->nest('header', 'header');
@@ -225,7 +241,8 @@ class MockAppController extends BaseController{
 	return  $view->with($applicationData);
   }
 
-  public function edit($applicationId){
+  public function postEditApp($applicationId){
+	  $this->postAddApp($applicationId);
   }
 
   private function createFilePath($file,$dir,$prefix = ''){

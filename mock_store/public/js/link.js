@@ -23,6 +23,15 @@ $(window).load(function() {
 		return true;
 	});
 
+	$(".button_delete").click(function(){
+		// console.log("あああ");
+		var parent = $(this).parent();
+		parent.find("img").remove();
+		parent.find(".apk_name").empty();
+		parent.find(".apk").val("");
+		parent.find(".ipa").val("");
+	});
+
 	// 新規登録
 	$(".signin_button").click(function(){
 		var error = "";

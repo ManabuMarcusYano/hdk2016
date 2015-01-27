@@ -37,6 +37,7 @@ Route::get('/app-manage','MockAppController@appList');
 Route::get('/app-manage/add','MockAppController@getAddApp');
 Route::post('/app-manage/add','MockAppController@postAddApp');
 Route::get('/app-manage/{applicationId}/edit','MockAppController@editApp');
+Route::post('/app-manage/{applicationId}/edit','MockAppController@postEditApp');
 
 // API
 Route::get('/{page}/get', 'AppController@getAppInfo');
