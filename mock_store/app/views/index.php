@@ -3,8 +3,8 @@
 <?php echo $banner; ?>
 
 <ul class ="tab">
-    <li class = "select">開発中</li>
-    <li class = "deselct">歴代</li>
+    <li class = "select">アップデート</li>
+    <li class = "deselct">ランキング</li>
 </ul>
 <div class = "wrapper">
 
