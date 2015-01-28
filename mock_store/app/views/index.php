@@ -1,6 +1,7 @@
 <?php echo $head; ?>
 <?php echo $header; ?>
 <?php echo $banner; ?>
+<?php echo $information; ?>
 
 <ul class ="tab">
     <li class = "select">アップデート</li>
