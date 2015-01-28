@@ -32,7 +32,7 @@ class AppController extends BaseController{
 			// $review->potence = Input::get('potence', 0);
 			$review->title = Input::get('title');
 			$review->message = Input::get('message');
-			$review->rate_valid = Input::get('rate_valid', 1);
+			$review->rate_valid = Input::get('rate_valid', 0);
 			$review->save();
 			
 			$application = Application::find($id);
