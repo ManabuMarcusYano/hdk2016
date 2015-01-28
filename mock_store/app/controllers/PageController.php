@@ -61,7 +61,10 @@ class PageController extends BaseController{
 		Input::flash();
 		if(Input::has('keyword')){
 			$keyword = Input::get('keyword');
-			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->leftJoin('events', 'applications.event_id', '=', 'events.id')->where('name', 'LIKE', "%$keyword%")->orWhere('applications.description', 'LIKE', "%$keyword%")->orWhere('events.title', 'LIKE', "%$keyword%")->orWhere('events.description', 'LIKE', "%$keyword%")->take(MAX_CELL_COUNT)->get();
+			 // $current_dbs = Application::with('company')->with('user')->with('category')->with('event')->leftJoin('events', 'applications.event_id', '=', 'events.id')->where('applications.name', 'LIKE', "%$keyword%")->orWhere('applications.description', 'LIKE', "%$keyword%")->orWhere('events.title', 'LIKE', "%$keyword%")->orWhere('events.description', 'LIKE', "%$keyword%")->take(MAX_CELL_COUNT)->get();
+			 
+			$current_dbs = Application::with('company')->with('user')->with('category')->whereRaw("name LIKE '%$keyword%' OR description LIKE '%$keyword%'")->take(MAX_CELL_COUNT)->get();
+			
 			$banners = Banner::all();
 			if($current_dbs){
 				// Viewの生成
