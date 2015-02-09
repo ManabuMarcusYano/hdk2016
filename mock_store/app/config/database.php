@@ -55,7 +55,7 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'mock_store_production',
+			'database'  => 'mock_store_development',
 			'username'  => 'root',
 			'password'  => 'applibot',
 			'charset'   => 'utf8',

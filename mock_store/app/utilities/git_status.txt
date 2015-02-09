@@ -1,2 +1,2 @@
-Commit : commit b0772d621ac143f33d73a557f3f04fde0fa5d540 Author: Manabu_YANO <yano_manabu@applibot.co.jp> Date: Mon Jan 26 18:39:35 2015 +0900 アップロード時にイベント指定
-Branch : release/3.0
+Commit : commit 05bfbb348c0ddc7d977c43002636620a3e5145a6 Author: Manabu_YANO <yano_manabu@applibot.co.jp> Date: Wed Jan 28 19:39:28 2015 +0900 レート修正
+Branch : release/3.2
