@@ -88,7 +88,7 @@
                     <!--<li>面白さ<div class = "app_star" id = "interest" data-score="3"></div></li>
                     <li>将来性<div class = "app_star" id = "potence" data-score="3"></div></li>-->
                 </ul>
-                <input type="hidden" name = "ra}e_valid" value = "1" id = "rate_valid" />
+                <input type="hidden" name = "rate_valid" value = "1" id = "rate_valid" />
                 <?php }} ?>
             	<input type="text" name="title" maxlength="20" placeholder="タイトル" class = "title_box" required />
                 <textarea name="message" class = "message_box" placeholder = "" cols = "18" rows ="5" wrap = "physical" required></textarea>

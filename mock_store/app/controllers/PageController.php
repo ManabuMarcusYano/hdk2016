@@ -20,6 +20,7 @@ class PageController extends BaseController{
 			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(RANKING_SORT)->take(MAX_CELL_COUNT)->get();
 		}
 		$banners = Banner::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();
+		$informations = Information::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();
 		if($current_dbs && $past_dbs){
 			// Viewの生成
 			$view = View::make('index');
@@ -29,6 +30,7 @@ class PageController extends BaseController{
 			$view->nest('head', 'head', $data);
 			$view->nest('header', 'header');
 			$view->nest('banner', 'banner', array('banners' => $banners));
+			$view->nest('information', 'information', array('informations' => $informations));
 			// $view->nest('ranking_mod1', 'ranking_mod1', array('current_dbs' => $current_dbs));
 			// $view->nest('ranking_mod2', 'ranking_mod2', array('past_dbs' => $past_dbs));
 			//$view->nest('footer', 'footer');
