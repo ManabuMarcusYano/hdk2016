@@ -15,6 +15,7 @@
             <p class = "app_period">アップデート<span class = "app_days"><?php echo $db->update_count; ?></span>回</p>
             <p class = "app_period">アップデートから<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d H:i:s')) - strtotime($db->updated_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
             <p class = "app_period">開発から<span class = "app_days"><?php echo floor(( strtotime(date('Y-m-d')) - strtotime($db->started_developing_at) ) / ( 60 * 60 * 24 ));?></span>日</p>
+            <p class = "app_period">掲載期限<span class = "app_days"><?php echo is_null($db->will_release_at) ? '未定' : date('Y/m/d', strtotime($db->will_release_at)); ?></span></p>
         </div>
     </div>
     <div class = "ranking_lower">
@@ -46,7 +47,7 @@
             <li>カテゴリー : <?php echo $db->category['name']; ?></li>
             <li>最終アップデート : <?php echo date('Y/m/d', strtotime($db->updated_at)); ?></li>
             <li>開発開始 : <?php echo date('Y/m/d', strtotime($db->started_developing_at)); ?></li>
-            <li>リリース予定日 : <?php echo is_null($db->will_release_at) ? '未定' : date('Y/m/d', strtotime($db->will_release_at)); ?></li>
+            <li>ストア掲載期限 : <?php echo is_null($db->will_release_at) ? '未定' : date('Y/m/d', strtotime($db->will_release_at)); ?></li>
             <li>バージョン : <?php echo $db->version; ?></li>
         </ul>
     </div>

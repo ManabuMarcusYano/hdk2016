@@ -2,22 +2,21 @@
 
 define('RANKING_SORT', 'completion desc');
 define('UPDATED_SORT', 'updated_at desc');
-define('MAX_CELL_COUNT', 30);
+define('MAX_CELL_COUNT', 50);
 
 class PageController extends BaseController{
 	public function index($sort = UPDATED_SORT){
 		// Modelの呼び出し
 		
 		if($sort != 'reviewed'){
-			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->take(MAX_CELL_COUNT)->get();
-			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw(RANKING_SORT)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->whereRaw("will_release_at >= NOW()")->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->whereRaw("will_release_at < NOW()")->take(MAX_CELL_COUNT)->get();
 		}else if($sort != 'search'){
-			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
-			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->whereRaw("will_release_at >= NOW()")->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('category')->with('event')->orderByRaw($sort)->whereRaw("will_release_at < NOW()")->take(MAX_CELL_COUNT)->get();
 		}else{
-			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->take(MAX_CELL_COUNT)->get();
-			//return Response::json($current_dbs[0]->user['id']);
-			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(RANKING_SORT)->take(MAX_CELL_COUNT)->get();
+			$current_dbs = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->whereRaw("will_release_at >= NOW()")->take(MAX_CELL_COUNT)->get();
+			$past_dbs    = Application::with('company')->with('user')->with('reviewer')->with('category')->with('event')->orderByRaw(UPDATED_SORT)->whereRaw("will_release_at < NOW()")->take(MAX_CELL_COUNT)->get();
 		}
 		$banners = Banner::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();
 		$informations = Information::whereRaw("(started_at <= NOW() AND end_at >= NOW())")->get();

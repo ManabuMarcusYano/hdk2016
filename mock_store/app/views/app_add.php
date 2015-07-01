@@ -110,7 +110,7 @@
     </div>
     
     <div id = "will_release_at">
-		<a class = "date_index">リリース予定日</a>
+    <a class = "date_index">ストア掲載期限</a>
         <input class = "form_box form_date" type="date" name="will_release_at" value="<?php if(empty(Session::get('will_release_at'))){ echo date('Y-m-d',strtotime("+1 day"));; }else{ echo Session::get('will_release_at'); } ?>"/>
     </div>
   </div>
