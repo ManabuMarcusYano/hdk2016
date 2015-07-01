@@ -20,7 +20,7 @@
 <?php }?>
 
 <div class = "wrapper" >
-<form id="addApp" action="<?php if(Session::get("edit_mode") == "edit"){ echo "/app-manage/".Session::get('id')."/edit"; }else{ echo "/app-manage/add";} ?>" method="post" enctype="multipart/form-data">
+<form id="addApp" action="/app-manage/add" method="post" enctype="multipart/form-data">
   <div id="app_manage_top">
       <div id="app_title_file_wrap">
           <div id="app_title_form">
@@ -32,21 +32,18 @@
               <p class = "drop_here">Enterpise ipa (iPhone)</p>
               <p class = "ipa_name"></p>
               <input type="file" name="ipa_file" accept = ".ipa" class="icon_image_input ipa" />
-			  <div class = "button_delete"></div>
           </div>
           
           <div class = "logo_file app_img_container">
               <p class = "drop_here">署名付き apk (Android)</p>
               <p class = "apk_name"></p>
               <input type="file" name="apk_file" accept = ".apk" class="icon_image_input apk" />
-			  <div class = "button_delete"></div>
           </div>
           
           <div class = "logo_file app_img_container">
               <p class = "drop_here">アイコン(152 x 152)</p>
               <input type="file" name="logo_file" accept="image/*" id="logo_file_hidden" class="icon_image_input" />
-			  <?php if(Session::has('logo_path')){ ?> <img src="<?php echo Session::get('logo_path'); ?>"> <?php }?>
-			  <div class = "button_delete"></div>
+			  <!--<?php if(Session::has('logo_path')){ ?> <img src="<?php echo Session::get('logo_path'); ?>"> <?php }?>-->
           </div>
           
       </div>
@@ -59,22 +56,16 @@
           <div class="app_image_preview app_img_container">
             <p class = "drop_here">スクリーンショット(320 x 568)</p>
             <input type="file" name="app_image1" accept="image/*" class="app_image_input">
-			<?php if(Session::has('app_image1')){ ?> <img src="<?php echo Session::get('app_image1'); ?>"> <?php }?>
-			<div class = "button_delete"></div>
           </div>
 
           <div class="app_image_preview app_img_container">
             <p class = "drop_here">スクリーンショット(320 x 568)</p>
             <input type="file" name="app_image2" accept="image/*" class="app_image_input">
-			<?php if(Session::has('app_image2')){ ?> <img src="<?php echo Session::get('app_image2'); ?>"> <?php }?>
-			<div class = "button_delete"></div>
           </div>
 
           <div class="app_image_preview app_img_container">
             <p class = "drop_here">スクリーンショット(320 x 568)</p>
             <input type="file" name="app_image3" accept="image/*" class="app_image_input">
-			<?php if(Session::has('app_image3')){ ?> <img src="<?php echo Session::get('app_image3'); ?>"> <?php }?>
-			<div class = "button_delete"></div>
           </div>
         
       </div>
@@ -135,7 +126,7 @@
 	<?php } ?>
   </div>
   
-  <input class = "signin_button" type="submit" name="regist" value="<?php if(Session::get("edit_mode") == "edit"){ echo "モック更新"; }else{ echo "モック登録"; }?>" />
+  <input class = "signin_button" type="submit" name="regist" value="モック登録" />
 </form>
 </div>
 

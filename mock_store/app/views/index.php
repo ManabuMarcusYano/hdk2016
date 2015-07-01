@@ -29,7 +29,7 @@
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
         <img src="img/icon_review.png" class = "icon_review icon icon btn_write_review" name = "<?php echo $db->name; ?>" app_id = "<?php echo $db->id; ?>">
-        <a href = "/app-manage/<?php echo $db->id; ?>/edit"><img src="img/btn_edit_mock.png" class = "btn_edit_mock icon" <?php if(Auth::user()->id != $db->manager_id ){ ?>style="visibility:hidden;"<?php } ?> ></a>
+        <!--<a href = "/app-manage/<?php echo $db->id; ?>/edit"><img src="img/btn_edit_mock.png" class = "btn_edit_mock icon" <?php if(Auth::user()->id != $db->manager_id ){ ?>style="visibility:hidden;"<?php } ?> ></a>-->
         <img src="img/btn_android_dl.png" class = "btn_android icon" <?php if(!$db->apk_path){ ?>style="visibility:hidden;"<?php } ?> >
         <img src="img/btn_ios_dl.png" class = "btn_ios icon" <?php if(!$db->ipa_path){ ?>style="visibility:hidden;"<?php } ?>>
     </div>
@@ -60,7 +60,7 @@
     <div class = "ranking_lower">
         <img src="<?php echo strtotime( $db->started_developing_at) >= strtotime(date('Y-m-d H:i:s', strtotime("- 1 month")) ) ? 'img/icon_new.png' : 'img/icon_old.png'; ?>" class = "icon_new icon">
         <img src="img/icon_review.png" class = "icon_review icon" name = "<?php echo $db->name; ?>">
-        <a href = "/app-manage/<?php echo $db->id; ?>/edit"><img src="img/btn_edit_mock.png" class = "btn_edit_mock icon" <?php if(Auth::user()->id != $db->manager_id ){ ?>style="visibility:hidden;"<?php } ?> ></a>
+        <!--<a href = "/app-manage/<?php echo $db->id; ?>/edit"><img src="img/btn_edit_mock.png" class = "btn_edit_mock icon" <?php if(Auth::user()->id != $db->manager_id ){ ?>style="visibility:hidden;"<?php } ?> ></a>-->
         <img src="img/btn_android_dl.png" class = "btn_android icon" <?php if(!$db->apk_path){ ?>style="visibility:hidden;"<?php } ?> >
         <img src="img/btn_ios_dl.png" class = "btn_ios icon" <?php if(!$db->ipa_path){ ?>style="visibility:hidden;"<?php } ?>>
     </div>

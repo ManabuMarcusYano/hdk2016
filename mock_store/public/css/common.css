@@ -736,7 +736,6 @@ ranking_info .app_star img{
 .app_imgs{
 	margin-left:auto;
 	margin-right:auto;
-	margin-top:10px;
 	width: 260px;
 	overflow:scroll;
 	/*iOSで滑らかにスクロール*/

@@ -116,6 +116,7 @@ input.app_image_input{
 	position:relative;
 	margin-right:10px;
 	box-sizing:border-box;
+	overflow:hidden;
 }
 
 .app_image_preview:last-child, .logo_file:last-child{

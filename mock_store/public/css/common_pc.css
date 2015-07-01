@@ -594,8 +594,8 @@ ranking_info .app_star img{
 
 .icon_review{
 	width: 19px;
-	margin-right: 234px;
-	/*margin-right: 264px;*/
+	/*margin-right: 234px;*/
+	margin-right: 264px;
 }
 
 .btn_edit_mock{
@@ -636,20 +636,6 @@ ranking_info .app_star img{
 .app_img_container{
 	margin-bottom: 10px;
 	float:left;
-}
-
-#addApp .button_delete{
-	/*content:url("../img/button_close.png");*/
-	content:'';
-	background-image:url("../img/button_close.png");
-	width:30px;
-	height:30px;
-	position:absolute;
-	top:0px;
-	left:0px;
-	background-size: 30px 30px;
-	display:block;
-	z-index:100;
 }
 
 .app_img{
