@@ -79,33 +79,16 @@ class ItemController extends BaseController {
 		// });
 
 		// $player = Player::whereRaw("find_in_set(".$targetID.", playerItems)=0")->take(1)->get();
-		$query = 'SELECT * FROM player WHERE find_in_set('.$targetID.', playerItems)';
-		$player = DB::select(DB::raw($query))[0];
+		$query = 'SELECT * FROM player WHERE find_in_set("'.$targetID.'", playerItems)';
+		$players = DB::select(DB::raw($query));
 
 		$headers = [
 			'Content-type'=> 'application/json; charset=utf-8'
 		];
-		// dd($player);
 
-		// $playerItemsArray = explode(",", $player->playerItems);
 		$ret = [
 			'result'  => true,
-			'data' =>
-			array(
-			[
-				'playerId' => $player->playerId,
-				'playerName' => $player->playerName,
-				'playerHp' => $player->playerHp,
-				'playerMp' => $player->playerMp,
-				'playerExp' => $player->playerExp,
-				'playerAtk' => $player->playerAtk,
-				'playerDef' => $player->playerDef,
-				'playerInt' => $player->playerInt,
-				'playerAgi' => $player->playerAgi,
-				'playerInt' => $player->playerInt,
-				// 'playerItems' => $playerItemsArray,
-				'playerMap' => $player->playerMap,
-			])
+			'data' => $players
 		];
 		return Response::json($ret, 200, $headers, JSON_UNESCAPED_UNICODE);
 	}
