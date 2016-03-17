@@ -20,6 +20,7 @@ class InfoController extends BaseController {
 		$ret = json(
 			"result" =>  true
 		);
+		$ret = ['apple' => 'red', 'peach' => 'pink'];
 
 		return $ret;
 	}
