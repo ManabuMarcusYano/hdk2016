@@ -31,37 +31,29 @@ class ItemController extends BaseController {
 	public function update()
 	{
 		$query = Request::query();
-		$targetID = $query['targetPlayerId'];
-		$newPlayerHp = $query['newPlayerHp'];
+		$targetID = $query['targetItemId'];
+		$newItemValue = $query['newItemValue'];
 
-		$player = Player::find($targetID);
+		$item = Item::find($targetID);
 
 		$headers = [
 			'Content-type'=> 'application/json; charset=utf-8'
 		];
 
 		// 更新
-		$player->playerHp = $newPlayerHp;
-		$player->save();
+		$item->itemValue = $newItemValue;
+		$item->save();
 
-		$playerItemsArray = explode(",", $player->playerItems);
 		$ret = [
 			'result'  => true,
 			'data' =>
 			array(
 			[
-				'playerId' => $player->playerId,
-				'playerName' => $player->playerName,
-				'playerHp' => $player->playerHp,
-				'playerMp' => $player->playerMp,
-				'playerExp' => $player->playerExp,
-				'playerAtk' => $player->playerAtk,
-				'playerDef' => $player->playerDef,
-				'playerInt' => $player->playerInt,
-				'playerAgi' => $player->playerAgi,
-				'playerInt' => $player->playerInt,
-				'playerItems' => $playerItemsArray,
-				'playerMap' => $player->playerMap,
+				'itemId' => $item->itemId,
+				'itemName' => $item->itemName,
+				'itemValue' => $item->itemValue,
+				'itemEffectTarget' => $item->itemEffectTarget,
+				'itemEffectValue' => $item->itemEffectValue,
 			])
 		];
 
