@@ -18,10 +18,10 @@ class InfoController extends BaseController {
 	public function index()
 	{
 		$ret = {
-			"result" : true,
-			"data" : [
+			"result" =>  true,
+			"data" =>  [
 				{
-					"information" : "本日のお知らせ"
+					"information" =>  "本日のお知らせ"
 				}
 			]
 		};
