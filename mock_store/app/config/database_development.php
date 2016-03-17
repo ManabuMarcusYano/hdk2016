@@ -55,9 +55,9 @@ return array(
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'mock_store_development',
-			'username'  => 'root',
-			'password'  => 'applibot',
+			'database'  => 'tquest',
+			'username'  => 'tqdbuser',
+			'password'  => 'hoge',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

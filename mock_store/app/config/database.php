@@ -51,13 +51,13 @@ return array(
 			'database' => __DIR__.'/../database/production.sqlite',
 			'prefix'   => '',
 		),
-
+		
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => 'localhost',
-			'database'  => 'mock_store_development',
-			'username'  => 'root',
-			'password'  => 'applibot',
+			'database'  => 'tquest',
+			'username'  => 'tqdbuser',
+			'password'  => 'hoge',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
@@ -78,8 +78,8 @@ return array(
 			'driver'   => 'sqlsrv',
 			'host'     => 'localhost',
 			'database' => 'database',
-			'username' => 'root',
-			'password' => '',
+			'username' => 'tqdbuser',
+			'password' => 'hoge',
 			'prefix'   => '',
 		),
 
