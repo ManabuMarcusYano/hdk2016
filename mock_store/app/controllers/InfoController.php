@@ -17,6 +17,10 @@ class InfoController extends BaseController {
 
 	public function index()
 	{
+		$headers = [
+			'Content-type'=> 'application/json; charset=utf-8'
+		];
+
 		$ret = [
 			'result'  => true,
 			'data' => 
@@ -25,7 +29,7 @@ class InfoController extends BaseController {
 			]
 		];
 
-		return $ret;
+		return Response::json($ret, 200, $headers, JSON_UNESCAPED_UNICODE);
 	}
 
 }
