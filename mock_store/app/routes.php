@@ -12,6 +12,9 @@
 */
 
 // ページ表示
+Route::get('getInfo', 'infoController@index')
+
+
 Route::get('/', 'PageController@index');
 Route::get('/index', function(){
 	return Redirect::to('/');
