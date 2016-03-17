@@ -24,9 +24,10 @@ class InfoController extends BaseController {
 		$ret = [
 			'result'  => true,
 			'data' => 
+			array(
 			[
 				'information' => '本日のお知らせ'
-			]
+			])
 		];
 
 		return Response::json($ret, 200, $headers, JSON_UNESCAPED_UNICODE);
