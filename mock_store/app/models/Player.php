@@ -5,4 +5,5 @@ class Player extends Eloquent{
 	protected $table = 'player';
 	protected $guarded = 'playerId';
 	protected $primaryKey = 'playerId';
+	public $timestamps = false;
 }
