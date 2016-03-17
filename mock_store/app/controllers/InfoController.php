@@ -17,9 +17,9 @@ class InfoController extends BaseController {
 
 	public function index()
 	{
-		$ret = json(
-			"result" =>  true
-		);
+		// $ret = json(
+		// 	"result" =>  true
+		// );
 		$ret = ['apple' => 'red', 'peach' => 'pink'];
 
 		return $ret;
