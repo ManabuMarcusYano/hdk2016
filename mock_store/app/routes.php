@@ -22,6 +22,7 @@ Route::get('updateMap', 'MapController@update');
 
 Route::get('readItem', 'ItemController@index');
 Route::get('updateItem', 'ItemController@update');
+Route::get('findItemOwner', 'ItemController@findItemOwner');
 
 Route::get('/', 'PageController@index');
 Route::get('/index', function(){

@@ -6,4 +6,8 @@ class Item extends Eloquent{
 	protected $guarded = 'itemId';
 	protected $primaryKey = 'itemId';
 	public $timestamps = false;
+
+	public function player(){
+		return $this->belongsTo('Player', 'playerItems');
+	}
 }
