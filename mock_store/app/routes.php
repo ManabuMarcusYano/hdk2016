@@ -12,7 +12,7 @@
 */
 
 // ページ表示
-Route::get('getInfo', 'infoController@index')
+Route::get('getInfo', 'infoController@index');
 
 
 Route::get('/', 'PageController@index');
