@@ -57,6 +57,8 @@ class PlayerController extends BaseController {
 	{
 		$query = Request::query();
 		$targetID = $query['targetPlayerId'];
+		$newPlayerHp = $query['newPlayerHp'];
+
 		$player = Player::find($targetID);
 
 		$headers = [
@@ -64,7 +66,7 @@ class PlayerController extends BaseController {
 		];
 
 		// 更新
-		$player->playerHp = $player->playerHp * 2;
+		$player->playerHp = $newPlayerHp;
 		$player->save();
 
 		$playerItemsArray = explode(",", $player->playerItems);
