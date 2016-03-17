@@ -17,14 +17,14 @@ class InfoController extends BaseController {
 
 	public function index()
 	{
-		$ret = {
+		$ret = json(
 			"result" =>  true,
 			"data" =>  [
 				{
 					"information" =>  "本日のお知らせ"
 				}
 			]
-		};
+		);
 
 		return $ret;
 	}
