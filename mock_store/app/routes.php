@@ -13,10 +13,14 @@
 
 // ページ表示
 Route::get('getInfo', 'InfoController@index');
+
 Route::get('readPlayer', 'PlayerController@index');
 Route::get('updatePlayer', 'PlayerController@update');
+
 Route::get('readMap', 'MapController@index');
 Route::get('updateMap', 'MapController@update');
+
+Route::get('readItem', 'ItemController@index');
 
 Route::get('/', 'PageController@index');
 Route::get('/index', function(){
